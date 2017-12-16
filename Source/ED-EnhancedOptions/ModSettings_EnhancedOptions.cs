@@ -5,9 +5,9 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.WarningOptions
+namespace EnhancedDevelopment.EnhancedOptions
 {
-    class ModSettings_WarningOptions : ModSettings
+    class ModSettings_EnhancedOptions : ModSettings
     {
             //Speed 4,5,6?
         

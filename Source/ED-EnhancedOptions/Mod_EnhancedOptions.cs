@@ -5,21 +5,21 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.WarningOptions
+namespace EnhancedDevelopment.EnhancedOptions
 {
-    class Mod_WarningOptions : Verse.Mod
+    class Mod_EnhancedOptions : Verse.Mod
     {
 
-        public static ModSettings_WarningOptions Settings;
+        public static ModSettings_EnhancedOptions Settings;
 
-        public Mod_WarningOptions(ModContentPack content) : base(content)
+        public Mod_EnhancedOptions(ModContentPack content) : base(content)
         {
-            Mod_WarningOptions.Settings = GetSettings<ModSettings_WarningOptions>();
+            Mod_EnhancedOptions.Settings = GetSettings<ModSettings_EnhancedOptions>();
         }
 
         public override string SettingsCategory()
         {
-            return "WarningOptions";
+            return "ED-Enhanced Options";
             //return base.SettingsCategory();
         }
 

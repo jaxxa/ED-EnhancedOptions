@@ -8,7 +8,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.WarningOptions
+namespace EnhancedDevelopment.EnhancedOptions
 {
     [StaticConstructorOnStartup]
     internal class Main
@@ -21,8 +21,7 @@ namespace EnhancedDevelopment.WarningOptions
             _Harmony.PatchAll(Assembly.GetExecutingAssembly());
             //_Harmony.
             //_Harmony.Patch(Patch_ReceiveLetter);
-
-
+            
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
         }
     }
@@ -35,42 +34,37 @@ namespace EnhancedDevelopment.WarningOptions
         static bool Prefix(ref Letter let)
         {
             //Log.Message("Big Threat");
+            Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label + "'" + let.def.description);
 
             if (let.def == LetterDefOf.ThreatBig)
             {
-                return Mod_WarningOptions.Settings.ShowLettersThreatBig;
+                return Mod_EnhancedOptions.Settings.ShowLettersThreatBig;
             }
             
             if (let.def == LetterDefOf.ThreatSmall)
             {
-                return Mod_WarningOptions.Settings.ShowLettersThreatSmall;
+                return Mod_EnhancedOptions.Settings.ShowLettersThreatSmall;
             }
 
             if (let.def == LetterDefOf.NegativeEvent)
             {
-                return Mod_WarningOptions.Settings.ShowLettersNegativeEvent;
+                return Mod_EnhancedOptions.Settings.ShowLettersNegativeEvent;
             }
 
             if (let.def == LetterDefOf.NeutralEvent)
             {
-                return Mod_WarningOptions.Settings.ShowLettersNeutralEvent;
+                return Mod_EnhancedOptions.Settings.ShowLettersNeutralEvent;
             }
 
             if (let.def == LetterDefOf.PositiveEvent)
             {
-                return Mod_WarningOptions.Settings.ShowLettersPositiveEvent;
+                return Mod_EnhancedOptions.Settings.ShowLettersPositiveEvent;
             }
 
             if (let.def == LetterDefOf.ItemStashFeeDemand)
             {
-                return Mod_WarningOptions.Settings.ShowLettersItemStashFeeDemand;
+                return Mod_EnhancedOptions.Settings.ShowLettersItemStashFeeDemand;
             }
-
-            ////AllowGood version only
-            //if (let. == LetterType.Good)
-            //{
-            //    return true;
-            //}
 
             // Allow any other types of Letters
             return true;

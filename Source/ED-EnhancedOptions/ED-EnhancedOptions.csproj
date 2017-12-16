@@ -7,8 +7,8 @@
     <ProjectGuid>{975C4632-336D-4100-87BB-32D726A1D86D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EnhancedDevelopment.WarningOptions</RootNamespace>
-    <AssemblyName>ED-WarningOptions</AssemblyName>
+    <RootNamespace>EnhancedDevelopment.EnhancedOptions</RootNamespace>
+    <AssemblyName>ED-EnhancedOptions</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -17,7 +17,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\ED-WarningOptions\Assemblies\</OutputPath>
+    <OutputPath>..\..\ED-EnhancedOptions\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -51,8 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Detours.cs" />
-    <Compile Include="Mod_WarningOptions.cs" />
-    <Compile Include="ModSettings_WarningOptions.cs" />
+    <Compile Include="Mod_EnhancedOptions.cs" />
+    <Compile Include="ModSettings_EnhancedOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

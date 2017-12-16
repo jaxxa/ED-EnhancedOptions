@@ -1,15 +1,9 @@
-# ED-Mod
-This is the Readme for the Enhanced Development Mod, ED-ShieldsBasic, for the Game Rimworld.
+# ED-EnhancedOptions
+This is the Readme for ED-EnhancedOptions
 
 Additional details can be found in About.xml
 
 #Change Log
 
-01.00.00
+0.18.0.0
 *Initial Release
-
-02.00.00
-*Alpha 14 Update
-
-03.00.00
-*Update to Alpha 15
