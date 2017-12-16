@@ -7,8 +7,8 @@
     <ProjectGuid>{975C4632-336D-4100-87BB-32D726A1D86D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EnhancedDevelopment.Example</RootNamespace>
-    <AssemblyName>ED-Example</AssemblyName>
+    <RootNamespace>EnhancedDevelopment.WarningOptions</RootNamespace>
+    <AssemblyName>ED-WarningOptions</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -50,7 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Detours\Building_Trap.cs" />
+    <Compile Include="Detours.cs" />
+    <Compile Include="Mod_WarningOptions.cs" />
+    <Compile Include="ModSettings_WarningOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

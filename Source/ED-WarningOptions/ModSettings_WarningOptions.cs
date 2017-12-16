@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+using Verse;
+
+namespace EnhancedDevelopment.WarningOptions
+{
+    class ModSettings_WarningOptions : ModSettings
+    {
+            //Speed 4,5,6?
+        
+            //Plant Toggle?
+
+            //Raid Scale
+
+        public bool ShowLettersThreatBig = true;
+        public bool ShowLettersThreatSmall = true;
+        public bool ShowLettersNegativeEvent = true;
+        public bool ShowLettersNeutralEvent = true;
+        public bool ShowLettersPositiveEvent = true;
+        public bool ShowLettersItemStashFeeDemand = true;
+
+        public bool Plant24H = false;
+
+        public void DoSettingsWindowContents(Rect canvas)
+        {
+            Listing_Standard listing_Standard = new Listing_Standard();
+            listing_Standard.ColumnWidth = 250f;
+            listing_Standard.Begin(canvas);
+            //            listing_Standard.
+            //            listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
+            listing_Standard.Label("Letter Suppression:");
+            listing_Standard.Gap(12f);
+            listing_Standard.CheckboxLabeled("Show ThreatBig", ref ShowLettersThreatBig);
+            listing_Standard.CheckboxLabeled("Show ThreatSmall", ref ShowLettersThreatSmall);
+            listing_Standard.CheckboxLabeled("Show NegativeEvent", ref ShowLettersNegativeEvent);
+            listing_Standard.CheckboxLabeled("Show NeutralEvent", ref ShowLettersNeutralEvent);
+            listing_Standard.CheckboxLabeled("Show PositiveEvent", ref ShowLettersPositiveEvent);
+            listing_Standard.CheckboxLabeled("Show ItemStashFeeDemand", ref ShowLettersItemStashFeeDemand);
+            listing_Standard.Gap(12f);
+
+            listing_Standard.Label("Plant 24H:");
+            listing_Standard.CheckboxLabeled("Plant24H", ref Plant24H);
+
+
+
+
+            listing_Standard.End();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersThreatSmall, "ShowLettersThreatSmall", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersNegativeEvent, "ShowLettersNegativeEvent", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersNeutralEvent, "ShowLettersNeutralEvent", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersPositiveEvent, "ShowLettersPositiveEvent", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersItemStashFeeDemand, "ShowLettersItemStashFeeDemand", true, true);
+
+            Scribe_Values.Look<bool>(ref Plant24H, "Plant24H", false, true);
+                       
+        }
+    }
+}
