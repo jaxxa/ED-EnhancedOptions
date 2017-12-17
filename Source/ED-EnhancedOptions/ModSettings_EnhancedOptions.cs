@@ -22,6 +22,9 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool ShowLettersPositiveEvent = true;
         public bool ShowLettersItemStashFeeDemand = true;
 
+        public bool LetterNamesToSuppressEnabled = false;
+        public string LetterNamesToSuppress = String.Empty;
+
         public bool Plant24H = false;
 
         public void DoSettingsWindowContents(Rect canvas)
@@ -40,13 +43,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.CheckboxLabeled("Show PositiveEvent", ref ShowLettersPositiveEvent);
             listing_Standard.CheckboxLabeled("Show ItemStashFeeDemand", ref ShowLettersItemStashFeeDemand);
             listing_Standard.Gap(12f);
+            listing_Standard.CheckboxLabeled("Letter Names To Suppress Enabled", ref LetterNamesToSuppressEnabled);
+            LetterNamesToSuppress = listing_Standard.TextEntry(LetterNamesToSuppress, 2);
 
+            listing_Standard.Gap(12f);
             listing_Standard.Label("Plant 24H:");
             listing_Standard.CheckboxLabeled("Plant24H", ref Plant24H);
-
-
-
-
+            
             listing_Standard.End();
         }
 
@@ -60,7 +63,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref ShowLettersNeutralEvent, "ShowLettersNeutralEvent", true, true);
             Scribe_Values.Look<bool>(ref ShowLettersPositiveEvent, "ShowLettersPositiveEvent", true, true);
             Scribe_Values.Look<bool>(ref ShowLettersItemStashFeeDemand, "ShowLettersItemStashFeeDemand", true, true);
-
+            Scribe_Values.Look<bool>(ref LetterNamesToSuppressEnabled, "LetterNamesToSuppressEnabled", false, true);
+            Scribe_Values.Look<string>(ref LetterNamesToSuppress, "LetterNamesToSuppress", String.Empty, true);
+                        
             Scribe_Values.Look<bool>(ref Plant24H, "Plant24H", false, true);
                        
         }

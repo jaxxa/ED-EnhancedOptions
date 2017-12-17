@@ -34,36 +34,47 @@ namespace EnhancedDevelopment.EnhancedOptions
         static bool Prefix(ref Letter let)
         {
             //Log.Message("Big Threat");
-            Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label + "'" + let.def.description);
+            Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label  + "'");
 
-            if (let.def == LetterDefOf.ThreatBig)
+            if (let.def == LetterDefOf.ThreatBig & !Mod_EnhancedOptions.Settings.ShowLettersThreatBig)
             {
-                return Mod_EnhancedOptions.Settings.ShowLettersThreatBig;
+                return false;
             }
             
-            if (let.def == LetterDefOf.ThreatSmall)
+            if (let.def == LetterDefOf.ThreatSmall & !Mod_EnhancedOptions.Settings.ShowLettersThreatSmall)
             {
-                return Mod_EnhancedOptions.Settings.ShowLettersThreatSmall;
+                return false;
             }
 
-            if (let.def == LetterDefOf.NegativeEvent)
+            if (let.def == LetterDefOf.NegativeEvent & !Mod_EnhancedOptions.Settings.ShowLettersNegativeEvent)
             {
-                return Mod_EnhancedOptions.Settings.ShowLettersNegativeEvent;
+                return false;
             }
 
-            if (let.def == LetterDefOf.NeutralEvent)
+            if (let.def == LetterDefOf.NeutralEvent & !Mod_EnhancedOptions.Settings.ShowLettersNeutralEvent)
             {
-                return Mod_EnhancedOptions.Settings.ShowLettersNeutralEvent;
+                return false;
             }
 
-            if (let.def == LetterDefOf.PositiveEvent)
+            if (let.def == LetterDefOf.PositiveEvent & !Mod_EnhancedOptions.Settings.ShowLettersPositiveEvent)
             {
-                return Mod_EnhancedOptions.Settings.ShowLettersPositiveEvent;
+                return false;
             }
 
-            if (let.def == LetterDefOf.ItemStashFeeDemand)
+            if (let.def == LetterDefOf.ItemStashFeeDemand & !Mod_EnhancedOptions.Settings.ShowLettersItemStashFeeDemand)
             {
-                return Mod_EnhancedOptions.Settings.ShowLettersItemStashFeeDemand;
+                return false;
+            }
+
+            if (Mod_EnhancedOptions.Settings.LetterNamesToSuppressEnabled)
+            {
+                List<String> _String = Mod_EnhancedOptions.Settings.LetterNamesToSuppress.Split(',').ToList();
+                Log.Message(_String.Count().ToString());
+                if (_String.Contains(let.label))
+                {
+                    Log.Message("Matched with LetterNamesToSuppress");
+                    return false;
+                }
             }
 
             // Allow any other types of Letters
