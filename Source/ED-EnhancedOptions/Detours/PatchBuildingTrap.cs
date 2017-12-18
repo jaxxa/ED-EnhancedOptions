@@ -13,6 +13,9 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         static public void ApplyPatches(HarmonyInstance harmony)
         {
+
+            Log.Message("PatchBuildingTrap.ApplyPatches() Starting");
+
             //Get the Origional Resting Property
             MethodInfo RimWorld_BuildingTrap_CheckSpring = typeof(RimWorld.Building_Trap).GetMethod("CheckSpring", BindingFlags.NonPublic | BindingFlags.Instance);
             Patch.LogNULL(RimWorld_BuildingTrap_CheckSpring, "RimWorld_BuildingTrap_CheckSpring", true);
@@ -23,6 +26,8 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(RimWorld_BuildingTrap_CheckSpring, new HarmonyMethod(prefix), null);
+
+            Log.Message("PatchBuildingTrap.ApplyPatches() Completed");
         }
         
         // prefix

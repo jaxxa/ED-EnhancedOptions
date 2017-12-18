@@ -16,6 +16,9 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         static public void ApplyPatches(HarmonyInstance harmony)
         {
+
+            Log.Message("PatchPlant.ApplyPatches() Starting");
+
             //Get the Origional Resting Property
             PropertyInfo RimWorld_Plant_Resting = typeof(RimWorld.Plant).GetProperty("Resting", BindingFlags.NonPublic | BindingFlags.Instance);
             Patch.LogNULL(RimWorld_Plant_Resting, "RimWorld_Plant_Resting", true);
@@ -30,6 +33,8 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(RimWorld_Plant_Resting_Getter, new HarmonyMethod(_PlantRestingGetterPrefix), null);
+
+            Log.Message("PatchPlant.ApplyPatches() Completed");
         }
 
         // prefix

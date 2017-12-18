@@ -5,6 +5,7 @@ using System.Text;
 using Harmony;
 using System.Reflection;
 using RimWorld;
+using Verse;
 
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
@@ -14,6 +15,9 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         static public void ApplyPatches(HarmonyInstance harmony)
         {
+
+            Log.Message("PatchBuildingTurretGun.ApplyPatches() Starting");
+
             //Get the Origional Resting Property
             PropertyInfo RimWorld_BuildingTurretGun_CanSetForcedTarget = typeof(RimWorld.Building_TurretGun).GetProperty("CanSetForcedTarget", BindingFlags.NonPublic | BindingFlags.Instance);
             Patch.LogNULL(RimWorld_BuildingTurretGun_CanSetForcedTarget, "RimWorld_BuildingTrap_CheckSpring", true);
@@ -28,6 +32,8 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, new HarmonyMethod(prefix), null);
+
+            Log.Message("PatchBuildingTurretGun.ApplyPatches() Completed");
         }
 
 

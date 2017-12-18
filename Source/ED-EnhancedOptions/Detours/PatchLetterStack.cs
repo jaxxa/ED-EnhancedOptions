@@ -18,6 +18,8 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         
         static public void ApplyPatches(HarmonyInstance harmony)
         {
+            Log.Message("PatchLetterStack.ApplyPatches() Starting");
+
             //Get the Method
             MethodInfo LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
             Patch.LogNULL(LetterStack_ReceiveLetter, "LetterStack_ReceiveLetter", true);
@@ -29,6 +31,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Apply the Prefix Patch
             harmony.Patch(LetterStack_ReceiveLetter, new HarmonyMethod(_LetterStack_ReceiveLetterPrefix), null);
 
+            Log.Message("PatchLetterStack.ApplyPatches() Completed");
         }
 
         public static bool ReceiveLetterPrefix(ref Letter let)

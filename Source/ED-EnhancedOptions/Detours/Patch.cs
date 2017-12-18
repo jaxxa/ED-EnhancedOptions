@@ -28,11 +28,19 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 PatchPlant.ApplyPatches(_Harmony);
             }
+            else
+            {
+                Log.Message("Skipping Applying PatchPlant as it is desabled in settings.");
+            }
 
             //If SafeTrap is enabled then apply the Patch.
             if (Mod_EnhancedOptions.Settings.SafeTrapEnabled)
             {
                 PatchBuildingTrap.ApplyPatches(_Harmony);
+            }
+            else
+            {
+                Log.Message("Skipping Applying PatchBuildingTrap as it is desabled in settings.");
             }
 
             //If TurretControl is enabled then apply the Patch.
@@ -40,8 +48,10 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 PatchBuildingTurretGun.ApplyPatches(_Harmony);
             }
-
-            
+            else
+            {
+                Log.Message("Skipping Applying PatchBuildingTurretGun as it is desabled in settings.");
+            }
 
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
         }
