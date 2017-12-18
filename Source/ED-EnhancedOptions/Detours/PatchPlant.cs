@@ -20,19 +20,19 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             Log.Message("PatchPlant.ApplyPatches() Starting");
 
             //Get the Origional Resting Property
-            PropertyInfo RimWorld_Plant_Resting = typeof(RimWorld.Plant).GetProperty("Resting", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patch.LogNULL(RimWorld_Plant_Resting, "RimWorld_Plant_Resting", true);
+            PropertyInfo _RimWorld_Plant_Resting = typeof(RimWorld.Plant).GetProperty("Resting", BindingFlags.NonPublic | BindingFlags.Instance);
+            Patch.LogNULL(_RimWorld_Plant_Resting, "RimWorld_Plant_Resting", true);
 
             //Get the Resting Property Getter Method
-            MethodInfo RimWorld_Plant_Resting_Getter = RimWorld_Plant_Resting.GetGetMethod(true);
-            Patch.LogNULL(RimWorld_Plant_Resting_Getter, "RimWorld_Plant_Resting_Getter", true);
+            MethodInfo _RimWorld_Plant_Resting_Getter = _RimWorld_Plant_Resting.GetGetMethod(true);
+            Patch.LogNULL(_RimWorld_Plant_Resting_Getter, "RimWorld_Plant_Resting_Getter", true);
 
             //Get the Prefix Patch
-            var _PlantRestingGetterPrefix = typeof(PatchPlant).GetMethod("RestingGetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_PlantRestingGetterPrefix, "_PlantRestingGetterPrefix", true);
+            MethodInfo _RestingGetterPrefix = typeof(PatchPlant).GetMethod("RestingGetterPrefix", BindingFlags.Public | BindingFlags.Static);
+            Patch.LogNULL(_RestingGetterPrefix, "_RestingGetterPrefix", true);
 
             //Apply the Prefix Patch
-            harmony.Patch(RimWorld_Plant_Resting_Getter, new HarmonyMethod(_PlantRestingGetterPrefix), null);
+            harmony.Patch(_RimWorld_Plant_Resting_Getter, new HarmonyMethod(_RestingGetterPrefix), null);
 
             Log.Message("PatchPlant.ApplyPatches() Completed");
         }

@@ -18,20 +18,20 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             Log.Message("PatchBuildingTurretGun.ApplyPatches() Starting");
 
-            //Get the Origional Resting Property
-            PropertyInfo RimWorld_BuildingTurretGun_CanSetForcedTarget = typeof(RimWorld.Building_TurretGun).GetProperty("CanSetForcedTarget", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patch.LogNULL(RimWorld_BuildingTurretGun_CanSetForcedTarget, "RimWorld_BuildingTrap_CheckSpring", true);
+            //Get the Origional Property
+            PropertyInfo _RimWorld_BuildingTurretGun_CanSetForcedTarget = typeof(RimWorld.Building_TurretGun).GetProperty("CanSetForcedTarget", BindingFlags.NonPublic | BindingFlags.Instance);
+            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget, "_RimWorld_BuildingTurretGun_CanSetForcedTarget", true);
 
-            //Get the Resting Property Getter Method
-            MethodInfo RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter = RimWorld_BuildingTurretGun_CanSetForcedTarget.GetGetMethod(true);
-            Patch.LogNULL(RimWorld_BuildingTurretGun_CanSetForcedTarget, "RimWorld_BuildingTurretGun_CanSetForcedTarget", false);
+            //Get the Property Getter Method
+            MethodInfo _RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter = _RimWorld_BuildingTurretGun_CanSetForcedTarget.GetGetMethod(true);
+            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, "_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter", false);
 
             //Get the Prefix Patch
-            MethodInfo prefix = typeof(PatchBuildingTurretGun).GetMethod("Prefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(prefix, "Prefix PatchBuildingTrap_Spring", true);
+            MethodInfo _CanSetForcedTargetPrefix = typeof(PatchBuildingTurretGun).GetMethod("CanSetForcedTargetPrefix", BindingFlags.Public | BindingFlags.Static);
+            Patch.LogNULL(_CanSetForcedTargetPrefix, "_CanSetForcedTargetPrefix", true);
 
             //Apply the Prefix Patch
-            harmony.Patch(RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, new HarmonyMethod(prefix), null);
+            harmony.Patch(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, new HarmonyMethod(_CanSetForcedTargetPrefix), null);
 
             Log.Message("PatchBuildingTurretGun.ApplyPatches() Completed");
         }
@@ -41,7 +41,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         // - wants instance, result and count
         // - wants to change count
         // - returns a boolean that controls if original is executed (true) or not (false)
-        public static Boolean Prefix(ref bool __result, ref Building_TurretGun __instance)
+        public static Boolean CanSetForcedTargetPrefix(ref bool __result, ref Building_TurretGun __instance)
         {
 
             //Write to log to debug id the patch is running.

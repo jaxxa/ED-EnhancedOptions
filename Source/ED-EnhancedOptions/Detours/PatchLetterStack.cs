@@ -21,15 +21,15 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             Log.Message("PatchLetterStack.ApplyPatches() Starting");
 
             //Get the Method
-            MethodInfo LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
-            Patch.LogNULL(LetterStack_ReceiveLetter, "LetterStack_ReceiveLetter", true);
+            MethodInfo _Verse_LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
+            Patch.LogNULL(_Verse_LetterStack_ReceiveLetter, "_Verse_LetterStack_ReceiveLetter", true);
 
             //Get the Prefix
-            var _LetterStack_ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_LetterStack_ReceiveLetterPrefix, "_LetterStack_ReceiveLetterPrefix", true);
+            MethodInfo _ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Static);
+            Patch.LogNULL(_ReceiveLetterPrefix, "_ReceiveLetterPrefix", true);
             
             //Apply the Prefix Patch
-            harmony.Patch(LetterStack_ReceiveLetter, new HarmonyMethod(_LetterStack_ReceiveLetterPrefix), null);
+            harmony.Patch(_Verse_LetterStack_ReceiveLetter, new HarmonyMethod(_ReceiveLetterPrefix), null);
 
             Log.Message("PatchLetterStack.ApplyPatches() Completed");
         }

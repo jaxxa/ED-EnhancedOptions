@@ -16,16 +16,16 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             Log.Message("PatchBuildingTrap.ApplyPatches() Starting");
 
-            //Get the Origional Resting Property
-            MethodInfo RimWorld_BuildingTrap_CheckSpring = typeof(RimWorld.Building_Trap).GetMethod("CheckSpring", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patch.LogNULL(RimWorld_BuildingTrap_CheckSpring, "RimWorld_BuildingTrap_CheckSpring", true);
+            //Get the Origional CheckSpring Method
+            MethodInfo _RimWorld_BuildingTrap_CheckSpring = typeof(RimWorld.Building_Trap).GetMethod("CheckSpring", BindingFlags.NonPublic | BindingFlags.Instance);
+            Patch.LogNULL(_RimWorld_BuildingTrap_CheckSpring, "_RimWorld_BuildingTrap_CheckSpring", true);
 
             //Get the Prefix Patch
-            MethodInfo prefix = typeof(PatchBuildingTrap).GetMethod("Prefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(prefix, "Prefix PatchBuildingTrap_Spring", true);
+            MethodInfo _CheckSpringPrefix = typeof(PatchBuildingTrap).GetMethod("CheckSpringPrefix", BindingFlags.Public | BindingFlags.Static);
+            Patch.LogNULL(_CheckSpringPrefix, "_CheckSpringPrefix", true);
 
             //Apply the Prefix Patch
-            harmony.Patch(RimWorld_BuildingTrap_CheckSpring, new HarmonyMethod(prefix), null);
+            harmony.Patch(_RimWorld_BuildingTrap_CheckSpring, new HarmonyMethod(_CheckSpringPrefix), null);
 
             Log.Message("PatchBuildingTrap.ApplyPatches() Completed");
         }
@@ -34,12 +34,12 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         // - wants instance, result and count
         // - wants to change count
         // - returns a boolean that controls if original is executed (true) or not (false)
-        public static Boolean Prefix(Pawn p)
+        public static Boolean CheckSpringPrefix(Pawn p)
         {
             //Write to log to debug id the patch is running.
-            Log.Message("Prefix Running");
+            //Log.Message("Prefix Running");
 
-            Patch.LogNULL(p, "Prefix Pawn", true);
+            //Patch.LogNULL(p, "Prefix Pawn", true);
 
             if (p == null) { return true; }
 
@@ -48,15 +48,12 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Retuen False so the origional method is not executed.
             if (p.Faction.IsPlayer)
             {
-                Log.Message("Return False");
+                //Log.Message("Return False");
                 return false;
             }
 
             return true;
         }
-
-
-
-
+        
     }
 }
