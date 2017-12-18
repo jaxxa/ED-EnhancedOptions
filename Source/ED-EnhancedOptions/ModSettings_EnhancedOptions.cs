@@ -25,7 +25,30 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool LetterNamesToSuppressEnabled = false;
         public string LetterNamesToSuppress = String.Empty;
 
-        public bool Plant24H = false;
+        public bool Plant24HEnabled = false;
+        public bool SafeTrapEnabled = false;
+        public bool TurretControlEnabled = false;
+
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersThreatSmall, "ShowLettersThreatSmall", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersNegativeEvent, "ShowLettersNegativeEvent", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersNeutralEvent, "ShowLettersNeutralEvent", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersPositiveEvent, "ShowLettersPositiveEvent", true, true);
+            Scribe_Values.Look<bool>(ref ShowLettersItemStashFeeDemand, "ShowLettersItemStashFeeDemand", true, true);
+            Scribe_Values.Look<bool>(ref LetterNamesToSuppressEnabled, "LetterNamesToSuppressEnabled", false, true);
+            Scribe_Values.Look<string>(ref LetterNamesToSuppress, "LetterNamesToSuppress", String.Empty, true);
+
+            Scribe_Values.Look<bool>(ref Plant24HEnabled, "Plant24HEnabled", false, true);
+            Scribe_Values.Look<bool>(ref SafeTrapEnabled, "SafeTrapEnabled", false, true);
+            Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false, true);
+
+        }
+
 
         public void DoSettingsWindowContents(Rect canvas)
         {
@@ -48,26 +71,15 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             listing_Standard.Gap(12f);
             listing_Standard.Label("Plant 24H:");
-            listing_Standard.CheckboxLabeled("Plant24H", ref Plant24H);
-            
+            listing_Standard.CheckboxLabeled("Plant24H", ref Plant24HEnabled);
+            listing_Standard.Gap(12f);
+            listing_Standard.Label("SafeTrapEnabled:");
+            listing_Standard.CheckboxLabeled("SafeTrapEnabled", ref SafeTrapEnabled);
+            listing_Standard.Gap(12f);
+            listing_Standard.Label("TurretControlEnabled:");
+            listing_Standard.CheckboxLabeled("TurretControlEnabled", ref TurretControlEnabled);
+
             listing_Standard.End();
-        }
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-
-            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersThreatSmall, "ShowLettersThreatSmall", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersNegativeEvent, "ShowLettersNegativeEvent", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersNeutralEvent, "ShowLettersNeutralEvent", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersPositiveEvent, "ShowLettersPositiveEvent", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersItemStashFeeDemand, "ShowLettersItemStashFeeDemand", true, true);
-            Scribe_Values.Look<bool>(ref LetterNamesToSuppressEnabled, "LetterNamesToSuppressEnabled", false, true);
-            Scribe_Values.Look<string>(ref LetterNamesToSuppress, "LetterNamesToSuppress", String.Empty, true);
-                        
-            Scribe_Values.Look<bool>(ref Plant24H, "Plant24H", false, true);
-                       
         }
     }
 }

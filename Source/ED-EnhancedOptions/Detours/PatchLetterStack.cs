@@ -5,42 +5,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.EnhancedOptions
+namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
-    [StaticConstructorOnStartup]
-    internal class Main
-    {
-        static Main()
-        {
-            Log.Message("Patching EnhancedDevelopment.WarningOptions");
-            //HarmonyInstance.Create("EnhancedDevelopment.WarningOptions")PatchAll(Assembly.GetExecutingAssembly());
-            HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
-            _Harmony.PatchAll(Assembly.GetExecutingAssembly());
-            //_Harmony.
-            //_Harmony.Patch(Patch_ReceiveLetter);
-            
-            Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
-        }
-    }
 
-    [HarmonyPatch(typeof(LetterStack))]
-    [HarmonyPatch("ReceiveLetter")]
-    [HarmonyPatch(new Type[] { typeof(Letter), typeof(string) })]
-    class Patch_ReceiveLetter
+    //[HarmonyPatch(typeof(LetterStack))]
+    //[HarmonyPatch("ReceiveLetter")]
+    //[HarmonyPatch(new Type[] { typeof(Letter), typeof(string) })]
+    static class PatchLetterStack
     {
-        static bool Prefix(ref Letter let)
+        
+        static public void ApplyPatches(HarmonyInstance harmony)
+        {
+            //Get the Method
+            MethodInfo LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
+            Patch.LogNULL(LetterStack_ReceiveLetter, "LetterStack_ReceiveLetter", true);
+
+            //Get the Prefix
+            var _LetterStack_ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Static);
+            Patch.LogNULL(_LetterStack_ReceiveLetterPrefix, "_LetterStack_ReceiveLetterPrefix", true);
+            
+            //Apply the Prefix Patch
+            harmony.Patch(LetterStack_ReceiveLetter, new HarmonyMethod(_LetterStack_ReceiveLetterPrefix), null);
+
+        }
+
+        public static bool ReceiveLetterPrefix(ref Letter let)
         {
             //Log.Message("Big Threat");
-            Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label  + "'");
+            Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label + "'");
 
             if (let.def == LetterDefOf.ThreatBig & !Mod_EnhancedOptions.Settings.ShowLettersThreatBig)
             {
                 return false;
             }
-            
+
             if (let.def == LetterDefOf.ThreatSmall & !Mod_EnhancedOptions.Settings.ShowLettersThreatSmall)
             {
                 return false;
@@ -81,5 +81,4 @@ namespace EnhancedDevelopment.EnhancedOptions
             return true;
         }
     }
-
 }

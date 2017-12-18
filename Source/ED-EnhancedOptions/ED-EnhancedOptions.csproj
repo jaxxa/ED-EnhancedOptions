@@ -50,7 +50,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Detours.cs" />
+    <Compile Include="Detours\PatchBuildingTrap.cs" />
+    <Compile Include="Detours\PatchBuildingTurretGun.cs" />
+    <Compile Include="Detours\PatchLetterStack.cs" />
+    <Compile Include="Detours\PatchPlant.cs" />
+    <Compile Include="Detours\Patch.cs" />
     <Compile Include="Mod_EnhancedOptions.cs" />
     <Compile Include="ModSettings_EnhancedOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
