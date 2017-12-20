@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 	<Operation Class="PatchOperationRemove">
-		<xpath>*/ThingDef[defName = "SunLamp"]/comps</xpath>
+		<xpath>*/ThingDef[defName = "SunLamp"]/comps/li[@Class="CompProperties_Schedule"]</xpath>
 	</Operation>
 </Patch>
 
