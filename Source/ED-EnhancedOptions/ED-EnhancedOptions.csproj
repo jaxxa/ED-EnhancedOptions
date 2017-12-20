@@ -38,6 +38,9 @@
       <HintPath>..\..\..\..\lib\B18\1722\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ModCheck">
+      <HintPath>..\..\..\..\lib\B18\ModCheck-1.6\Assemblies\ModCheck.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
