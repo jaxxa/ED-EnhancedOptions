@@ -27,6 +27,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             if (Mod_EnhancedOptions.Settings.Plant24HEnabled)
             {
                 PatchPlant.ApplyPatches(_Harmony);
+                PatchCompSchedule.ApplyPatches(_Harmony);
             }
             else
             {
