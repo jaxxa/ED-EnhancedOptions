@@ -9,12 +9,19 @@ namespace EnhancedDevelopment.EnhancedOptions
 {
     class ModSettings_EnhancedOptions : ModSettings
     {
-            //Speed 4,5,6?
+        //Speed 4,5,6?
+        //-Stop combat slowdown
+        //Raid Scale
+        //Supress Dev Mode
+
+        //Blight Colours??? (Or split off to separate mod)
+        //--Glowing?
+        //--Overlay
+
+        //Power Priorities???
+        //-Time to Leave
+        //--https://ludeon.com/forums/index.php?topic=37751.msg386804#new
         
-            //Plant Toggle?
-
-            //Raid Scale
-
         public bool ShowLettersThreatBig = true;
         public bool ShowLettersThreatSmall = true;
         public bool ShowLettersNegativeEvent = true;
@@ -28,7 +35,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool Plant24HEnabled = false;
         public bool SafeTrapEnabled = false;
         public bool TurretControlEnabled = false;
-
+        public bool HidePowerConnections = false;
 
         public override void ExposeData()
         {
@@ -46,6 +53,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref Plant24HEnabled, "Plant24HEnabled", false, true);
             Scribe_Values.Look<bool>(ref SafeTrapEnabled, "SafeTrapEnabled", false, true);
             Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false, true);
+            Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false, true);
 
         }
 
@@ -73,7 +81,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             LetterNamesToSuppress = listing_Standard.TextEntry(LetterNamesToSuppress, 2);
 
             listing_Standard.GapLine(12f);
-            
+
             listing_Standard.Label("* Plant 24H:");
             listing_Standard.CheckboxLabeled("Plant24H", ref Plant24HEnabled, "Enable to allow Plants to Grow 24H a day, also changes SunLamps.");
             listing_Standard.GapLine(12f);
@@ -82,6 +90,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* TurretControlEnabled:");
             listing_Standard.CheckboxLabeled("TurretControlEnabled", ref TurretControlEnabled, "Allows force attack commands to be given to turrets.");
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("* HidePowerConnections:");
+            listing_Standard.CheckboxLabeled("HidePowerConnections", ref HidePowerConnections, "Hides the Small Power Connection Wires, Still show in Power overlay Mode.");
 
             listing_Standard.End();
         }
