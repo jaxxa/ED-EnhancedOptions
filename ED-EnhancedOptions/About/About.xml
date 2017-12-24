@@ -7,8 +7,14 @@
 	<description>Version: 0.18.0.0
 Discussion, Non Steam Downloads and GitHub Repositories of this mod is available at: https://ludeon.com/forums/index.php?topic=37158
 
-Please Check the Mod Settings by going into the Options and Selection "Mod Options" and then "ED-EnhancedOptions".
+Please Check the Mod Settings by going into the Options, Selecting "Mod Options" and then "ED-EnhancedOptions".
 
-This mod adds various aditional options to change the way Rimworld works. These options are as follows. 
+This mod adds various aditional options to change the way Rimworld works. These options are as follows:
+ - Stop Letters from being shown.
+ - Allow Plants to Grow 24H a day, also changes SunLamps."
+ - Prevents Traps from triggering on your Colonists.
+ - Allows force attack commands to be given to turrets.
+ - Hides the Small Power Connection Wires, Still show in Power overlay Mode.
+ 
 	</description>
 </ModMetaData>
