@@ -31,7 +31,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             }
             else
             {
-                Log.Message("Skipping Applying PatchPlant as it is desabled in settings.");
+                Log.Message("Skipping Applying PatchPlant as it is Disabled in settings.");
             }
 
             //If SafeTrap is enabled then apply the Patch.
@@ -41,7 +41,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             }
             else
             {
-                Log.Message("Skipping Applying PatchBuildingTrap as it is desabled in settings.");
+                Log.Message("Skipping Applying PatchBuildingTrap as it is Disabled in settings.");
             }
 
             //If TurretControl is enabled then apply the Patch.
@@ -51,11 +51,20 @@ namespace EnhancedDevelopment.EnhancedOptions
             }
             else
             {
-                Log.Message("Skipping Applying PatchBuildingTurretGun as it is desabled in settings.");
+                Log.Message("Skipping Applying PatchBuildingTurretGun as it is Disabled in settings.");
             }
 
 
-            PatchPowerNetGraphics.ApplyPatches(_Harmony);
+            //If HidePowerConnections is enabled then apply the Patch.
+            if (Mod_EnhancedOptions.Settings.HidePowerConnections)
+            {
+                PatchPowerNetGraphics.ApplyPatches(_Harmony);
+            }
+            else
+            {
+                Log.Message("Skipping Applying HidePowerConnections as it is Disabled in settings.");
+            }
+
 
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
         }
