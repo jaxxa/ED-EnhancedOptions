@@ -54,6 +54,9 @@ namespace EnhancedDevelopment.EnhancedOptions
                 Log.Message("Skipping Applying PatchBuildingTurretGun as it is desabled in settings.");
             }
 
+
+            PatchPowerNetGraphics.ApplyPatches(_Harmony);
+
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
         }
 

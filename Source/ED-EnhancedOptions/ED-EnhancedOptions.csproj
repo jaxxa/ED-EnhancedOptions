@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Detours\PatchBuildingTrap.cs" />
     <Compile Include="Detours\PatchBuildingTurretGun.cs" />
+    <Compile Include="Detours\PatchPowerNetGraphics.cs" />
     <Compile Include="Detours\PatchLetterStack.cs" />
     <Compile Include="Detours\PatchCompSchedule.cs" />
     <Compile Include="Detours\PatchPlant.cs" />
