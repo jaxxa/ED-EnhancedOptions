@@ -9,10 +9,7 @@ using Verse;
 
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
-
-    //[HarmonyPatch(typeof(LetterStack))]
-    //[HarmonyPatch("ReceiveLetter")]
-    //[HarmonyPatch(new Type[] { typeof(Letter), typeof(string) })]
+    
     static class PatchPowerNetGraphics
     {
         
@@ -34,10 +31,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             Log.Message("PatchLetterStack.ApplyPatches() Completed");
         }
 
-        public static bool PrintWirePieceConnectingPrefix()
+        public static bool PrintWirePieceConnectingPrefix(bool forPowerOverlay)
         {
-           
-            return false;
+            //When showing forPowerOverlay return true to allow the base method to run, drawing the cables.
+            //Else stop them from being drawn.
+            return forPowerOverlay;
         }
     }
 }
