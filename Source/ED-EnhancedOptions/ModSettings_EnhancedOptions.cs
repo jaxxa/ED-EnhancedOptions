@@ -75,13 +75,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             
             listing_Standard.Label("* Plant 24H:");
-            listing_Standard.CheckboxLabeled("Plant24H", ref Plant24HEnabled);
+            listing_Standard.CheckboxLabeled("Plant24H", ref Plant24HEnabled, "Enable to allow Plants to Grow 24H a day, also changes SunLamps.");
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* SafeTrapEnabled:");
-            listing_Standard.CheckboxLabeled("SafeTrapEnabled", ref SafeTrapEnabled);
+            listing_Standard.CheckboxLabeled("SafeTrapEnabled", ref SafeTrapEnabled, "Prevents Traps from triggering on your Colonists.");
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* TurretControlEnabled:");
-            listing_Standard.CheckboxLabeled("TurretControlEnabled", ref TurretControlEnabled);
+            listing_Standard.CheckboxLabeled("TurretControlEnabled", ref TurretControlEnabled, "Allows force attack commands to be given to turrets.");
 
             listing_Standard.End();
         }
