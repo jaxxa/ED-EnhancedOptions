@@ -43,8 +43,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         // - returns a boolean that controls if original is executed (true) or not (false)
         public static Boolean RestingGetterPrefix(ref bool __result)
         {
-            //Write to log to debug id the patch is running.
-            Log.Message("Plant Resting Getter Prefix Running");
 
             //This is the result that will be used, note that it was passed as a ref.
             __result = false;
