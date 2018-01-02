@@ -33,6 +33,8 @@ namespace EnhancedDevelopment.EnhancedOptions
         public string LetterNamesToSuppress = String.Empty;
 
         public bool Plant24HEnabled = false;
+        public bool PlantLights24HEnabled = false;
+
         public bool SafeTrapEnabled = false;
         public bool TurretControlEnabled = false;
         public bool HidePowerConnections = false;
@@ -51,10 +53,11 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<string>(ref LetterNamesToSuppress, "LetterNamesToSuppress", String.Empty, true);
 
             Scribe_Values.Look<bool>(ref Plant24HEnabled, "Plant24HEnabled", false, true);
+            Scribe_Values.Look<bool>(ref PlantLights24HEnabled, "PlantLights24HEnabled", Plant24HEnabled, true); //If Not Set Default to Plant24HEnabled for backwards compatibility.
             Scribe_Values.Look<bool>(ref SafeTrapEnabled, "SafeTrapEnabled", false, true);
             Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false, true);
             Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false, true);
-
+            
         }
 
 
@@ -83,16 +86,17 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
 
             listing_Standard.Label("* Plant 24H:");
-            listing_Standard.CheckboxLabeled("Plant24H", ref Plant24HEnabled, "Enable to allow Plants to Grow 24H a day, also changes SunLamps.");
+            listing_Standard.CheckboxLabeled("Plant 24H", ref Plant24HEnabled, "Enable to allow Plants to Grow 24H a day.");
+            listing_Standard.CheckboxLabeled("Plant Lights 24H", ref PlantLights24HEnabled, "Enable to allow SunLamps to Shine 24H a day.");
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("* SafeTrapEnabled:");
-            listing_Standard.CheckboxLabeled("SafeTrapEnabled", ref SafeTrapEnabled, "Prevents Traps from triggering on your Colonists.");
+            listing_Standard.Label("* Safe Trap Enabled:");
+            listing_Standard.CheckboxLabeled("Safe Trap Enabled", ref SafeTrapEnabled, "Prevents Traps from triggering on your Colonists.");
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("* TurretControlEnabled:");
-            listing_Standard.CheckboxLabeled("TurretControlEnabled", ref TurretControlEnabled, "Allows force attack commands to be given to turrets.");
+            listing_Standard.Label("* Turret Control Enabled:");
+            listing_Standard.CheckboxLabeled("Turret Control Enabled", ref TurretControlEnabled, "Allows force attack commands to be given to turrets.");
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("* HidePowerConnections:");
-            listing_Standard.CheckboxLabeled("HidePowerConnections", ref HidePowerConnections, "Hides the Small Power Connection Wires, Still show in Power overlay Mode.");
+            listing_Standard.Label("* Hide Power Connections:");
+            listing_Standard.CheckboxLabeled("Hide Power Connections", ref HidePowerConnections, "Hides the Small Power Connection Wires, Still show in Power overlay Mode.");
 
             listing_Standard.End();
         }
