@@ -72,7 +72,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying HidePowerConnections as it is Disabled in settings.");
             }
-            
+
             //If PatchCompBreakdownable is enabled then apply the Patch.
             if (Mod_EnhancedOptions.Settings.HidePowerConnections)
             {
@@ -82,7 +82,18 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying PatchCompBreakdownable as it is Disabled in settings.");
             }
-            
+
+            //If LockDevMode is enabled then apply the Patch.
+            if (Mod_EnhancedOptions.Settings.LockDevMode)
+            {
+                PatchPerfs.ApplyPatches(_Harmony);
+            }
+            else
+            {
+                Log.Message("Skipping Applying PatchPerfs as LockDevMode is Disabled in settings.");
+            }
+
+
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
         }
 

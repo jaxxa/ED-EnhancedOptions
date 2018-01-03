@@ -9,18 +9,6 @@ namespace EnhancedDevelopment.EnhancedOptions
 {
     class ModSettings_EnhancedOptions : ModSettings
     {
-        //Speed 4,5,6?
-        //-Stop combat slowdown
-        //Raid Scale
-        //Supress Dev Mode
-
-        //Blight Colours??? (Or split off to separate mod)
-        //--Glowing?
-        //--Overlay
-
-        //Power Priorities???
-        //-Time to Leave
-        //--https://ludeon.com/forums/index.php?topic=37751.msg386804#new
         
         public bool ShowLettersThreatBig = true;
         public bool ShowLettersThreatSmall = true;
@@ -40,6 +28,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool HidePowerConnections = false;
 
         public bool SuppressBreakdown = false;
+        public bool LockDevMode = false;
 
         public override void ExposeData()
         {
@@ -60,7 +49,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false, true);
             Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false, true);
             Scribe_Values.Look<bool>(ref SuppressBreakdown, "SuppressBreakdown", false, true);
-
+            Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false, true);
+                        
         }
 
 
@@ -103,7 +93,10 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* Suppress Breakdown:");
             listing_Standard.CheckboxLabeled("Suppress Breakdown", ref SuppressBreakdown, "Suppress random Breakdowns, This was hard to test so please let me know if you have any issues.");
-
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("* Suppress LockDevMode:");
+            listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
+                        
             listing_Standard.End();
         }
     }
