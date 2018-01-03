@@ -39,6 +39,8 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool TurretControlEnabled = false;
         public bool HidePowerConnections = false;
 
+        public bool SuppressBreakdown = false;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -57,7 +59,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref SafeTrapEnabled, "SafeTrapEnabled", false, true);
             Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false, true);
             Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false, true);
-            
+            Scribe_Values.Look<bool>(ref SuppressBreakdown, "SuppressBreakdown", false, true);
+
         }
 
 
@@ -97,6 +100,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* Hide Power Connections:");
             listing_Standard.CheckboxLabeled("Hide Power Connections", ref HidePowerConnections, "Hides the Small Power Connection Wires, Still show in Power overlay Mode.");
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("* Suppress Breakdown:");
+            listing_Standard.CheckboxLabeled("Suppress Breakdown", ref SuppressBreakdown, "Suppress random Breakdowns, This was hard to test so please let me know if you have any issues.");
 
             listing_Standard.End();
         }
