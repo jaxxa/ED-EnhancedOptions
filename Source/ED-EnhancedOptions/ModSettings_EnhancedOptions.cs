@@ -29,6 +29,7 @@ namespace EnhancedDevelopment.EnhancedOptions
 
         public bool SuppressBreakdown = false;
         public bool LockDevMode = false;
+        public bool Speed4WithoutDev = false;
 
         public override void ExposeData()
         {
@@ -50,7 +51,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false, true);
             Scribe_Values.Look<bool>(ref SuppressBreakdown, "SuppressBreakdown", false, true);
             Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false, true);
-                        
+            Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false, true);
+
         }
 
 
@@ -96,6 +98,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* Suppress LockDevMode:");
             listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("* Speed4 Without Dev Mode:");
+            listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
                         
             listing_Standard.End();
         }
