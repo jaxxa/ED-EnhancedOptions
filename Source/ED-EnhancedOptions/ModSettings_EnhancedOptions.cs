@@ -9,7 +9,7 @@ namespace EnhancedDevelopment.EnhancedOptions
 {
     class ModSettings_EnhancedOptions : ModSettings
     {
-        
+
         public bool ShowLettersThreatBig = true;
         public bool ShowLettersThreatSmall = true;
         public bool ShowLettersNegativeEvent = true;
@@ -30,6 +30,25 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool SuppressBreakdown = false;
         public bool LockDevMode = false;
         public bool Speed4WithoutDev = false;
+
+        /// <summary>
+        /// DrawSize of the Blight, Default 1
+        /// </summary>
+        public float BlightScale = 1;
+
+        /// <summary>
+        /// Number of the Image to use for the Blight
+        /// 
+        /// 0 = Default
+        /// 1 = Red
+        /// 2 = Blue
+        /// 3 = Orange
+        /// 4 = Purple
+        /// 
+        /// </summary>
+        public int BlightImageIndex = 0;
+
+
 
         public override void ExposeData()
         {
@@ -53,6 +72,10 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false, true);
             Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false, true);
 
+            Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1, true);
+            Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0, true);
+
+
         }
 
 
@@ -61,8 +84,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             Listing_Standard listing_Standard = new Listing_Standard();
             listing_Standard.ColumnWidth = 250f;
             listing_Standard.Begin(canvas);
-            //            listing_Standard.
-            //            listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
+            //listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
 
             listing_Standard.Label("Sections Starting with '*' only apply after Restart.");
             listing_Standard.GapLine(12f);
@@ -101,7 +123,51 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* Speed4 Without Dev Mode:");
             listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
+            
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("* Blight:");
+            listing_Standard.Label("Blight Scale:  " + BlightScale);
+            BlightScale = (float)Math.Round((Double)listing_Standard.Slider(BlightScale, 1, 10),1);
                         
+            String _CurrentBlightImageDescription = string.Empty;
+            switch (BlightImageIndex)
+            {
+                case 0:
+                    _CurrentBlightImageDescription = "Default";
+                    break;
+                case 1:
+                    _CurrentBlightImageDescription = "Red";
+                    break;
+                case 2:
+                    _CurrentBlightImageDescription = "Blue";
+                    break;
+                case 3:
+                    _CurrentBlightImageDescription = "Orange";
+                    break;
+                case 4:
+                    _CurrentBlightImageDescription = "Purple";
+                    break;
+                default:
+                    _CurrentBlightImageDescription = "Default";
+                    break;
+            }
+            
+
+            Rect _BlightSelection = listing_Standard.GetRect(30f);
+            Widgets.Label(_BlightSelection.RightHalf(), _CurrentBlightImageDescription);
+            if (Widgets.ButtonText(_BlightSelection.LeftHalf(), "Select Blight:"))
+            {
+                //Log.Error("Test");
+                Find.WindowStack.Add(
+                    new FloatMenu(new List<FloatMenuOption> {
+                        new FloatMenuOption("Default (Green)", () => BlightImageIndex = 0),
+                        new FloatMenuOption("Red", () => BlightImageIndex = 1),
+                        new FloatMenuOption("Blue", () => BlightImageIndex = 2),
+                        new FloatMenuOption("Orange", () => BlightImageIndex = 3),
+                        new FloatMenuOption("Purple", () => BlightImageIndex = 4)
+                    }));
+            }
+
             listing_Standard.End();
         }
     }

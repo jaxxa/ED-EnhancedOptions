@@ -62,7 +62,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying PatchBuildingTurretGun as it is Disabled in settings.");
             }
-            
+
             //If HidePowerConnections is enabled then apply the Patch.
             if (Mod_EnhancedOptions.Settings.HidePowerConnections)
             {
@@ -102,6 +102,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying Speed4WithoutDev as it is Disabled in settings.");
             }
+
+            BlightGraphics.UpdateBlightGraphics();
 
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
         }

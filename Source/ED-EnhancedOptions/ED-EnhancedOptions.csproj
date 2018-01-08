@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detours\BlightGraphics.cs" />
     <Compile Include="Detours\PatchBuildingTrap.cs" />
     <Compile Include="Detours\PatchBuildingTurretGun.cs" />
     <Compile Include="Detours\PatchPerfs.cs" />

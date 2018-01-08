@@ -15,3 +15,6 @@ Additional details can be found in About.xml
  - Suppress random Breakdowns. 
  - Lock the ability to change DevMode. 
  - Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'. 
+ 
+0.18.0.2
+* Adding Visual Customization of Blight.
