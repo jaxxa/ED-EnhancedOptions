@@ -103,6 +103,8 @@ namespace EnhancedDevelopment.EnhancedOptions
                 Log.Message("Skipping Applying Speed4WithoutDev as it is Disabled in settings.");
             }
 
+            PatchTimeSlower.ApplyPatches(_Harmony);
+
             BlightGraphics.UpdateBlightGraphics();
 
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
