@@ -102,8 +102,16 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying Speed4WithoutDev as it is Disabled in settings.");
             }
+            
+            if(Mod_EnhancedOptions.Settings.SuppressCombatSlowdown)
+            {
+                PatchTimeSlower.ApplyPatches(_Harmony);
+            }
+            else
+            {
+                Log.Message("Skipping Applying SuppressCombatSlowdown as it is Disabled in settings.");
+            }
 
-            PatchTimeSlower.ApplyPatches(_Harmony);
 
             BlightGraphics.UpdateBlightGraphics();
 

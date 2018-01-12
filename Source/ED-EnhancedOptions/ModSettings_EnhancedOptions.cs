@@ -30,6 +30,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool SuppressBreakdown = false;
         public bool LockDevMode = false;
         public bool Speed4WithoutDev = false;
+        public bool SuppressCombatSlowdown = false;
 
         /// <summary>
         /// DrawSize of the Blight, Default 1
@@ -71,7 +72,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref SuppressBreakdown, "SuppressBreakdown", false, true);
             Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false, true);
             Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false, true);
-
+            Scribe_Values.Look<bool>(ref SuppressCombatSlowdown, "SuppressCombatSlowdown", false, true);
+                        
             Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1, true);
             Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0, true);
 
@@ -121,8 +123,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.Label("* Suppress LockDevMode:");
             listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Speed4 Without Dev Mode:");
+            listing_Standard.Label("* Time Speed:");
             listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
+            listing_Standard.CheckboxLabeled("Suppress Combat Slowdown", ref SuppressCombatSlowdown, "Suppress Limiting Speed in Combat.");
             
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* Blight:");
