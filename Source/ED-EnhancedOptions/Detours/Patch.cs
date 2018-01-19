@@ -112,6 +112,7 @@ namespace EnhancedDevelopment.EnhancedOptions
                 Log.Message("Skipping Applying SuppressCombatSlowdown as it is Disabled in settings.");
             }
 
+            PatchToils_Recipe.ApplyPatches(_Harmony);
 
             BlightGraphics.UpdateBlightGraphics();
 
