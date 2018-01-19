@@ -102,8 +102,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying Speed4WithoutDev as it is Disabled in settings.");
             }
-            
-            if(Mod_EnhancedOptions.Settings.SuppressCombatSlowdown)
+
+            if (Mod_EnhancedOptions.Settings.SuppressCombatSlowdown)
             {
                 PatchTimeSlower.ApplyPatches(_Harmony);
             }
@@ -112,7 +112,16 @@ namespace EnhancedDevelopment.EnhancedOptions
                 Log.Message("Skipping Applying SuppressCombatSlowdown as it is Disabled in settings.");
             }
 
-
+            if (Mod_EnhancedOptions.Settings.SuppressStrippingCremationCorps)
+            {
+                PatchToils_Recipe.ApplyPatches(_Harmony);
+            }
+            else
+            {
+                Log.Message("Skipping Applying SuppressStrippingCremationCorps as it is Disabled in settings.");
+            }
+            
+          
             BlightGraphics.UpdateBlightGraphics();
 
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");

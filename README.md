@@ -18,3 +18,7 @@ Additional details can be found in About.xml
  
 0.18.0.2
 * Adding Visual Customization of Blight.
+
+0.18.0.3
+* Suppressing Forced Time Slowdown.
+* Suppress Stripping Corps before Cremation.

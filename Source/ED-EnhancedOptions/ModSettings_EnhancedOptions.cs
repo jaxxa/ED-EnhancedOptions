@@ -48,7 +48,8 @@ namespace EnhancedDevelopment.EnhancedOptions
         /// 
         /// </summary>
         public int BlightImageIndex = 0;
-
+        
+        public bool SuppressStrippingCremationCorps = false;
 
 
         public override void ExposeData()
@@ -77,6 +78,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1, true);
             Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0, true);
 
+            Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false, true);
+
+            
 
         }
 
@@ -170,6 +174,10 @@ namespace EnhancedDevelopment.EnhancedOptions
                         new FloatMenuOption("Purple", () => BlightImageIndex = 4)
                     }));
             }
+
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("* Suppress Stripping Cremation Corps:");
+            listing_Standard.CheckboxLabeled("SuppressStrippingCremationCorps", ref SuppressStrippingCremationCorps, "Stops Gear and Apparel from being removed from a Corps before Cremation, all gear will be lost.");
 
             listing_Standard.End();
         }
