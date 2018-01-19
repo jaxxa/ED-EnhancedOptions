@@ -71,10 +71,15 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                         else
                         {
                             list.Add(thing);
-                            IStrippable strippable = thing as IStrippable;
-                            if (strippable != null)
+
+                            //Check if the Name of the Recipe is "CremateCorpse", if so do not strip.                  
+                            if (!string.Equals(job.RecipeDef.defName, "CremateCorpse"))
                             {
-                                strippable.Strip();
+                                IStrippable strippable = thing as IStrippable;
+                                if (strippable != null)
+                                {
+                                    strippable.Strip();
+                                }
                             }
                         }
                     }
