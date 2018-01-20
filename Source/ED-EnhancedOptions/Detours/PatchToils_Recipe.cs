@@ -40,7 +40,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         // - returns a boolean that controls if original is executed (true) or not (false)
         public static Boolean CalculateIngredientsPrefix(Job job, Pawn actor, ref List<Thing> __result)
         {
-            Log.Message("Replaced");
             UnfinishedThing unfinishedThing = job.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
             if (unfinishedThing != null)
             {
