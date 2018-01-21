@@ -26,11 +26,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
 
             //Get the Prefix Patch
-            MethodInfo _SetDrawStatusPrefix = typeof(PatchMainTabsRoot).GetMethod("SetDrawStatusPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_SetDrawStatusPrefix, "_SetDrawStatusPrefix", true);
+            MethodInfo _SetDrawStatusPostfix = typeof(PatchMainTabsRoot).GetMethod("SetDrawStatusPostfix", BindingFlags.Public | BindingFlags.Static);
+            Patch.LogNULL(_SetDrawStatusPostfix, "_SetDrawStatusPostfix", true);
 
             //Apply the Prefix Patch
-            harmony.Patch(_Building_MainTabsRoot_ToggleTab, null, new HarmonyMethod(_SetDrawStatusPrefix));
+            harmony.Patch(_Building_MainTabsRoot_ToggleTab, null, new HarmonyMethod(_SetDrawStatusPostfix));
 
             Log.Message("PatchBuilding_MarriageSpot.ApplyPatches() Completed");
         }
@@ -50,22 +50,29 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             if (string.Equals(__instance.OpenTab.defName, "Inspect"))
             {
-                return true;
+                Thing _FirstThing = (Thing)Find.Selector.FirstSelectedObject;
+
+                if (_FirstThing != null)
+                {
+                    Log.Message(_FirstThing.def.defName);
+                    if (String.Equals(_FirstThing.def.defName, "MarriageSpot") ||
+                        String.Equals(_FirstThing.def.defName, "PartySpot") ||
+                        String.Equals(_FirstThing.def.defName, "CaravanPackingSpot"))
+                    {
+                        return true;
+                    }
+
+                }
             }
 
-            //if (string.Equals(__instance.OpenTab.label))
-            //{
-
-            //}
-
-                return false;
+            return false;
         }
 
         // prefix
         // - wants instance, result and count
         // - wants to change count
         // - returns a boolean that controls if original is executed (true) or not (false)
-        public static void SetDrawStatusPrefix(MainTabsRoot __instance)
+        public static void SetDrawStatusPostfix(MainTabsRoot __instance)
         {
             Log.Message("Tab Change");
 
@@ -83,25 +90,22 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
                 Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
                 {
-
                     Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
                 });
 
                 Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
                 {
-
                     Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
                 });
 
                 Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
                 {
-
                     Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
                 });
             }
             else
             {
-                
+
                 Log.Message("Null open Tab");
                 ThingDefOf.MarriageSpot.drawerType = DrawerType.None;
                 ThingDefOf.CaravanPackingSpot.drawerType = DrawerType.None;
@@ -109,19 +113,16 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
                 Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
                 {
-
                     Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
                 });
 
                 Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
                 {
-
                     Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
                 });
 
                 Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
                 {
-
                     Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
                 });
 
