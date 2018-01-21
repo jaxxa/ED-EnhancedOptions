@@ -19,5 +19,8 @@ This mod adds various additional options to change the way Rimworld works. These
  - Lock the ability to change DevMode.
  - Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.
  - Visual Customization of Blight.
+ - Stop Forced Time Slowdown (Combat).
+ - Stop Stripping Corps before Cremation.
+ - Hide Marriage CaravanPacking and Party Spots.
 	</description>
 </ModMetaData>

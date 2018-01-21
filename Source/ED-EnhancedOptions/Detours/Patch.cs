@@ -120,8 +120,17 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying SuppressStrippingCremationCorps as it is Disabled in settings.");
             }
-                        
-            PatchMainTabsRoot.ApplyPatches(_Harmony);
+
+            if (Mod_EnhancedOptions.Settings.HideSpots)
+            {
+                PatchMainTabsRoot.ApplyPatches(_Harmony);
+            }
+            else
+            {
+                Log.Message("Skipping Applying HideSpots as it is Disabled in settings.");
+            }
+
+            
 
             BlightGraphics.UpdateBlightGraphics();
 

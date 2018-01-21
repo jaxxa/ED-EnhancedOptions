@@ -22,3 +22,4 @@ Additional details can be found in About.xml
 0.18.0.3
 * Suppressing Forced Time Slowdown.
 * Suppress Stripping Corps before Cremation.
+* Hide Marriage, Caravan Packing and Party Spots.
