@@ -31,6 +31,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool LockDevMode = false;
         public bool Speed4WithoutDev = false;
         public bool SuppressCombatSlowdown = false;
+        public bool HideSpots = false;
 
         /// <summary>
         /// DrawSize of the Blight, Default 1
@@ -79,9 +80,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0, true);
 
             Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false, true);
-
-            
-
+            Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false, true);
         }
 
 
@@ -179,6 +178,10 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.Label("* Suppress Stripping Cremation Corps:");
             listing_Standard.CheckboxLabeled("SuppressStrippingCremationCorps", ref SuppressStrippingCremationCorps, "Stops Gear and Apparel from being removed from a Corps before Cremation, all gear will be lost.");
 
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("* Hide Spots:");
+            listing_Standard.CheckboxLabeled("Hide Spots", ref HideSpots, "Stops Marriage, Caravan Packing and Party Spots from being show all the time. They will still show when Architect menu is open or one of the spots is the first thing selected. (Only checks when menu is changed)");
+                        
             listing_Standard.End();
         }
     }
