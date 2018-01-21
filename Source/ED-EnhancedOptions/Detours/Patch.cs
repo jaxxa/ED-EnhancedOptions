@@ -120,8 +120,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying SuppressStrippingCremationCorps as it is Disabled in settings.");
             }
-            
-          
+                        
+            PatchMainTabsRoot.ApplyPatches(_Harmony);
+
             BlightGraphics.UpdateBlightGraphics();
 
             Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");

@@ -55,6 +55,7 @@
     <Compile Include="Detours\PatchBuildingTurretGun.cs" />
     <Compile Include="Detours\PatchPerfs.cs" />
     <Compile Include="Detours\PatchCompBreakdownable.cs" />
+    <Compile Include="Detours\PatchMainTabsRoot.cs" />
     <Compile Include="Detours\PatchToils_Recipe.cs" />
     <Compile Include="Detours\PatchTimeSlower.cs" />
     <Compile Include="Detours\PatchTimeControls.cs" />
