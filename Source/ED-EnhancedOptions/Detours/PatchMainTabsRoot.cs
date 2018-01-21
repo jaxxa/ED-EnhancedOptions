@@ -34,7 +34,25 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             Log.Message("PatchBuilding_MarriageSpot.ApplyPatches() Completed");
         }
-
+        
+        // postfix
+        public static void SetDrawStatusPostfix(MainTabsRoot __instance)
+        {
+            if (PatchMainTabsRoot.ShouldShowSpots(__instance))
+            {
+                ThingDefOf.MarriageSpot.drawerType = DrawerType.MapMeshAndRealTime;
+                ThingDefOf.CaravanPackingSpot.drawerType = DrawerType.MapMeshAndRealTime;
+                ThingDefOf.PartySpot.drawerType = DrawerType.MapMeshAndRealTime;
+                PatchMainTabsRoot.MarkMapMeshAsDirty();
+            }
+            else
+            {
+                ThingDefOf.MarriageSpot.drawerType = DrawerType.None;
+                ThingDefOf.CaravanPackingSpot.drawerType = DrawerType.None;
+                ThingDefOf.PartySpot.drawerType = DrawerType.None;
+                PatchMainTabsRoot.MarkMapMeshAsDirty();
+            }
+        }
 
         public static bool ShouldShowSpots(MainTabsRoot __instance)
         {
@@ -68,65 +86,25 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             return false;
         }
 
-        // prefix
-        // - wants instance, result and count
-        // - wants to change count
-        // - returns a boolean that controls if original is executed (true) or not (false)
-        public static void SetDrawStatusPostfix(MainTabsRoot __instance)
+        public static void MarkMapMeshAsDirty()
         {
-            Log.Message("Tab Change");
 
-
-            //Architect
-            //Inspect
-            if (PatchMainTabsRoot.ShouldShowSpots(__instance))
+            //Update the map mesh for the things that have changed
+            Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
             {
-                Log.Message("Tab Found");
-                Log.Message(__instance.OpenTab.defName + " " + __instance.OpenTab.label + " " + __instance.OpenTab.TabWindow.ToString());
+                Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+            });
 
-                ThingDefOf.MarriageSpot.drawerType = DrawerType.MapMeshAndRealTime;
-                ThingDefOf.CaravanPackingSpot.drawerType = DrawerType.MapMeshAndRealTime;
-                ThingDefOf.PartySpot.drawerType = DrawerType.MapMeshAndRealTime;
-
-                Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
-                {
-                    Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
-                });
-
-                Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
-                {
-                    Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
-                });
-
-                Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
-                {
-                    Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
-                });
-            }
-            else
+            Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
             {
+                Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+            });
 
-                Log.Message("Null open Tab");
-                ThingDefOf.MarriageSpot.drawerType = DrawerType.None;
-                ThingDefOf.CaravanPackingSpot.drawerType = DrawerType.None;
-                ThingDefOf.PartySpot.drawerType = DrawerType.None;
-
-                Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
-                {
-                    Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
-                });
-
-                Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
-                {
-                    Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
-                });
-
-                Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
-                {
-                    Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
-                });
-
-            }
+            Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
+            {
+                Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+            });
         }
+
     }
 }
