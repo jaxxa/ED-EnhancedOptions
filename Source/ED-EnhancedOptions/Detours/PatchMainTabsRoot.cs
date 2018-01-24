@@ -34,7 +34,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             Log.Message("PatchBuilding_MarriageSpot.ApplyPatches() Completed");
         }
-        
+
         // postfix
         public static void SetDrawStatusPostfix(MainTabsRoot __instance)
         {
@@ -68,7 +68,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             if (string.Equals(__instance.OpenTab.defName, "Inspect"))
             {
-                Thing _FirstThing = (Thing)Find.Selector.FirstSelectedObject;
+                Thing _FirstThing = Find.Selector.FirstSelectedObject as Thing;
 
                 if (_FirstThing != null)
                 {
