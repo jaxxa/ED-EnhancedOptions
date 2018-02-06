@@ -130,7 +130,7 @@ namespace EnhancedDevelopment.EnhancedOptions
                 Log.Message("Skipping Applying HideSpots as it is Disabled in settings.");
             }
 
-            
+
 
             BlightGraphics.UpdateBlightGraphics();
 
@@ -149,12 +149,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Error(name + " Is NULL.");
             }
-            else
+            else if (logSucess)
             {
-                if (logSucess)
-                {
-                    Log.Message(name + " Is Not NULL.");
-                }
+                Log.Message(name + " Is Not NULL.");
             }
         }
 
