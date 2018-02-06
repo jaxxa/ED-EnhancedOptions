@@ -163,7 +163,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             Widgets.Label(_BlightSelection.RightHalf(), _CurrentBlightImageDescription);
             if (Widgets.ButtonText(_BlightSelection.LeftHalf(), "Select Blight:"))
             {
-                //Log.Error("Test");
                 Find.WindowStack.Add(
                     new FloatMenu(new List<FloatMenuOption> {
                         new FloatMenuOption("Default (Green)", () => BlightImageIndex = 0),

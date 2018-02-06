@@ -72,7 +72,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
                 if (_FirstThing != null)
                 {
-                    Log.Message(_FirstThing.def.defName);
                     if (String.Equals(_FirstThing.def.defName, "MarriageSpot") ||
                         String.Equals(_FirstThing.def.defName, "PartySpot") ||
                         String.Equals(_FirstThing.def.defName, "CaravanPackingSpot"))

@@ -44,10 +44,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         public static Boolean CanSetForcedTargetPrefix(ref bool __result, ref Building_TurretGun __instance)
         {
 
-            //Write to log to debug id the patch is running.
-            //Log.Message("Prefix Running");
-
-
             //Allow for all Turrets belonging to the Player
             if (__instance.Faction == Faction.OfPlayer)
             {

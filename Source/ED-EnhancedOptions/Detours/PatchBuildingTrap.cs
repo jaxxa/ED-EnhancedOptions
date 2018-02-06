@@ -36,10 +36,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         // - returns a boolean that controls if original is executed (true) or not (false)
         public static Boolean CheckSpringPrefix(Pawn p)
         {
-            //Write to log to debug id the patch is running.
-            //Log.Message("Prefix Running");
-
-            //Patch.LogNULL(p, "Prefix Pawn", true);
 
             if (p == null) { return true; }
 
@@ -48,7 +44,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Retuen False so the origional method is not executed.
             if (p.Faction.IsPlayer)
             {
-                //Log.Message("Return False");
                 return false;
             }
 
