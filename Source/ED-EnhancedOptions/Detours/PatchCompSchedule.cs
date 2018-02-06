@@ -19,11 +19,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Origional Method
             MethodInfo _CompSchedule_RecalculateAllowed = typeof(RimWorld.CompSchedule).GetMethod("RecalculateAllowed", BindingFlags.Public | BindingFlags.Instance);
-            Patch.LogNULL(_CompSchedule_RecalculateAllowed, "_CompSchedule_RecalculateAllowed", true);
+            Patch.LogNULL(_CompSchedule_RecalculateAllowed, "_CompSchedule_RecalculateAllowed");
 
             //Get the Prefix Patch
             MethodInfo _RecalculateAllowedPrefix = typeof(PatchCompSchedule).GetMethod("RecalculateAllowedPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_RecalculateAllowedPrefix, "_RecalculateAllowedPrefix", true);
+            Patch.LogNULL(_RecalculateAllowedPrefix, "_RecalculateAllowedPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_CompSchedule_RecalculateAllowed, new HarmonyMethod(_RecalculateAllowedPrefix), null);

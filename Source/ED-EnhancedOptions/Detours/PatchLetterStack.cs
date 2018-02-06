@@ -22,11 +22,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Method
             MethodInfo _Verse_LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
-            Patch.LogNULL(_Verse_LetterStack_ReceiveLetter, "_Verse_LetterStack_ReceiveLetter", true);
+            Patch.LogNULL(_Verse_LetterStack_ReceiveLetter, "_Verse_LetterStack_ReceiveLetter");
 
             //Get the Prefix
             MethodInfo _ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_ReceiveLetterPrefix, "_ReceiveLetterPrefix", true);
+            Patch.LogNULL(_ReceiveLetterPrefix, "_ReceiveLetterPrefix");
             
             //Apply the Prefix Patch
             harmony.Patch(_Verse_LetterStack_ReceiveLetter, new HarmonyMethod(_ReceiveLetterPrefix), null);

@@ -22,11 +22,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Origional Method
             MethodInfo _Toils_Recipe_CalculateIngredients = typeof(Toils_Recipe).GetMethod("CalculateIngredients", BindingFlags.NonPublic | BindingFlags.Static);
-            Patch.LogNULL(_Toils_Recipe_CalculateIngredients, "_Toils_Recipe_CalculateIngredients", true);
+            Patch.LogNULL(_Toils_Recipe_CalculateIngredients, "_Toils_Recipe_CalculateIngredients");
             
             //Get the Prefix Patch
             MethodInfo _CalculateIngredientsPrefix = typeof(PatchToils_Recipe).GetMethod("CalculateIngredientsPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_CalculateIngredientsPrefix, "_CalculateIngredientsPrefix", true);
+            Patch.LogNULL(_CalculateIngredientsPrefix, "_CalculateIngredientsPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_Toils_Recipe_CalculateIngredients, new HarmonyMethod(_CalculateIngredientsPrefix), null);

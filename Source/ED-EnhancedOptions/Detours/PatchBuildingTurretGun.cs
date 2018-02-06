@@ -20,15 +20,15 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Origional Property
             PropertyInfo _RimWorld_BuildingTurretGun_CanSetForcedTarget = typeof(RimWorld.Building_TurretGun).GetProperty("CanSetForcedTarget", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget, "_RimWorld_BuildingTurretGun_CanSetForcedTarget", true);
+            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget, "_RimWorld_BuildingTurretGun_CanSetForcedTarget");
 
             //Get the Property Getter Method
             MethodInfo _RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter = _RimWorld_BuildingTurretGun_CanSetForcedTarget.GetGetMethod(true);
-            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, "_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter", false);
+            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, "_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter");
 
             //Get the Prefix Patch
             MethodInfo _CanSetForcedTargetPrefix = typeof(PatchBuildingTurretGun).GetMethod("CanSetForcedTargetPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_CanSetForcedTargetPrefix, "_CanSetForcedTargetPrefix", true);
+            Patch.LogNULL(_CanSetForcedTargetPrefix, "_CanSetForcedTargetPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, new HarmonyMethod(_CanSetForcedTargetPrefix), null);

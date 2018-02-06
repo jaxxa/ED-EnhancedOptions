@@ -19,15 +19,15 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             
             //Get the Origional DevMode Property
             PropertyInfo _Verse_Prefs_DevMode = typeof(Verse.Prefs).GetProperty("DevMode", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_Verse_Prefs_DevMode, "_Verse_Prefs_DevMode", true);
+            Patch.LogNULL(_Verse_Prefs_DevMode, "_Verse_Prefs_DevMode");
             
             //Get the Setter Method
             MethodInfo _Verse_Prefs_DevMode_Setter = _Verse_Prefs_DevMode.GetSetMethod(true);
-            Patch.LogNULL(_Verse_Prefs_DevMode_Setter, "_Verse_Prefs_DevMode_Setter", true);
+            Patch.LogNULL(_Verse_Prefs_DevMode_Setter, "_Verse_Prefs_DevMode_Setter");
                         
             //Get the Prefix
             MethodInfo _DevModeSetterPrefix = typeof(PatchPerfs).GetMethod("DevModeSetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_DevModeSetterPrefix, "_DevModeSetterPrefix", true);
+            Patch.LogNULL(_DevModeSetterPrefix, "_DevModeSetterPrefix");
             
             //Apply the Prefix Patch
             harmony.Patch(_Verse_Prefs_DevMode_Setter, new HarmonyMethod(_DevModeSetterPrefix), null);
