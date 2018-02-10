@@ -34,23 +34,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchPowerNetGraphics());
             _Patches.Add(new PatchTimeControls());
             _Patches.Add(new PatchTimeSlower());
+            _Patches.Add(new PatchToils_Recipe());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
 
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
-
-
-
-            if (Mod_EnhancedOptions.Settings.SuppressStrippingCremationCorps)
-            {
-                PatchToils_Recipe.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying SuppressStrippingCremationCorps as it is Disabled in settings.");
-            }
 
             Log.Message(_LogLocation + "Complete.");
         }
