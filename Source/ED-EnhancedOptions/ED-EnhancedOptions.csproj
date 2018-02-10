@@ -50,21 +50,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Detours\PatchBlightGraphics.cs" />
-    <Compile Include="Detours\Patch.cs" />
-    <Compile Include="Detours\PatchBuildingTrap.cs" />
-    <Compile Include="Detours\PatchBuildingTurretGun.cs" />
-    <Compile Include="Detours\PatchPerfs.cs" />
-    <Compile Include="Detours\PatchCompBreakdownable.cs" />
-    <Compile Include="Detours\PatchMainTabsRoot.cs" />
-    <Compile Include="Detours\PatchToils_Recipe.cs" />
-    <Compile Include="Detours\PatchTimeSlower.cs" />
-    <Compile Include="Detours\PatchTimeControls.cs" />
-    <Compile Include="Detours\PatchPowerNetGraphics.cs" />
-    <Compile Include="Detours\PatchLetterStack.cs" />
-    <Compile Include="Detours\PatchCompSchedule.cs" />
-    <Compile Include="Detours\PatchPlant.cs" />
-    <Compile Include="Detours\Patcher.cs" />
+    <Compile Include="Patches\PatchBlightGraphics.cs" />
+    <Compile Include="Patches\Patch.cs" />
+    <Compile Include="Patches\PatchBuildingTrap.cs" />
+    <Compile Include="Patches\PatchBuildingTurretGun.cs" />
+    <Compile Include="Patches\PatchPerfs.cs" />
+    <Compile Include="Patches\PatchCompBreakdownable.cs" />
+    <Compile Include="Patches\PatchMainTabsRoot.cs" />
+    <Compile Include="Patches\PatchToils_Recipe.cs" />
+    <Compile Include="Patches\PatchTimeSlower.cs" />
+    <Compile Include="Patches\PatchTimeControls.cs" />
+    <Compile Include="Patches\PatchPowerNetGraphics.cs" />
+    <Compile Include="Patches\PatchLetterStack.cs" />
+    <Compile Include="Patches\PatchCompSchedule.cs" />
+    <Compile Include="Patches\PatchPlant.cs" />
+    <Compile Include="Patcher.cs" />
     <Compile Include="Mod_EnhancedOptions.cs" />
     <Compile Include="ModSettings_EnhancedOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
