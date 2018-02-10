@@ -9,15 +9,11 @@ using Verse;
 
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
-    static class PatchBuildingTurretGun
+    class PatchBuildingTurretGun : Patch
     {
-
-
-        static public void ApplyPatches(HarmonyInstance harmony)
+        
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchBuildingTurretGun.ApplyPatches() Starting");
-
             //Get the Origional Property
             PropertyInfo _RimWorld_BuildingTurretGun_CanSetForcedTarget = typeof(RimWorld.Building_TurretGun).GetProperty("CanSetForcedTarget", BindingFlags.NonPublic | BindingFlags.Instance);
             Patcher.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget, "_RimWorld_BuildingTurretGun_CanSetForcedTarget");
@@ -32,8 +28,16 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, new HarmonyMethod(_CanSetForcedTargetPrefix), null);
+        }
 
-            Log.Message("PatchBuildingTurretGun.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "CanSetForcedTargetPrefix";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.TurretControlEnabled;
         }
 
 
@@ -55,7 +59,5 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Retuen true so the origional method is executed.
             return true;
         }
-
-
     }
 }

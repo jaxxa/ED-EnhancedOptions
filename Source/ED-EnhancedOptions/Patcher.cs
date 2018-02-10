@@ -24,6 +24,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             List<Patch> _Patches = new List<Patch>();
             _Patches.Add(new PatchBlightGraphics());
             _Patches.Add(new PatchBuildingTrap());
+            _Patches.Add(new PatchBuildingTurretGun());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -58,16 +59,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             else
             {
                 Log.Message("Skipping Applying PatchCompSchedule (SunLamps) as it is Disabled in settings.");
-            }
-
-            //If TurretControl is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.TurretControlEnabled)
-            {
-                PatchBuildingTurretGun.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying PatchBuildingTurretGun as it is Disabled in settings.");
             }
 
             //If HidePowerConnections is enabled then apply the Patch.
