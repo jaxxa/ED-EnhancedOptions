@@ -10,29 +10,31 @@ using Verse;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
 
-    //[HarmonyPatch(typeof(Plant))]
-    //[HarmonyPatch("Resting_Getter")]
-    static class PatchMainTabsRoot
+    class PatchMainTabsRoot : Patch
     {
 
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override bool ShouldPatchApply()
         {
+            return Mod_EnhancedOptions.Settings.HideSpots;
+        }
 
-            Log.Message("PatchBuilding_MarriageSpot.ApplyPatches() Starting");
-
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        {
             //Get the Origional Method
             MethodInfo _Building_MainTabsRoot_ToggleTab = typeof(MainTabsRoot).GetMethod("ToggleTab", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_Building_MainTabsRoot_ToggleTab, "_Building_MainTabsRoot_ToggleTab");
-
-
+            
             //Get the Prefix Patch
             MethodInfo _SetDrawStatusPostfix = typeof(PatchMainTabsRoot).GetMethod("SetDrawStatusPostfix", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_SetDrawStatusPostfix, "_SetDrawStatusPostfix");
 
             //Apply the Prefix Patch
             harmony.Patch(_Building_MainTabsRoot_ToggleTab, null, new HarmonyMethod(_SetDrawStatusPostfix));
+        }
 
-            Log.Message("PatchBuilding_MarriageSpot.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "PatchMainTabsRoot - HideSpots";
         }
 
         // postfix
@@ -104,6 +106,5 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
             });
         }
-
     }
 }

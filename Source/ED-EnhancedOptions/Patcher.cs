@@ -28,6 +28,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchCompBreakdownable());
             _Patches.Add(new PatchCompSchedule());
             _Patches.Add(new PatchLetterStack());
+            _Patches.Add(new PatchMainTabsRoot());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -94,15 +95,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             else
             {
                 Log.Message("Skipping Applying SuppressStrippingCremationCorps as it is Disabled in settings.");
-            }
-
-            if (Mod_EnhancedOptions.Settings.HideSpots)
-            {
-                PatchMainTabsRoot.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying HideSpots as it is Disabled in settings.");
             }
 
             Log.Message(_LogLocation + "Complete.");
