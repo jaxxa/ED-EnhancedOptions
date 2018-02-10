@@ -26,3 +26,6 @@ Additional details can be found in About.xml
 
 0.18.0.4
 * Fixing error with Hide Spots.
+
+0.18.0.5
+* Code Refactor and Logging changes.
