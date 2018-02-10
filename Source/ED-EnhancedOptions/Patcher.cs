@@ -26,6 +26,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchBuildingTrap());
             _Patches.Add(new PatchBuildingTurretGun());
             _Patches.Add(new PatchCompBreakdownable());
+            _Patches.Add(new PatchCompSchedule());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -50,16 +51,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             else
             {
                 Log.Message("Skipping Applying PatchPlant as it is Disabled in settings.");
-            }
-
-            //If PlantLights24HEnabled is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.PlantLights24HEnabled)
-            {
-                PatchCompSchedule.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying PatchCompSchedule (SunLamps) as it is Disabled in settings.");
             }
 
             //If HidePowerConnections is enabled then apply the Patch.

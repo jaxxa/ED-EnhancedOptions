@@ -9,14 +9,11 @@ using Verse;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
 
-    static class PatchCompSchedule
+    class PatchCompSchedule : Patch
     {
-
-        static public void ApplyPatches(HarmonyInstance harmony)
+        
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchCompSchedule.ApplyPatches() Starting");
-
             //Get the Origional Method
             MethodInfo _CompSchedule_RecalculateAllowed = typeof(RimWorld.CompSchedule).GetMethod("RecalculateAllowed", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_CompSchedule_RecalculateAllowed, "_CompSchedule_RecalculateAllowed");
@@ -27,10 +24,18 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(_CompSchedule_RecalculateAllowed, new HarmonyMethod(_RecalculateAllowedPrefix), null);
-
-            Log.Message("PatchCompSchedule.ApplyPatches() Completed");
         }
 
+        protected override string PatchDescription()
+        {
+            return "PatchCompSchedule(SunLamps)";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.PlantLights24HEnabled;
+        }
+        
         // prefix
         // - wants instance, result and count
         // - wants to change count
@@ -47,6 +52,5 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             return true;
         }
-
     }
 }
