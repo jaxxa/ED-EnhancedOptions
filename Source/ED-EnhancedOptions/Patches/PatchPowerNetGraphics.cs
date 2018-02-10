@@ -10,13 +10,11 @@ using Verse;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
     
-    static class PatchPowerNetGraphics
+    class PatchPowerNetGraphics : Patch
     {
         
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-            Log.Message("PatchLetterStack.ApplyPatches() Starting");
-
             //Get the Method
             MethodInfo _PowerNetGraphics_PrintWirePieceConnecting = typeof(PowerNetGraphics).GetMethod("PrintWirePieceConnecting", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_PowerNetGraphics_PrintWirePieceConnecting, "_PowerNetGraphics_PrintWirePieceConnecting");
@@ -24,13 +22,21 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Get the Prefix
             MethodInfo _PrintWirePieceConnectingPrefixPrefix = typeof(PatchPowerNetGraphics).GetMethod("PrintWirePieceConnectingPrefix", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_PrintWirePieceConnectingPrefixPrefix, "_PrintWirePieceConnectingPrefixPrefix");
-            
+
             //Apply the Prefix Patch
             harmony.Patch(_PowerNetGraphics_PrintWirePieceConnecting, new HarmonyMethod(_PrintWirePieceConnectingPrefixPrefix), null);
-
-            Log.Message("PatchLetterStack.ApplyPatches() Completed");
         }
 
+        protected override string PatchDescription()
+        {
+            return "PatchPowerNetGraphics";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.HidePowerConnections;
+        }
+        
         public static bool PrintWirePieceConnectingPrefix(bool forPowerOverlay)
         {
             //When showing forPowerOverlay return true to allow the base method to run, drawing the cables.

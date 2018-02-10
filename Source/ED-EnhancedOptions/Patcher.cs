@@ -31,6 +31,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchMainTabsRoot());
             _Patches.Add(new PatchPerfs());
             _Patches.Add(new PatchPlant());
+            _Patches.Add(new PatchPowerNetGraphics());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -39,15 +40,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
 
 
-            //If HidePowerConnections is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.HidePowerConnections)
-            {
-                PatchPowerNetGraphics.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying HidePowerConnections as it is Disabled in settings.");
-            }
 
             //If Speed4WithoutDev is enabled then apply the Patch.
             if (Mod_EnhancedOptions.Settings.Speed4WithoutDev)
