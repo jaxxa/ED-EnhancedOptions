@@ -27,6 +27,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchBuildingTurretGun());
             _Patches.Add(new PatchCompBreakdownable());
             _Patches.Add(new PatchCompSchedule());
+            _Patches.Add(new PatchLetterStack());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -36,12 +37,6 @@ namespace EnhancedDevelopment.EnhancedOptions
 
 
 
-
-
-
-
-            //Apply the Letter Patch, setting checking is done inside the method so this is always applied.
-            PatchLetterStack.ApplyPatches(_Harmony);
 
             //If plant24H is enabled then apply the Patch.
             if (Mod_EnhancedOptions.Settings.Plant24HEnabled)

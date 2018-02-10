@@ -10,16 +10,12 @@ using Verse;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
 
-    //[HarmonyPatch(typeof(LetterStack))]
-    //[HarmonyPatch("ReceiveLetter")]
-    //[HarmonyPatch(new Type[] { typeof(Letter), typeof(string) })]
-    static class PatchLetterStack
+    class PatchLetterStack : Patch
     {
-        
-        static public void ApplyPatches(HarmonyInstance harmony)
-        {
-            Log.Message("PatchLetterStack.ApplyPatches() Starting");
 
+
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        {
             //Get the Method
             MethodInfo _Verse_LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
             Patcher.LogNULL(_Verse_LetterStack_ReceiveLetter, "_Verse_LetterStack_ReceiveLetter");
@@ -27,11 +23,20 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Get the Prefix
             MethodInfo _ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_ReceiveLetterPrefix, "_ReceiveLetterPrefix");
-            
+
             //Apply the Prefix Patch
             harmony.Patch(_Verse_LetterStack_ReceiveLetter, new HarmonyMethod(_ReceiveLetterPrefix), null);
+        }
 
-            Log.Message("PatchLetterStack.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "PatchLetterStack";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            //Apply the Letter Patch, setting checking is done inside the method so this is always applied.
+            return true;
         }
 
         public static bool ReceiveLetterPrefix(ref Letter let)
