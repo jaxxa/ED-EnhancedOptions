@@ -24,8 +24,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(_CompBreakdownable_CheckForBreakdown, new HarmonyMethod(_CheckForBreakdownPrefix), null);
-
-            Log.Message("PatchCompBreakdownable.ApplyPatches() Completed");
         }
 
         protected override string PatchDescription()
