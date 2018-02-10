@@ -33,6 +33,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchPlant());
             _Patches.Add(new PatchPowerNetGraphics());
             _Patches.Add(new PatchTimeControls());
+            _Patches.Add(new PatchTimeSlower());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -40,14 +41,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
 
-            if (Mod_EnhancedOptions.Settings.SuppressCombatSlowdown)
-            {
-                PatchTimeSlower.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying SuppressCombatSlowdown as it is Disabled in settings.");
-            }
+
 
             if (Mod_EnhancedOptions.Settings.SuppressStrippingCremationCorps)
             {

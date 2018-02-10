@@ -11,14 +11,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
     //[HarmonyPatch(typeof(Plant))]
     //[HarmonyPatch("Resting_Getter")]
-    static class PatchTimeSlower
+    class PatchTimeSlower : Patch
     {
 
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchPlant.ApplyPatches() Starting");
-
             //Get the Origional Method
             MethodInfo _Verse_TimeSlower_SignalForceNormalSpeed = typeof(Verse.TimeSlower).GetMethod("SignalForceNormalSpeed", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeed, "_Verse_TimeSlower_SignalForceNormalSpeed");
@@ -35,8 +32,16 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Apply the Prefix Patch
             harmony.Patch(_Verse_TimeSlower_SignalForceNormalSpeed, new HarmonyMethod(_PreventRunningPrefix), null);
             harmony.Patch(_Verse_TimeSlower_SignalForceNormalSpeedShort, new HarmonyMethod(_PreventRunningPrefix), null);
+        }
 
-            Log.Message("PatchPlant.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "SuppressCombatSlowdown";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.SuppressCombatSlowdown;
         }
 
         // prefix
