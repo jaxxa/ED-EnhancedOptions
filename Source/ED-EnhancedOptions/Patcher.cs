@@ -25,6 +25,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchBlightGraphics());
             _Patches.Add(new PatchBuildingTrap());
             _Patches.Add(new PatchBuildingTurretGun());
+            _Patches.Add(new PatchCompBreakdownable());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -69,16 +70,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             else
             {
                 Log.Message("Skipping Applying HidePowerConnections as it is Disabled in settings.");
-            }
-
-            //If PatchCompBreakdownable is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.HidePowerConnections)
-            {
-                PatchCompBreakdownable.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying PatchCompBreakdownable as it is Disabled in settings.");
             }
 
             //If LockDevMode is enabled then apply the Patch.

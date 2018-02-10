@@ -10,13 +10,10 @@ using Verse;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
     
-    static class PatchCompBreakdownable
+    class PatchCompBreakdownable : Patch
     {
-        
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-            Log.Message("PatchCompBreakdownable.ApplyPatches() Starting");
-
             //Get the Method
             MethodInfo _CompBreakdownable_CheckForBreakdown = typeof(CompBreakdownable).GetMethod("CheckForBreakdown", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_CompBreakdownable_CheckForBreakdown, "_CompBreakdownable_CheckForBreakdown");
@@ -24,17 +21,28 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Get the Prefix
             MethodInfo _CheckForBreakdownPrefix = typeof(PatchCompBreakdownable).GetMethod("CheckForBreakdownPrefix", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_CheckForBreakdownPrefix, "_CheckForBreakdownPrefix");
-            
+
             //Apply the Prefix Patch
             harmony.Patch(_CompBreakdownable_CheckForBreakdown, new HarmonyMethod(_CheckForBreakdownPrefix), null);
 
             Log.Message("PatchCompBreakdownable.ApplyPatches() Completed");
         }
 
+        protected override string PatchDescription()
+        {
+            return "PatchCompBreakdownable";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.HidePowerConnections;
+        }
+        
         public static bool CheckForBreakdownPrefix()
         {
             //When showing forPowerOverlay return true to allow the base method to run.
             return false;
         }
+
     }
 }
