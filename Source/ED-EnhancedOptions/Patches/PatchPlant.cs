@@ -8,17 +8,11 @@ using Verse;
 
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
-
-    //[HarmonyPatch(typeof(Plant))]
-    //[HarmonyPatch("Resting_Getter")]
-    static class PatchPlant
+    class PatchPlant : Patch
     {
-
-        static public void ApplyPatches(HarmonyInstance harmony)
+    
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchPlant.ApplyPatches() Starting");
-
             //Get the Origional Resting Property
             PropertyInfo _RimWorld_Plant_Resting = typeof(RimWorld.Plant).GetProperty("Resting", BindingFlags.NonPublic | BindingFlags.Instance);
             Patcher.LogNULL(_RimWorld_Plant_Resting, "RimWorld_Plant_Resting");
@@ -33,8 +27,16 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_Plant_Resting_Getter, new HarmonyMethod(_RestingGetterPrefix), null);
+        }
 
-            Log.Message("PatchPlant.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "Plant24HEnabled";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.Plant24HEnabled;
         }
 
         // prefix

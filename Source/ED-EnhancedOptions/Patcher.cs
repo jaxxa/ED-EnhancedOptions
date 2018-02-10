@@ -30,6 +30,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchLetterStack());
             _Patches.Add(new PatchMainTabsRoot());
             _Patches.Add(new PatchPerfs());
+            _Patches.Add(new PatchPlant());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -37,18 +38,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
 
-
-
-
-            //If plant24H is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.Plant24HEnabled)
-            {
-                PatchPlant.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying PatchPlant as it is Disabled in settings.");
-            }
 
             //If HidePowerConnections is enabled then apply the Patch.
             if (Mod_EnhancedOptions.Settings.HidePowerConnections)
