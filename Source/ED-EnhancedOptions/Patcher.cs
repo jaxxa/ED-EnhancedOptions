@@ -29,6 +29,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchCompSchedule());
             _Patches.Add(new PatchLetterStack());
             _Patches.Add(new PatchMainTabsRoot());
+            _Patches.Add(new PatchPerfs());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
@@ -57,16 +58,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             else
             {
                 Log.Message("Skipping Applying HidePowerConnections as it is Disabled in settings.");
-            }
-
-            //If LockDevMode is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.LockDevMode)
-            {
-                PatchPerfs.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying PatchPerfs as LockDevMode is Disabled in settings.");
             }
 
             //If Speed4WithoutDev is enabled then apply the Patch.
