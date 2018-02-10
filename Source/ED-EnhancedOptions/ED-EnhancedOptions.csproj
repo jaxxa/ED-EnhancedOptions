@@ -50,7 +50,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Detours\BlightGraphics.cs" />
+    <Compile Include="Detours\PatchBlightGraphics.cs" />
+    <Compile Include="Detours\Patch.cs" />
     <Compile Include="Detours\PatchBuildingTrap.cs" />
     <Compile Include="Detours\PatchBuildingTurretGun.cs" />
     <Compile Include="Detours\PatchPerfs.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="Detours\PatchLetterStack.cs" />
     <Compile Include="Detours\PatchCompSchedule.cs" />
     <Compile Include="Detours\PatchPlant.cs" />
-    <Compile Include="Detours\Patch.cs" />
+    <Compile Include="Detours\Patcher.cs" />
     <Compile Include="Mod_EnhancedOptions.cs" />
     <Compile Include="ModSettings_EnhancedOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

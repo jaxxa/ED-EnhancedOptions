@@ -23,11 +23,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Method
             MethodInfo _RimWorld_TimeControls_DoTimeControlsGUI = typeof(RimWorld.TimeControls).GetMethod("DoTimeControlsGUI", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_RimWorld_TimeControls_DoTimeControlsGUI, "_RimWorld_TimeControls_DoTimeControlsGUI");
+            Patcher.LogNULL(_RimWorld_TimeControls_DoTimeControlsGUI, "_RimWorld_TimeControls_DoTimeControlsGUI");
 
             //Get the Prefix Patch
             MethodInfo _DoTimeControlsGUIPrefix = typeof(EnhancedDevelopment.EnhancedOptions.Detours.TimeControls).GetMethod("DoTimeControlsGUI", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_DoTimeControlsGUIPrefix, "_DoTimeControlsGUIPrefix");
+            Patcher.LogNULL(_DoTimeControlsGUIPrefix, "_DoTimeControlsGUIPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_TimeControls_DoTimeControlsGUI, new HarmonyMethod(_DoTimeControlsGUIPrefix), null);

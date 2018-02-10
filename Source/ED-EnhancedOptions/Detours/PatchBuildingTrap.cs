@@ -18,11 +18,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Origional CheckSpring Method
             MethodInfo _RimWorld_BuildingTrap_CheckSpring = typeof(RimWorld.Building_Trap).GetMethod("CheckSpring", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patch.LogNULL(_RimWorld_BuildingTrap_CheckSpring, "_RimWorld_BuildingTrap_CheckSpring");
+            Patcher.LogNULL(_RimWorld_BuildingTrap_CheckSpring, "_RimWorld_BuildingTrap_CheckSpring");
 
             //Get the Prefix Patch
             MethodInfo _CheckSpringPrefix = typeof(PatchBuildingTrap).GetMethod("CheckSpringPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_CheckSpringPrefix, "_CheckSpringPrefix");
+            Patcher.LogNULL(_CheckSpringPrefix, "_CheckSpringPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_BuildingTrap_CheckSpring, new HarmonyMethod(_CheckSpringPrefix), null);

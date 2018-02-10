@@ -19,11 +19,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Method
             MethodInfo _CompBreakdownable_CheckForBreakdown = typeof(CompBreakdownable).GetMethod("CheckForBreakdown", BindingFlags.Public | BindingFlags.Instance);
-            Patch.LogNULL(_CompBreakdownable_CheckForBreakdown, "_CompBreakdownable_CheckForBreakdown");
+            Patcher.LogNULL(_CompBreakdownable_CheckForBreakdown, "_CompBreakdownable_CheckForBreakdown");
 
             //Get the Prefix
             MethodInfo _CheckForBreakdownPrefix = typeof(PatchCompBreakdownable).GetMethod("CheckForBreakdownPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_CheckForBreakdownPrefix, "_CheckForBreakdownPrefix");
+            Patcher.LogNULL(_CheckForBreakdownPrefix, "_CheckForBreakdownPrefix");
             
             //Apply the Prefix Patch
             harmony.Patch(_CompBreakdownable_CheckForBreakdown, new HarmonyMethod(_CheckForBreakdownPrefix), null);

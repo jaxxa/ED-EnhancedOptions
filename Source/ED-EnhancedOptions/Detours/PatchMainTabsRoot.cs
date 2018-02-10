@@ -22,12 +22,12 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Origional Method
             MethodInfo _Building_MainTabsRoot_ToggleTab = typeof(MainTabsRoot).GetMethod("ToggleTab", BindingFlags.Public | BindingFlags.Instance);
-            Patch.LogNULL(_Building_MainTabsRoot_ToggleTab, "_Building_MainTabsRoot_ToggleTab");
+            Patcher.LogNULL(_Building_MainTabsRoot_ToggleTab, "_Building_MainTabsRoot_ToggleTab");
 
 
             //Get the Prefix Patch
             MethodInfo _SetDrawStatusPostfix = typeof(PatchMainTabsRoot).GetMethod("SetDrawStatusPostfix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_SetDrawStatusPostfix, "_SetDrawStatusPostfix");
+            Patcher.LogNULL(_SetDrawStatusPostfix, "_SetDrawStatusPostfix");
 
             //Apply the Prefix Patch
             harmony.Patch(_Building_MainTabsRoot_ToggleTab, null, new HarmonyMethod(_SetDrawStatusPostfix));

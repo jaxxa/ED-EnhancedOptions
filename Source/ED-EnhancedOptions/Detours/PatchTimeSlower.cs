@@ -21,16 +21,16 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Origional Method
             MethodInfo _Verse_TimeSlower_SignalForceNormalSpeed = typeof(Verse.TimeSlower).GetMethod("SignalForceNormalSpeed", BindingFlags.Public | BindingFlags.Instance);
-            Patch.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeed, "_Verse_TimeSlower_SignalForceNormalSpeed");
+            Patcher.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeed, "_Verse_TimeSlower_SignalForceNormalSpeed");
 
             //Get the Origional Method
             MethodInfo _Verse_TimeSlower_SignalForceNormalSpeedShort = typeof(Verse.TimeSlower).GetMethod("SignalForceNormalSpeedShort", BindingFlags.Public | BindingFlags.Instance);
-            Patch.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeedShort, "_Verse_TimeSlower_SignalForceNormalSpeedShort");
+            Patcher.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeedShort, "_Verse_TimeSlower_SignalForceNormalSpeedShort");
 
 
             //Get the Prefix Patch
             MethodInfo _PreventRunningPrefix = typeof(PatchTimeSlower).GetMethod("PreventRunningPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_PreventRunningPrefix, "_PreventRunningPrefix");
+            Patcher.LogNULL(_PreventRunningPrefix, "_PreventRunningPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_Verse_TimeSlower_SignalForceNormalSpeed, new HarmonyMethod(_PreventRunningPrefix), null);

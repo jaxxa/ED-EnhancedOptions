@@ -19,11 +19,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Get the Method
             MethodInfo _PowerNetGraphics_PrintWirePieceConnecting = typeof(PowerNetGraphics).GetMethod("PrintWirePieceConnecting", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_PowerNetGraphics_PrintWirePieceConnecting, "_PowerNetGraphics_PrintWirePieceConnecting");
+            Patcher.LogNULL(_PowerNetGraphics_PrintWirePieceConnecting, "_PowerNetGraphics_PrintWirePieceConnecting");
 
             //Get the Prefix
             MethodInfo _PrintWirePieceConnectingPrefixPrefix = typeof(PatchPowerNetGraphics).GetMethod("PrintWirePieceConnectingPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_PrintWirePieceConnectingPrefixPrefix, "_PrintWirePieceConnectingPrefixPrefix");
+            Patcher.LogNULL(_PrintWirePieceConnectingPrefixPrefix, "_PrintWirePieceConnectingPrefixPrefix");
             
             //Apply the Prefix Patch
             harmony.Patch(_PowerNetGraphics_PrintWirePieceConnecting, new HarmonyMethod(_PrintWirePieceConnectingPrefixPrefix), null);
