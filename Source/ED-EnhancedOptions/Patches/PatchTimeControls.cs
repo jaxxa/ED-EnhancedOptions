@@ -12,15 +12,11 @@ using Verse.Sound;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
 
-    //[HarmonyPatch(typeof(Plant))]
-    //[HarmonyPatch("Resting_Getter")]
-    static class PatchTimeControls
+    class PatchTimeControls : Patch
     {
 
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-            Log.Message("PatchTimeControls.ApplyPatches() Starting");
-
             //Get the Method
             MethodInfo _RimWorld_TimeControls_DoTimeControlsGUI = typeof(RimWorld.TimeControls).GetMethod("DoTimeControlsGUI", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_RimWorld_TimeControls_DoTimeControlsGUI, "_RimWorld_TimeControls_DoTimeControlsGUI");
@@ -31,10 +27,17 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_TimeControls_DoTimeControlsGUI, new HarmonyMethod(_DoTimeControlsGUIPrefix), null);
-            
-            Log.Message("PatchTimeControls.ApplyPatches() Completed");
         }
 
+        protected override string PatchDescription()
+        {
+            return "Speed4WithoutDev";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.Speed4WithoutDev;
+        }
     }
 
     public static class TimeControls

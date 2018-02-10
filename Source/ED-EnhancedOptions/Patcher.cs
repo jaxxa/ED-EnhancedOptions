@@ -32,24 +32,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchPerfs());
             _Patches.Add(new PatchPlant());
             _Patches.Add(new PatchPowerNetGraphics());
+            _Patches.Add(new PatchTimeControls());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
 
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
-
-
-
-            //If Speed4WithoutDev is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.Speed4WithoutDev)
-            {
-                PatchTimeControls.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying Speed4WithoutDev as it is Disabled in settings.");
-            }
 
             if (Mod_EnhancedOptions.Settings.SuppressCombatSlowdown)
             {
