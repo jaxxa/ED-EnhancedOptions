@@ -10,29 +10,35 @@ using Verse;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
     
-    static class PatchPerfs
+    class PatchPerfs : Patch
     {
         
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-            Log.Message("PatchDebugWindowsOpener.ApplyPatches() Starting");
-            
             //Get the Origional DevMode Property
             PropertyInfo _Verse_Prefs_DevMode = typeof(Verse.Prefs).GetProperty("DevMode", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_Verse_Prefs_DevMode, "_Verse_Prefs_DevMode", true);
-            
+            Patcher.LogNULL(_Verse_Prefs_DevMode, "_Verse_Prefs_DevMode");
+
             //Get the Setter Method
             MethodInfo _Verse_Prefs_DevMode_Setter = _Verse_Prefs_DevMode.GetSetMethod(true);
-            Patch.LogNULL(_Verse_Prefs_DevMode_Setter, "_Verse_Prefs_DevMode_Setter", true);
-                        
+            Patcher.LogNULL(_Verse_Prefs_DevMode_Setter, "_Verse_Prefs_DevMode_Setter");
+
             //Get the Prefix
             MethodInfo _DevModeSetterPrefix = typeof(PatchPerfs).GetMethod("DevModeSetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_DevModeSetterPrefix, "_DevModeSetterPrefix", true);
-            
+            Patcher.LogNULL(_DevModeSetterPrefix, "_DevModeSetterPrefix");
+
             //Apply the Prefix Patch
             harmony.Patch(_Verse_Prefs_DevMode_Setter, new HarmonyMethod(_DevModeSetterPrefix), null);
+        }
 
-            Log.Message("PatchDebugWindowsOpener.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "LockDevMode";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.LockDevMode;
         }
 
         public static bool DevModeSetterPrefix()
@@ -40,5 +46,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Return False to Stop from Enabling Dev Mode.
             return false;
         }
+
     }
 }

@@ -8,33 +8,35 @@ using Verse;
 
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
-
-    //[HarmonyPatch(typeof(Plant))]
-    //[HarmonyPatch("Resting_Getter")]
-    static class PatchPlant
+    class PatchPlant : Patch
     {
-
-        static public void ApplyPatches(HarmonyInstance harmony)
+    
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchPlant.ApplyPatches() Starting");
-
             //Get the Origional Resting Property
             PropertyInfo _RimWorld_Plant_Resting = typeof(RimWorld.Plant).GetProperty("Resting", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patch.LogNULL(_RimWorld_Plant_Resting, "RimWorld_Plant_Resting", true);
+            Patcher.LogNULL(_RimWorld_Plant_Resting, "RimWorld_Plant_Resting");
 
             //Get the Resting Property Getter Method
             MethodInfo _RimWorld_Plant_Resting_Getter = _RimWorld_Plant_Resting.GetGetMethod(true);
-            Patch.LogNULL(_RimWorld_Plant_Resting_Getter, "RimWorld_Plant_Resting_Getter", true);
+            Patcher.LogNULL(_RimWorld_Plant_Resting_Getter, "RimWorld_Plant_Resting_Getter");
 
             //Get the Prefix Patch
             MethodInfo _RestingGetterPrefix = typeof(PatchPlant).GetMethod("RestingGetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_RestingGetterPrefix, "_RestingGetterPrefix", true);
+            Patcher.LogNULL(_RestingGetterPrefix, "_RestingGetterPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_Plant_Resting_Getter, new HarmonyMethod(_RestingGetterPrefix), null);
+        }
 
-            Log.Message("PatchPlant.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "Plant24HEnabled";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.Plant24HEnabled;
         }
 
         // prefix

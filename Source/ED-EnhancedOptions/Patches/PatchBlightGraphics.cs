@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using Harmony;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,21 @@ using Verse;
 
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
-    static class BlightGraphics
+    class PatchBlightGraphics : Patch
     {
-        public static void UpdateBlightGraphics()
-        {
-            Log.Message("Updating Blight Graphics");
 
+        protected override string PatchDescription()
+        {
+            return "Blight Graphics";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return true;
+        }
+
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        {
             if (Mod_EnhancedOptions.Settings.BlightImageIndex != 0)
             {
                 String _BlightPath = string.Empty;
@@ -56,9 +66,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             {
                 ThingDefOf.Blight.graphic.drawSize = new Vector2(Mod_EnhancedOptions.Settings.BlightScale, Mod_EnhancedOptions.Settings.BlightScale);
             }
-
-
-            Log.Message("Finished Updating Blight Graphics");
         }
     }
 }

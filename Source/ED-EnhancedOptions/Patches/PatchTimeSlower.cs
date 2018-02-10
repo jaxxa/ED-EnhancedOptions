@@ -11,32 +11,37 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
     //[HarmonyPatch(typeof(Plant))]
     //[HarmonyPatch("Resting_Getter")]
-    static class PatchTimeSlower
+    class PatchTimeSlower : Patch
     {
 
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchPlant.ApplyPatches() Starting");
-
             //Get the Origional Method
             MethodInfo _Verse_TimeSlower_SignalForceNormalSpeed = typeof(Verse.TimeSlower).GetMethod("SignalForceNormalSpeed", BindingFlags.Public | BindingFlags.Instance);
-            Patch.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeed, "_Verse_TimeSlower_SignalForceNormalSpeed", true);
+            Patcher.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeed, "_Verse_TimeSlower_SignalForceNormalSpeed");
 
             //Get the Origional Method
             MethodInfo _Verse_TimeSlower_SignalForceNormalSpeedShort = typeof(Verse.TimeSlower).GetMethod("SignalForceNormalSpeedShort", BindingFlags.Public | BindingFlags.Instance);
-            Patch.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeedShort, "_Verse_TimeSlower_SignalForceNormalSpeedShort", true);
+            Patcher.LogNULL(_Verse_TimeSlower_SignalForceNormalSpeedShort, "_Verse_TimeSlower_SignalForceNormalSpeedShort");
 
 
             //Get the Prefix Patch
             MethodInfo _PreventRunningPrefix = typeof(PatchTimeSlower).GetMethod("PreventRunningPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_PreventRunningPrefix, "_PreventRunningPrefix", true);
+            Patcher.LogNULL(_PreventRunningPrefix, "_PreventRunningPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_Verse_TimeSlower_SignalForceNormalSpeed, new HarmonyMethod(_PreventRunningPrefix), null);
             harmony.Patch(_Verse_TimeSlower_SignalForceNormalSpeedShort, new HarmonyMethod(_PreventRunningPrefix), null);
+        }
 
-            Log.Message("PatchPlant.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "SuppressCombatSlowdown";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.SuppressCombatSlowdown;
         }
 
         // prefix

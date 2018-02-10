@@ -10,33 +10,37 @@ using Verse;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
 
-    //[HarmonyPatch(typeof(LetterStack))]
-    //[HarmonyPatch("ReceiveLetter")]
-    //[HarmonyPatch(new Type[] { typeof(Letter), typeof(string) })]
-    static class PatchLetterStack
+    class PatchLetterStack : Patch
     {
-        
-        static public void ApplyPatches(HarmonyInstance harmony)
-        {
-            Log.Message("PatchLetterStack.ApplyPatches() Starting");
 
+
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        {
             //Get the Method
             MethodInfo _Verse_LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
-            Patch.LogNULL(_Verse_LetterStack_ReceiveLetter, "_Verse_LetterStack_ReceiveLetter", true);
+            Patcher.LogNULL(_Verse_LetterStack_ReceiveLetter, "_Verse_LetterStack_ReceiveLetter");
 
             //Get the Prefix
             MethodInfo _ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_ReceiveLetterPrefix, "_ReceiveLetterPrefix", true);
-            
+            Patcher.LogNULL(_ReceiveLetterPrefix, "_ReceiveLetterPrefix");
+
             //Apply the Prefix Patch
             harmony.Patch(_Verse_LetterStack_ReceiveLetter, new HarmonyMethod(_ReceiveLetterPrefix), null);
+        }
 
-            Log.Message("PatchLetterStack.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "PatchLetterStack";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            //Apply the Letter Patch, setting checking is done inside the method so this is always applied.
+            return true;
         }
 
         public static bool ReceiveLetterPrefix(ref Letter let)
         {
-            //Log.Message("Big Threat");
             Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label + "'");
 
             if (let.def == LetterDefOf.ThreatBig & !Mod_EnhancedOptions.Settings.ShowLettersThreatBig)
@@ -72,7 +76,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             if (Mod_EnhancedOptions.Settings.LetterNamesToSuppressEnabled)
             {
                 List<String> _String = Mod_EnhancedOptions.Settings.LetterNamesToSuppress.Split(',').ToList();
-                Log.Message(_String.Count().ToString());
                 if (_String.Contains(let.label))
                 {
                     Log.Message("Matched with LetterNamesToSuppress");

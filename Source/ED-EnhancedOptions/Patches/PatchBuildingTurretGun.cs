@@ -9,31 +9,35 @@ using Verse;
 
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
-    static class PatchBuildingTurretGun
+    class PatchBuildingTurretGun : Patch
     {
-
-
-        static public void ApplyPatches(HarmonyInstance harmony)
+        
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchBuildingTurretGun.ApplyPatches() Starting");
-
             //Get the Origional Property
             PropertyInfo _RimWorld_BuildingTurretGun_CanSetForcedTarget = typeof(RimWorld.Building_TurretGun).GetProperty("CanSetForcedTarget", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget, "_RimWorld_BuildingTurretGun_CanSetForcedTarget", true);
+            Patcher.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget, "_RimWorld_BuildingTurretGun_CanSetForcedTarget");
 
             //Get the Property Getter Method
             MethodInfo _RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter = _RimWorld_BuildingTurretGun_CanSetForcedTarget.GetGetMethod(true);
-            Patch.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, "_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter", false);
+            Patcher.LogNULL(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, "_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter");
 
             //Get the Prefix Patch
             MethodInfo _CanSetForcedTargetPrefix = typeof(PatchBuildingTurretGun).GetMethod("CanSetForcedTargetPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_CanSetForcedTargetPrefix, "_CanSetForcedTargetPrefix", true);
+            Patcher.LogNULL(_CanSetForcedTargetPrefix, "_CanSetForcedTargetPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_RimWorld_BuildingTurretGun_CanSetForcedTarget_Getter, new HarmonyMethod(_CanSetForcedTargetPrefix), null);
+        }
 
-            Log.Message("PatchBuildingTurretGun.ApplyPatches() Completed");
+        protected override string PatchDescription()
+        {
+            return "CanSetForcedTargetPrefix";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.TurretControlEnabled;
         }
 
 
@@ -43,10 +47,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         // - returns a boolean that controls if original is executed (true) or not (false)
         public static Boolean CanSetForcedTargetPrefix(ref bool __result, ref Building_TurretGun __instance)
         {
-
-            //Write to log to debug id the patch is running.
-            //Log.Message("Prefix Running");
-
 
             //Allow for all Turrets belonging to the Player
             if (__instance.Faction == Faction.OfPlayer)
@@ -59,7 +59,5 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Retuen true so the origional method is executed.
             return true;
         }
-
-
     }
 }

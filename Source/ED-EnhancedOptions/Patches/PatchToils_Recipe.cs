@@ -10,30 +10,33 @@ using Verse.AI;
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
 
-    //[HarmonyPatch(typeof(Plant))]
-    //[HarmonyPatch("Resting_Getter")]
-    static class PatchToils_Recipe
+    class PatchToils_Recipe : Patch
     {
 
-        static public void ApplyPatches(HarmonyInstance harmony)
+        protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-            Log.Message("PatchToils_Recipe.ApplyPatches() Starting");
-
             //Get the Origional Method
             MethodInfo _Toils_Recipe_CalculateIngredients = typeof(Toils_Recipe).GetMethod("CalculateIngredients", BindingFlags.NonPublic | BindingFlags.Static);
-            Patch.LogNULL(_Toils_Recipe_CalculateIngredients, "_Toils_Recipe_CalculateIngredients", true);
-            
+            Patcher.LogNULL(_Toils_Recipe_CalculateIngredients, "_Toils_Recipe_CalculateIngredients");
+
             //Get the Prefix Patch
             MethodInfo _CalculateIngredientsPrefix = typeof(PatchToils_Recipe).GetMethod("CalculateIngredientsPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patch.LogNULL(_CalculateIngredientsPrefix, "_CalculateIngredientsPrefix", true);
+            Patcher.LogNULL(_CalculateIngredientsPrefix, "_CalculateIngredientsPrefix");
 
             //Apply the Prefix Patch
             harmony.Patch(_Toils_Recipe_CalculateIngredients, new HarmonyMethod(_CalculateIngredientsPrefix), null);
-
-            Log.Message("PatchToils_Recipe.ApplyPatches() Completed");
         }
 
+        protected override string PatchDescription()
+        {
+            return "SuppressStrippingCremationCorps";
+        }
+
+        protected override bool ShouldPatchApply()
+        {
+            return Mod_EnhancedOptions.Settings.SuppressStrippingCremationCorps;
+        }
+        
         // prefix
         // - wants instance, result and count
         // - wants to change count
@@ -86,7 +89,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             }
             job.placedThings = null;
 
-           // return list;
+            // return list;
             __result = list;
             return false;
         }
