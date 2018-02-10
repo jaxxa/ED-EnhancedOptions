@@ -32,17 +32,17 @@ namespace EnhancedDevelopment.EnhancedOptions
         /// </summary>
         public void ApplyPatchIfRequired(HarmonyInstance harmony = null)
         {
-            string LogLocation = "EnhancedOptions.Patch.ApplyPatchIfRequired: ";
+            string _LogLocation = "EnhancedOptions.Patch.ApplyPatchIfRequired: ";
 
             if (this.ShouldPatchApply())
             {
-                Log.Message(LogLocation + "Applying Patch: " + this.PatchDescription());
+                Log.Message(_LogLocation + "Applying Patch: " + this.PatchDescription());
                 this.ApplyPatch(harmony);
-                Log.Message(LogLocation + "Applied Patch: " + this.PatchDescription());
+                Log.Message(_LogLocation + "Applied Patch: " + this.PatchDescription());
             }
             else
             {
-                Log.Message(LogLocation + "Skipping Applying Patch: " + this.PatchDescription());
+                Log.Message(_LogLocation + "Skipping Applying Patch: " + this.PatchDescription());
             }
         }
 

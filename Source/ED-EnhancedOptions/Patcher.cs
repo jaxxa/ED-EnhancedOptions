@@ -16,15 +16,26 @@ namespace EnhancedDevelopment.EnhancedOptions
     {
         static Patcher()
         {
+            string _LogLocation = "EnhancedOptions.Patcher.Patcher(): ";
+
+            Log.Message(_LogLocation + "Starting.");
+
+            //Create List of Patches
             List<Patch> _Patches = new List<Patch>();
             _Patches.Add(new PatchBlightGraphics());
+            _Patches.Add(new PatchBuildingTrap());
 
-            _Patches.ForEach(p => p.ApplyPatchIfRequired());
-
-
-            Log.Message("Patching EnhancedDevelopment.WarningOptions");
-            //HarmonyInstance.Create("EnhancedDevelopment.WarningOptions")PatchAll(Assembly.GetExecutingAssembly());
+            //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
+
+            //Iterate Patches
+            _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
+
+
+
+
+
+
 
             //Apply the Letter Patch, setting checking is done inside the method so this is always applied.
             PatchLetterStack.ApplyPatches(_Harmony);
@@ -47,16 +58,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             else
             {
                 Log.Message("Skipping Applying PatchCompSchedule (SunLamps) as it is Disabled in settings.");
-            }
-
-            //If SafeTrap is enabled then apply the Patch.
-            if (Mod_EnhancedOptions.Settings.SafeTrapEnabled)
-            {
-                PatchBuildingTrap.ApplyPatches(_Harmony);
-            }
-            else
-            {
-                Log.Message("Skipping Applying PatchBuildingTrap as it is Disabled in settings.");
             }
 
             //If TurretControl is enabled then apply the Patch.
@@ -135,8 +136,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             {
                 Log.Message("Skipping Applying HideSpots as it is Disabled in settings.");
             }
-                      
-            Log.Message("Patching EnhancedDevelopment.WarningOptions Complete");
+
+            Log.Message(_LogLocation + "Complete.");
         }
 
         /// <summary>
