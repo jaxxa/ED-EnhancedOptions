@@ -32,6 +32,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool Speed4WithoutDev = false;
         public bool SuppressCombatSlowdown = false;
         public bool HideSpots = false;
+        public bool SuppressRoofColapse = false;
 
         /// <summary>
         /// DrawSize of the Blight, Default 1
@@ -81,6 +82,10 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false, true);
             Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false, true);
+            Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false, true);
+
+
+            
         }
 
 
@@ -180,7 +185,12 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* Hide Spots:");
             listing_Standard.CheckboxLabeled("Hide Spots", ref HideSpots, "Stops Marriage, Caravan Packing and Party Spots from being show all the time. They will still show when Architect menu is open or one of the spots is the first thing selected. (Only checks when menu is changed)");
-                        
+
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("*Suppress Roof Colapse");
+            listing_Standard.CheckboxLabeled("Suppress Roof Colapse", ref SuppressRoofColapse, "Stops the Roof from Collapsing when support Pillars are removed.");
+
+
             listing_Standard.End();
         }
     }
