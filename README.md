@@ -29,3 +29,7 @@ Additional details can be found in About.xml
 
 0.18.0.5
 * Code Refactor and Logging changes.
+
+0.18.0.6
+* Support for SuppressRainFire.
+* Support for Suppressing Roof Collapse.
