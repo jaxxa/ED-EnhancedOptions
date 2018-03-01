@@ -33,6 +33,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool SuppressCombatSlowdown = false;
         public bool HideSpots = false;
         public bool SuppressRoofColapse = false;
+        public bool SuppressRainFire = false;
 
         /// <summary>
         /// DrawSize of the Blight, Default 1
@@ -83,9 +84,11 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false, true);
             Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false, true);
             Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false, true);
-
+            Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false, true);
 
             
+
+
         }
 
 
@@ -189,6 +192,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.GapLine(12f);
             listing_Standard.Label("*Suppress Roof Colapse");
             listing_Standard.CheckboxLabeled("Suppress Roof Colapse", ref SuppressRoofColapse, "Stops the Roof from Collapsing when support Pillars are removed.");
+
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("*Suppress Rain Fire");
+            listing_Standard.CheckboxLabeled("Suppress Rain Fire", ref SuppressRainFire, "Stops Fires from Causing Rain, Warning can burn the whole map and large fires can cause lag when they are burning.");
+
+
+
 
 
             listing_Standard.End();
