@@ -4,10 +4,11 @@
 	<targetVersion>0.18.0</targetVersion>
 	<author>Jaxxa</author>
 	<url>https://ludeon.com/forums/index.php?topic=37158</url>
-	<description>Version: 0.18.0.5
+	<description>Version: 0.18.0.6
 Discussion, Non Steam Downloads and GitHub Repositories of this mod is available at: https://ludeon.com/forums/index.php?topic=37158
 
 Please Check the Mod Settings by going into the Options, Selecting "Mod Options" and then "ED-EnhancedOptions".
+You will most likely not wish to use all options.
 
 This mod adds various additional options to change the way Rimworld works. These options are as follows:
  - Stop Letters from being shown.
@@ -22,5 +23,8 @@ This mod adds various additional options to change the way Rimworld works. These
  - Stop Forced Time Slowdown (Combat).
  - Stop Stripping Corps before Cremation.
  - Hide Marriage CaravanPacking and Party Spots.
-	</description>
-</ModMetaData>
+ - Suppress Rain caused by Fire.
+ - Suppressing Roof Collapse.
+ - Ability to warn about Very Large Log Files.
+ </description>
+</ModMetaData> 
