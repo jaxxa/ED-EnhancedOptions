@@ -34,6 +34,8 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool HideSpots = false;
         public bool SuppressRoofColapse = false;
         public bool SuppressRainFire = false;
+        public bool CheckLogFileSize = false;
+        public int LogFileSizeThresholdMB = 50;
 
         /// <summary>
         /// DrawSize of the Blight, Default 1
@@ -85,10 +87,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false, true);
             Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false, true);
             Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false, true);
-
+            Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false, true);
             
-
-
         }
 
 
@@ -197,9 +197,12 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.Label("*Suppress Rain Fire");
             listing_Standard.CheckboxLabeled("Suppress Rain Fire", ref SuppressRainFire, "Stops Fires from Causing Rain, Warning can burn the whole map and large fires can cause lag when they are burning.");
 
+            listing_Standard.GapLine(12f);
+            listing_Standard.Label("Check Log File Size - Currently " + LogFileSizeThresholdMB + " MB.");
+            listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
+            listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
 
-
-
+            
 
             listing_Standard.End();
         }
