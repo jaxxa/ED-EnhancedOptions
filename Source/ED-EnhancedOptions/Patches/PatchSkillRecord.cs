@@ -73,14 +73,21 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             }
             if (!direct)
             {
-               // num *= __Instance.pawn.GetStatValue(StatDefOf.GlobalLearningFactor, true);
+                //Private Field acessed through Reflection
+
+                // num *= __instance.pawn.GetStatValue(StatDefOf.GlobalLearningFactor, true);
+                FieldInfo _PawnProperty = typeof(SkillRecord).GetField("pawn", BindingFlags.NonPublic | BindingFlags.Instance);
+                //Patcher.LogNULL(_PawnProperty, "_PawnProperty", true);
+                Pawn _Pawn =  _PawnProperty.GetValue(__instance) as Pawn;
+                //Patcher.LogNULL(_Pawn, "_Pawn", true);
+                num *= _Pawn.GetStatValue(StatDefOf.GlobalLearningFactor, true);
+
                 if (__instance.LearningSaturatedToday)
                 {
                     num *= 0.2f;
                 }
             }
-
-
+            
             __result = num;
             
             //Retuen False so the origional method is not executed, overriting the false result.
