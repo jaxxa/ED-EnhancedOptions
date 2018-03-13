@@ -55,6 +55,12 @@ namespace EnhancedDevelopment.EnhancedOptions
         public int BlightImageIndex = 0;
         
         public bool SuppressStrippingCremationCorps = false;
+        
+        public float LearnFactorPassionNone = 0.35f;
+        public float LearnFactorPassionMinor = 1.0f;
+        public float LearnFactorPassionMajor = 1.5f;
+
+
 
 
         public override void ExposeData()
@@ -88,7 +94,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false, true);
             Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false, true);
             Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false, true);
+
+
+            Scribe_Values.Look<float>(ref LearnFactorPassionNone, "LearnFactorPassionNone", 0.35f, true);
+            Scribe_Values.Look<float>(ref LearnFactorPassionMinor, "LearnFactorPassionMinor", 1.0f, true);
+            Scribe_Values.Look<float>(ref LearnFactorPassionMajor, "LearnFactorPassionMajor", 1.5f, true);
             
+
         }
 
 
@@ -202,7 +214,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
             listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
 
-            
+            listing_Standard.GapLine(12f);
+
+            // listing_Standard.TextFieldNumericLabeled
+            String _Buffer1 = null;
+            listing_Standard.TextFieldNumeric<float>(ref LearnFactorPassionNone, ref _Buffer1);
+
+
 
             listing_Standard.End();
         }
