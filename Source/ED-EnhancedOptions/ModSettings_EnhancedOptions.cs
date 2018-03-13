@@ -53,12 +53,13 @@ namespace EnhancedDevelopment.EnhancedOptions
         /// 
         /// </summary>
         public int BlightImageIndex = 0;
-        
+
         public bool SuppressStrippingCremationCorps = false;
-        
-        public float LearnFactorPassionNone = 0.35f;
-        public float LearnFactorPassionMinor = 1.0f;
-        public float LearnFactorPassionMajor = 1.5f;
+
+        public bool ApplyLearnFactorChanges = false;
+        public int LearnFactorPassionNonePercentage = 35;
+        public int LearnFactorPassionMinorPercentage = 100;
+        public int LearnFactorPassionMajorPercentage = 150;
 
 
 
@@ -85,7 +86,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false, true);
             Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false, true);
             Scribe_Values.Look<bool>(ref SuppressCombatSlowdown, "SuppressCombatSlowdown", false, true);
-                        
+
             Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1, true);
             Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0, true);
 
@@ -95,12 +96,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false, true);
             Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false, true);
 
+            Scribe_Values.Look<bool>(ref ApplyLearnFactorChanges, "ApplyLearnFactorChanges", false, true);
 
-            Scribe_Values.Look<float>(ref LearnFactorPassionNone, "LearnFactorPassionNone", 0.35f, true);
-            Scribe_Values.Look<float>(ref LearnFactorPassionMinor, "LearnFactorPassionMinor", 1.0f, true);
-            Scribe_Values.Look<float>(ref LearnFactorPassionMajor, "LearnFactorPassionMajor", 1.5f, true);
             
-
+            Scribe_Values.Look<int>(ref LearnFactorPassionNonePercentage, "LearnFactorPassionNonePercentage", 35, true);
+            Scribe_Values.Look<int>(ref LearnFactorPassionMinorPercentage, "LearnFactorPassionMinorPercentage", 100, true);
+            Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150, true);
+            
         }
 
 
@@ -149,12 +151,12 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.Label("* Time Speed:");
             listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
             listing_Standard.CheckboxLabeled("Suppress Combat Slowdown", ref SuppressCombatSlowdown, "Suppress Limiting Speed in Combat.");
-            
+
             listing_Standard.GapLine(12f);
             listing_Standard.Label("* Blight:");
             listing_Standard.Label("Blight Scale:  " + BlightScale);
-            BlightScale = (float)Math.Round((Double)listing_Standard.Slider(BlightScale, 1, 10),1);
-                        
+            BlightScale = (float)Math.Round((Double)listing_Standard.Slider(BlightScale, 1, 10), 1);
+
             String _CurrentBlightImageDescription = string.Empty;
             switch (BlightImageIndex)
             {
@@ -177,7 +179,7 @@ namespace EnhancedDevelopment.EnhancedOptions
                     _CurrentBlightImageDescription = "Default";
                     break;
             }
-            
+
 
             Rect _BlightSelection = listing_Standard.GetRect(30f);
             Widgets.Label(_BlightSelection.RightHalf(), _CurrentBlightImageDescription);
@@ -216,13 +218,23 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             listing_Standard.GapLine(12f);
 
-            // listing_Standard.TextFieldNumericLabeled
-            String _Buffer1 = null;
-            listing_Standard.TextFieldNumeric<float>(ref LearnFactorPassionNone, ref _Buffer1);
-
-
-
+            listing_Standard.Label("Learn Factor Passion Percentages:");
+            ;
+            listing_Standard.CheckboxLabeled("Apply Learn Factor Passion Changes", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
+            listing_Standard.TextFieldNumericLabeled<int>("Passion None: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone);      
+            listing_Standard.TextFieldNumericLabeled<int>("Passion Minor", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor);
+            listing_Standard.TextFieldNumericLabeled<int>("Passion Major", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor);
+            
+            listing_Standard.GapLine(12f);
             listing_Standard.End();
         }
-    }
-}
+
+        string _Buffer_LearnFactorPassionNone;
+        string _Buffer_LearnFactorPassionMinor;
+        string _Buffer_LearnFactorPassionMajor;
+
+
+    }//Class
+
+
+} //NameSpace
