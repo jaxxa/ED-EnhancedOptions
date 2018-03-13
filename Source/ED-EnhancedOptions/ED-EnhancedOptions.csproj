@@ -61,6 +61,7 @@
     <Compile Include="Patches\PatchPerfs.cs" />
     <Compile Include="Patches\PatchCompBreakdownable.cs" />
     <Compile Include="Patches\PatchMainTabsRoot.cs" />
+    <Compile Include="Patches\PatchSkillUI.cs" />
     <Compile Include="Patches\PatchToils_Recipe.cs" />
     <Compile Include="Patches\PatchTimeSlower.cs" />
     <Compile Include="Patches\PatchTimeControls.cs" />

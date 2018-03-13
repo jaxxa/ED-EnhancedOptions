@@ -38,6 +38,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchRoofCollapseBuffer());
             _Patches.Add(new PatchFireWatcher());
             _Patches.Add(new PatchSkillRecord());
+            _Patches.Add(new PatchSkillUI());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
