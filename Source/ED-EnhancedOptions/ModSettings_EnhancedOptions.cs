@@ -68,40 +68,40 @@ namespace EnhancedDevelopment.EnhancedOptions
         {
             base.ExposeData();
 
-            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersThreatSmall, "ShowLettersThreatSmall", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersNegativeEvent, "ShowLettersNegativeEvent", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersNeutralEvent, "ShowLettersNeutralEvent", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersPositiveEvent, "ShowLettersPositiveEvent", true, true);
-            Scribe_Values.Look<bool>(ref ShowLettersItemStashFeeDemand, "ShowLettersItemStashFeeDemand", true, true);
-            Scribe_Values.Look<bool>(ref LetterNamesToSuppressEnabled, "LetterNamesToSuppressEnabled", false, true);
-            Scribe_Values.Look<string>(ref LetterNamesToSuppress, "LetterNamesToSuppress", String.Empty, true);
+            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true);
+            Scribe_Values.Look<bool>(ref ShowLettersThreatSmall, "ShowLettersThreatSmall", true);
+            Scribe_Values.Look<bool>(ref ShowLettersNegativeEvent, "ShowLettersNegativeEvent", true);
+            Scribe_Values.Look<bool>(ref ShowLettersNeutralEvent, "ShowLettersNeutralEvent", true);
+            Scribe_Values.Look<bool>(ref ShowLettersPositiveEvent, "ShowLettersPositiveEvent", true);
+            Scribe_Values.Look<bool>(ref ShowLettersItemStashFeeDemand, "ShowLettersItemStashFeeDemand", true);
+            Scribe_Values.Look<bool>(ref LetterNamesToSuppressEnabled, "LetterNamesToSuppressEnabled", false);
+            Scribe_Values.Look<string>(ref LetterNamesToSuppress, "LetterNamesToSuppress", String.Empty);
 
-            Scribe_Values.Look<bool>(ref Plant24HEnabled, "Plant24HEnabled", false, true);
-            Scribe_Values.Look<bool>(ref PlantLights24HEnabled, "PlantLights24HEnabled", Plant24HEnabled, true); //If Not Set Default to Plant24HEnabled for backwards compatibility.
-            Scribe_Values.Look<bool>(ref SafeTrapEnabled, "SafeTrapEnabled", false, true);
-            Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false, true);
-            Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false, true);
-            Scribe_Values.Look<bool>(ref SuppressBreakdown, "SuppressBreakdown", false, true);
-            Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false, true);
-            Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false, true);
-            Scribe_Values.Look<bool>(ref SuppressCombatSlowdown, "SuppressCombatSlowdown", false, true);
+            Scribe_Values.Look<bool>(ref Plant24HEnabled, "Plant24HEnabled", false);
+            Scribe_Values.Look<bool>(ref PlantLights24HEnabled, "PlantLights24HEnabled", false);
+            Scribe_Values.Look<bool>(ref SafeTrapEnabled, "SafeTrapEnabled", false);
+            Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false);
+            Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false);
+            Scribe_Values.Look<bool>(ref SuppressBreakdown, "SuppressBreakdown", false);
+            Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false);
+            Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false);
+            Scribe_Values.Look<bool>(ref SuppressCombatSlowdown, "SuppressCombatSlowdown", false);
 
-            Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1, true);
-            Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0, true);
+            Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1);
+            Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0);
 
-            Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false, true);
-            Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false, true);
-            Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false, true);
-            Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false, true);
-            Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false, true);
+            Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false);
+            Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false);
+            Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false);
+            Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false);
+            Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false);
 
-            Scribe_Values.Look<bool>(ref ApplyLearnFactorChanges, "ApplyLearnFactorChanges", false, true);
+            Scribe_Values.Look<bool>(ref ApplyLearnFactorChanges, "ApplyLearnFactorChanges", false);
 
             
-            Scribe_Values.Look<int>(ref LearnFactorPassionNonePercentage, "LearnFactorPassionNonePercentage", 35, true);
-            Scribe_Values.Look<int>(ref LearnFactorPassionMinorPercentage, "LearnFactorPassionMinorPercentage", 100, true);
-            Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150, true);
+            Scribe_Values.Look<int>(ref LearnFactorPassionNonePercentage, "LearnFactorPassionNonePercentage", 35);
+            Scribe_Values.Look<int>(ref LearnFactorPassionMinorPercentage, "LearnFactorPassionMinorPercentage", 100);
+            Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150);
             
         }
 
