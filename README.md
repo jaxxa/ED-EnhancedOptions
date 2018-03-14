@@ -34,3 +34,6 @@ Additional details can be found in About.xml
 * Support for SuppressRainFire.
 * Support for Suppressing Roof Collapse.
 * Ability to warn about Very Large Log Files.
+
+0.18.0.7
+* Adding support for modifying Learn Rate.

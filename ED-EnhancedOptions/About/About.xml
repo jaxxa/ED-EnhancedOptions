@@ -4,7 +4,7 @@
 	<targetVersion>0.18.0</targetVersion>
 	<author>Jaxxa</author>
 	<url>https://ludeon.com/forums/index.php?topic=37158</url>
-	<description>Version: 0.18.0.6
+	<description>Version: 0.18.0.7
 Discussion, Non Steam Downloads and GitHub Repositories of this mod is available at: https://ludeon.com/forums/index.php?topic=37158
 
 Please Check the Mod Settings by going into the Options, Selecting "Mod Options" and then "ED-EnhancedOptions".
@@ -26,5 +26,6 @@ This mod adds various additional options to change the way Rimworld works. These
  - Suppress Rain caused by Fire.
  - Suppressing Roof Collapse.
  - Ability to warn about Very Large Log Files.
+ - Ability to modifying Learn Rate.
  </description>
 </ModMetaData> 
