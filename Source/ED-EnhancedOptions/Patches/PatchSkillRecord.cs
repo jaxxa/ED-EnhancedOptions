@@ -37,8 +37,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         protected override bool ShouldPatchApply()
         {
-            return true;
-            //return Mod_EnhancedOptions.Settings.SuppressRainFire;
+            return Mod_EnhancedOptions.Settings.ApplyLearnFactorChanges;
         }
 
 
