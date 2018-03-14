@@ -9,7 +9,12 @@ namespace EnhancedDevelopment.EnhancedOptions
 {
     class ModSettings_EnhancedOptions : ModSettings
     {
+        //Un Saved
+        string _Buffer_LearnFactorPassionNone;
+        string _Buffer_LearnFactorPassionMinor;
+        string _Buffer_LearnFactorPassionMajor;
 
+        //Saved
         public bool ShowLettersThreatBig = true;
         public bool ShowLettersThreatSmall = true;
         public bool ShowLettersNegativeEvent = true;
@@ -61,9 +66,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public int LearnFactorPassionMinorPercentage = 100;
         public int LearnFactorPassionMajorPercentage = 150;
 
-
-
-
+       
         public override void ExposeData()
         {
             base.ExposeData();
@@ -104,8 +107,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150);
             
         }
-
-
+        
         public void DoSettingsWindowContents(Rect canvas)
         {
             Listing_Standard listing_Standard = new Listing_Standard();
@@ -223,61 +225,30 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.CheckboxLabeled("*Learning Percentages", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
 
 
-            Rect _Rect = listing_Standard.GetRect(30f);
-            _Buffer_LearnFactorPassionNone = null;
+            DrawPassionPercentage(listing_Standard, "No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone, 35);
+            DrawPassionPercentage(listing_Standard, "Minor Pass: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor, 100);
+            DrawPassionPercentage(listing_Standard, "Major Pass: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
 
-            Listing_Standard _ListingSub1 = new Listing_Standard();
-            _ListingSub1.Begin(_Rect.LeftPartPixels(175));
-            _ListingSub1.TextFieldNumericLabeled<int>("No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone);
-            _ListingSub1.End();
-            
-            Listing_Standard _ListingSub2 = new Listing_Standard();
-            _ListingSub2.Begin(_Rect.RightPartPixels(75));
-            _ListingSub2.IntSetter(ref LearnFactorPassionNonePercentage, 35, "Default");
-            _ListingSub2.End();
-
-
-            Rect _Rect2 = listing_Standard.GetRect(30f);
-            _Buffer_LearnFactorPassionMinor = null;
-
-            Listing_Standard _ListingSub3 = new Listing_Standard();
-            _ListingSub3.Begin(_Rect2.LeftPartPixels(175));
-            _ListingSub3.TextFieldNumericLabeled<int>("Minor Pass: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor);
-            _ListingSub3.End();
-
-            Listing_Standard _ListingSub4 = new Listing_Standard();
-            _ListingSub4.Begin(_Rect2.RightPartPixels(75));
-            _ListingSub4.IntSetter(ref LearnFactorPassionMinorPercentage, 100, "Default");
-            _ListingSub4.End();
-
-
-            Rect _Rect3 = listing_Standard.GetRect(30f);
-            _Buffer_LearnFactorPassionMajor = null;
-
-            Listing_Standard _ListingSub5 = new Listing_Standard();
-            _ListingSub5.Begin(_Rect3.LeftPartPixels(175));
-            _ListingSub5.TextFieldNumericLabeled<int>("Major Pass: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor);
-            _ListingSub5.End();
-
-            Listing_Standard _ListingSub6 = new Listing_Standard();
-            _ListingSub6.Begin(_Rect3.RightPartPixels(75));
-            _ListingSub6.IntSetter(ref LearnFactorPassionMajorPercentage, 150, "Default");
-            _ListingSub6.End();
-
-
-            // listing_Standard.TextFieldNumericLabeled<int>("No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone);      
-            //listing_Standard.TextFieldNumericLabeled<int>("Minor Passion", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor);
-            //listing_Standard.TextFieldNumericLabeled<int>("Major Passion", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor);
-            
             listing_Standard.GapLine(12f);
             listing_Standard.End();
         }
 
-        string _Buffer_LearnFactorPassionNone;
-        string _Buffer_LearnFactorPassionMinor;
-        string _Buffer_LearnFactorPassionMajor;
+        private void DrawPassionPercentage(Listing_Standard parentListing, string description, ref int passionPercentage, ref string buffer, int defaultValue)
+        {
+            Rect _Rect = parentListing.GetRect(30f);
+            buffer = null;
 
+            Listing_Standard _Listing_Text = new Listing_Standard();
+            _Listing_Text.Begin(_Rect.LeftPartPixels(175));
+            _Listing_Text.TextFieldNumericLabeled<int>(description, ref passionPercentage, ref buffer);
+            _Listing_Text.End();
 
+            Listing_Standard _Listing_Button = new Listing_Standard();
+            _Listing_Button.Begin(_Rect.RightPartPixels(75));
+            _Listing_Button.IntSetter(ref passionPercentage, defaultValue, "Default");
+            _Listing_Button.End();
+        }
+        
     }//Class
 
 
