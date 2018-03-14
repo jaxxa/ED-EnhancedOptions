@@ -220,11 +220,12 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             listing_Standard.Label("Learn Factor Passion Percentages:");
             ;
-            listing_Standard.CheckboxLabeled("Apply Learn Factor Passion Changes", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
-            listing_Standard.TextFieldNumericLabeled<int>("Passion None: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone);      
-            listing_Standard.TextFieldNumericLabeled<int>("Passion Minor", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor);
-            listing_Standard.TextFieldNumericLabeled<int>("Passion Major", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor);
+            listing_Standard.CheckboxLabeled("Apply Learning Factor Passion Changes", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
+            listing_Standard.TextFieldNumericLabeled<int>("No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone);      
+            listing_Standard.TextFieldNumericLabeled<int>("Minor Passion", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor);
+            listing_Standard.TextFieldNumericLabeled<int>("Major Passion", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor);
             
+
             listing_Standard.GapLine(12f);
             listing_Standard.End();
         }

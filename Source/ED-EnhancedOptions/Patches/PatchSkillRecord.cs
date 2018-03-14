@@ -60,13 +60,13 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             switch (__instance.passion)
             {
                 case Passion.None:
-                    num = 990.35f;
+                    num = (Mod_EnhancedOptions.Settings.LearnFactorPassionNonePercentage / 100f);
                     break;
                 case Passion.Minor:
-                    num = 991f;
+                    num = (Mod_EnhancedOptions.Settings.LearnFactorPassionMinorPercentage / 100f);
                     break;
                 case Passion.Major:
-                    num = 991.5f;
+                    num = (Mod_EnhancedOptions.Settings.LearnFactorPassionMajorPercentage / 100f);
                     break;
                 default:
                     throw new NotImplementedException("Passion level " + __instance.passion);

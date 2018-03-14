@@ -39,8 +39,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             return true;
             //return Mod_EnhancedOptions.Settings.SuppressRainFire;
         }
-
-
+        
         // prefix
         // - wants instance, result and count
         // - wants to change count
@@ -65,13 +64,13 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 switch (sk.passion)
                 {
                     case Passion.None:
-                        stringBuilder.Append("PassionNone".Translate(990.35f.ToStringPercent("F0")));
+                        stringBuilder.Append("PassionNone".Translate((Mod_EnhancedOptions.Settings.LearnFactorPassionNonePercentage / 100f).ToStringPercent("F0")));
                         break;
                     case Passion.Minor:
-                        stringBuilder.Append("PassionMinor".Translate(991f.ToStringPercent("F0")));
+                        stringBuilder.Append("PassionMinor".Translate((Mod_EnhancedOptions.Settings.LearnFactorPassionMinorPercentage / 100f).ToStringPercent("F0")));
                         break;
                     case Passion.Major:
-                        stringBuilder.Append("PassionMajor".Translate(991.5f.ToStringPercent("F0")));
+                        stringBuilder.Append("PassionMajor".Translate((Mod_EnhancedOptions.Settings.LearnFactorPassionMajorPercentage / 100f).ToStringPercent("F0")));
                         break;
                 }
                 if (sk.LearningSaturatedToday)
