@@ -26,6 +26,7 @@ This mod adds various additional options to change the way Rimworld works. These
  - Suppress Rain caused by Fire.
  - Suppressing Roof Collapse.
  - Ability to warn about Very Large Log Files.
+  -Ability to Suppress writing to the Log File.
  - Ability to modifying Learn Rate.
  </description>
 </ModMetaData> 
