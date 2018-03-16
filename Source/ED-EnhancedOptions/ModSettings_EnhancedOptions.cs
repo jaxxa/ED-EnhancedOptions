@@ -117,7 +117,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Listing_Standard.Begin(canvas);
             //listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
 
-            _Listing_Standard.Label("Sections Starting with '*' only apply after Restart.");
+            _Listing_Standard.Label("Most Setting will only apply after a Game Restart.");
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Letter Suppression:");
             _Listing_Standard.Gap(12f);
@@ -133,31 +133,31 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             _Listing_Standard.GapLine(12f);
 
-            _Listing_Standard.Label("* Plant 24H:");
+            _Listing_Standard.Label("Plant 24H:");
             _Listing_Standard.CheckboxLabeled("Plant 24H", ref Plant24HEnabled, "Enable to allow Plants to Grow 24H a day.");
             _Listing_Standard.CheckboxLabeled("Plant Lights 24H", ref PlantLights24HEnabled, "Enable to allow SunLamps to Shine 24H a day.");
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Safe Trap Enabled:");
+            _Listing_Standard.Label("Safe Trap Enabled:");
             _Listing_Standard.CheckboxLabeled("Safe Trap Enabled", ref SafeTrapEnabled, "Prevents Traps from triggering on your Colonists.");
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Turret Control Enabled:");
+            _Listing_Standard.Label("Turret Control Enabled:");
             _Listing_Standard.CheckboxLabeled("Turret Control Enabled", ref TurretControlEnabled, "Allows force attack commands to be given to turrets.");
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Hide Power Connections:");
+            _Listing_Standard.Label("Hide Power Connections:");
             _Listing_Standard.CheckboxLabeled("Hide Power Connections", ref HidePowerConnections, "Hides the Small Power Connection Wires, Still show in Power overlay Mode.");
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Suppress Breakdown:");
+            _Listing_Standard.Label("Suppress Breakdown:");
             _Listing_Standard.CheckboxLabeled("Suppress Breakdown", ref SuppressBreakdown, "Suppress random Breakdowns, This was hard to test so please let me know if you have any issues.");
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Suppress LockDevMode:");
+            _Listing_Standard.Label("Suppress LockDevMode:");
             _Listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Time Speed:");
+            _Listing_Standard.Label("Time Speed:");
             _Listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
             _Listing_Standard.CheckboxLabeled("Suppress Combat Slowdown", ref SuppressCombatSlowdown, "Suppress Limiting Speed in Combat.");
             
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Blight:");
+            _Listing_Standard.Label("Blight:");
             _Listing_Standard.Label("Blight Scale:  " + BlightScale);
             BlightScale = (float)Math.Round((Double)_Listing_Standard.Slider(BlightScale, 1, 10), 1);
 
@@ -200,25 +200,25 @@ namespace EnhancedDevelopment.EnhancedOptions
             }
 
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Suppress Stripping Cremation Corps:");
+            _Listing_Standard.Label("Suppress Stripping Cremation Corps:");
             _Listing_Standard.CheckboxLabeled("SuppressStrippingCremationCorps", ref SuppressStrippingCremationCorps, "Stops Gear and Apparel from being removed from a Corps before Cremation, all gear will be lost.");
             
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("* Hide Spots:");
+            _Listing_Standard.Label("Hide Spots:");
             _Listing_Standard.CheckboxLabeled("Hide Spots", ref HideSpots, "Stops Marriage, Caravan Packing and Party Spots from being show all the time. They will still show when Architect menu is open or one of the spots is the first thing selected. (Only checks when menu is changed)");
             
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("*Suppress Roof Colapse");
+            _Listing_Standard.Label("Suppress Roof Colapse");
             _Listing_Standard.CheckboxLabeled("Suppress Roof Colapse", ref SuppressRoofColapse, "Stops the Roof from Collapsing when support Pillars are removed.");
             
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("*Suppress Rain Fire");
+            _Listing_Standard.Label("Suppress Rain Fire");
             _Listing_Standard.CheckboxLabeled("Suppress Rain Fire", ref SuppressRainFire, "Stops Fires from Causing Rain, Warning can burn the whole map and large fires can cause lag when they are burning.");
             
             _Listing_Standard.NewColumn();
             _Listing_Standard.GapLine(12f);
             
-            _Listing_Standard.Label("*Log File");
+            _Listing_Standard.Label("Log File");
             _Listing_Standard.Label("Current Check Size:" + LogFileSizeThresholdMB + " MB.");
             _Listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
             _Listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
@@ -227,7 +227,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             
             _Listing_Standard.Label("Learning Speed Percentages:");
             
-            _Listing_Standard.CheckboxLabeled("*Learning Percentages", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
+            _Listing_Standard.CheckboxLabeled("Learning Percentages", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
 
 
             DrawPassionPercentage(_Listing_Standard, "No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone, 35);
