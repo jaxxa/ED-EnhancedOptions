@@ -53,6 +53,7 @@
     <Compile Include="GameComps\GameComponent_LogFileCleanup.cs" />
     <Compile Include="Patches\PatchBlightGraphics.cs" />
     <Compile Include="Patches\Patch.cs" />
+    <Compile Include="Patches\PatchDebug.cs" />
     <Compile Include="Patches\PatchSkillRecord.cs" />
     <Compile Include="Patches\PatchFireWatcher.cs" />
     <Compile Include="Patches\PatchRoofCollapseBuffer.cs" />

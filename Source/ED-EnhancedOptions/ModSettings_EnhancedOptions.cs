@@ -41,6 +41,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool SuppressRainFire = false;
         public bool CheckLogFileSize = false;
         public int LogFileSizeThresholdMB = 50;
+        public bool SupressWritingToLogFile = false;
 
         /// <summary>
         /// DrawSize of the Blight, Default 1
@@ -97,11 +98,12 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false);
             Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false);
             Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false);
+
             Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false);
+            Scribe_Values.Look<int>(ref LogFileSizeThresholdMB, "LogFileSizeThresholdMB", 50);
+            Scribe_Values.Look<bool>(ref SupressWritingToLogFile, "SupressWritingToLogFile", false);
 
-            Scribe_Values.Look<bool>(ref ApplyLearnFactorChanges, "ApplyLearnFactorChanges", false);
-
-            
+            Scribe_Values.Look<bool>(ref ApplyLearnFactorChanges, "ApplyLearnFactorChanges", false);           
             Scribe_Values.Look<int>(ref LearnFactorPassionNonePercentage, "LearnFactorPassionNonePercentage", 35);
             Scribe_Values.Look<int>(ref LearnFactorPassionMinorPercentage, "LearnFactorPassionMinorPercentage", 100);
             Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150);
@@ -213,11 +215,14 @@ namespace EnhancedDevelopment.EnhancedOptions
             listing_Standard.Label("*Suppress Rain Fire");
             listing_Standard.CheckboxLabeled("Suppress Rain Fire", ref SuppressRainFire, "Stops Fires from Causing Rain, Warning can burn the whole map and large fires can cause lag when they are burning.");
 
+            listing_Standard.NewColumn();
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("Check Log File Size - Currently " + LogFileSizeThresholdMB + " MB.");
+
+            listing_Standard.Label("*Log File");
+            listing_Standard.Label("Current Check Size:" + LogFileSizeThresholdMB + " MB.");
             listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
             listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
-
+            listing_Standard.CheckboxLabeled("Supress Writing Log to File-Tooltip", ref SupressWritingToLogFile, "When Checked log messages will no longer be written to disk.If you are using this because your log file is getting massive that indicated errors that you should really fix(or report to mod/ game developers to fix). But if you are not going to do that then you may as well use this so you don’t have to deal with Multi GB Log files cluttering you HDD/ SSD and wearing them out and it might even increase performance ingame for you, but really it would be better if you could go fix the errors.");
             listing_Standard.GapLine(12f);
 
             listing_Standard.Label("Learning Speed Percentages:");
