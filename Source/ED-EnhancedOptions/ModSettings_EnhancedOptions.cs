@@ -112,54 +112,54 @@ namespace EnhancedDevelopment.EnhancedOptions
         
         public void DoSettingsWindowContents(Rect canvas)
         {
-            Listing_Standard listing_Standard = new Listing_Standard();
-            listing_Standard.ColumnWidth = 250f;
-            listing_Standard.Begin(canvas);
+            Listing_Standard _Listing_Standard = new Listing_Standard();
+            _Listing_Standard.ColumnWidth = 250f;
+            _Listing_Standard.Begin(canvas);
             //listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
 
-            listing_Standard.Label("Sections Starting with '*' only apply after Restart.");
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("Letter Suppression:");
-            listing_Standard.Gap(12f);
-            listing_Standard.CheckboxLabeled("Show ThreatBig", ref ShowLettersThreatBig, "True if you want to See Any ThreatBig Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
-            listing_Standard.CheckboxLabeled("Show ThreatSmall", ref ShowLettersThreatSmall, "True if you want to See Any ThreatSmall Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
-            listing_Standard.CheckboxLabeled("Show NegativeEvent", ref ShowLettersNegativeEvent, "True if you want to See Any NegativeEvent Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
-            listing_Standard.CheckboxLabeled("Show NeutralEvent", ref ShowLettersNeutralEvent, "True if you want to See Any NeutralEvent Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
-            listing_Standard.CheckboxLabeled("Show PositiveEvent", ref ShowLettersPositiveEvent, "True if you want to See Any PositiveEvent Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
-            listing_Standard.CheckboxLabeled("Show ItemStashFeeDemand", ref ShowLettersItemStashFeeDemand, "True if you want to See Any ItemStashFeeDemand Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
-            listing_Standard.Gap(12f);
-            listing_Standard.CheckboxLabeled("Letter Names To Suppress Enabled", ref LetterNamesToSuppressEnabled, "True will Hide any Letters thats Name is in the following List, False to Ignore the List. List is Comma Separated. When a Letter is Shown its Name and Type will be written to the Log.");
-            LetterNamesToSuppress = listing_Standard.TextEntry(LetterNamesToSuppress, 2);
+            _Listing_Standard.Label("Sections Starting with '*' only apply after Restart.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("Letter Suppression:");
+            _Listing_Standard.Gap(12f);
+            _Listing_Standard.CheckboxLabeled("Show ThreatBig", ref ShowLettersThreatBig, "True if you want to See Any ThreatBig Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
+            _Listing_Standard.CheckboxLabeled("Show ThreatSmall", ref ShowLettersThreatSmall, "True if you want to See Any ThreatSmall Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
+            _Listing_Standard.CheckboxLabeled("Show NegativeEvent", ref ShowLettersNegativeEvent, "True if you want to See Any NegativeEvent Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
+            _Listing_Standard.CheckboxLabeled("Show NeutralEvent", ref ShowLettersNeutralEvent, "True if you want to See Any NeutralEvent Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
+            _Listing_Standard.CheckboxLabeled("Show PositiveEvent", ref ShowLettersPositiveEvent, "True if you want to See Any PositiveEvent Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
+            _Listing_Standard.CheckboxLabeled("Show ItemStashFeeDemand", ref ShowLettersItemStashFeeDemand, "True if you want to See Any ItemStashFeeDemand Letters, False will Hide them. When a Letter is Shown its Name and Type will be written to the Log.");
+            _Listing_Standard.Gap(12f);
+            _Listing_Standard.CheckboxLabeled("Letter Names To Suppress Enabled", ref LetterNamesToSuppressEnabled, "True will Hide any Letters thats Name is in the following List, False to Ignore the List. List is Comma Separated. When a Letter is Shown its Name and Type will be written to the Log.");
+            LetterNamesToSuppress = _Listing_Standard.TextEntry(LetterNamesToSuppress, 2);
 
-            listing_Standard.GapLine(12f);
+            _Listing_Standard.GapLine(12f);
 
-            listing_Standard.Label("* Plant 24H:");
-            listing_Standard.CheckboxLabeled("Plant 24H", ref Plant24HEnabled, "Enable to allow Plants to Grow 24H a day.");
-            listing_Standard.CheckboxLabeled("Plant Lights 24H", ref PlantLights24HEnabled, "Enable to allow SunLamps to Shine 24H a day.");
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Safe Trap Enabled:");
-            listing_Standard.CheckboxLabeled("Safe Trap Enabled", ref SafeTrapEnabled, "Prevents Traps from triggering on your Colonists.");
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Turret Control Enabled:");
-            listing_Standard.CheckboxLabeled("Turret Control Enabled", ref TurretControlEnabled, "Allows force attack commands to be given to turrets.");
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Hide Power Connections:");
-            listing_Standard.CheckboxLabeled("Hide Power Connections", ref HidePowerConnections, "Hides the Small Power Connection Wires, Still show in Power overlay Mode.");
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Suppress Breakdown:");
-            listing_Standard.CheckboxLabeled("Suppress Breakdown", ref SuppressBreakdown, "Suppress random Breakdowns, This was hard to test so please let me know if you have any issues.");
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Suppress LockDevMode:");
-            listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Time Speed:");
-            listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
-            listing_Standard.CheckboxLabeled("Suppress Combat Slowdown", ref SuppressCombatSlowdown, "Suppress Limiting Speed in Combat.");
-
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Blight:");
-            listing_Standard.Label("Blight Scale:  " + BlightScale);
-            BlightScale = (float)Math.Round((Double)listing_Standard.Slider(BlightScale, 1, 10), 1);
+            _Listing_Standard.Label("* Plant 24H:");
+            _Listing_Standard.CheckboxLabeled("Plant 24H", ref Plant24HEnabled, "Enable to allow Plants to Grow 24H a day.");
+            _Listing_Standard.CheckboxLabeled("Plant Lights 24H", ref PlantLights24HEnabled, "Enable to allow SunLamps to Shine 24H a day.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Safe Trap Enabled:");
+            _Listing_Standard.CheckboxLabeled("Safe Trap Enabled", ref SafeTrapEnabled, "Prevents Traps from triggering on your Colonists.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Turret Control Enabled:");
+            _Listing_Standard.CheckboxLabeled("Turret Control Enabled", ref TurretControlEnabled, "Allows force attack commands to be given to turrets.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Hide Power Connections:");
+            _Listing_Standard.CheckboxLabeled("Hide Power Connections", ref HidePowerConnections, "Hides the Small Power Connection Wires, Still show in Power overlay Mode.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Suppress Breakdown:");
+            _Listing_Standard.CheckboxLabeled("Suppress Breakdown", ref SuppressBreakdown, "Suppress random Breakdowns, This was hard to test so please let me know if you have any issues.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Suppress LockDevMode:");
+            _Listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Time Speed:");
+            _Listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
+            _Listing_Standard.CheckboxLabeled("Suppress Combat Slowdown", ref SuppressCombatSlowdown, "Suppress Limiting Speed in Combat.");
+            
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Blight:");
+            _Listing_Standard.Label("Blight Scale:  " + BlightScale);
+            BlightScale = (float)Math.Round((Double)_Listing_Standard.Slider(BlightScale, 1, 10), 1);
 
             String _CurrentBlightImageDescription = string.Empty;
             switch (BlightImageIndex)
@@ -185,7 +185,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             }
 
 
-            Rect _BlightSelection = listing_Standard.GetRect(30f);
+            Rect _BlightSelection = _Listing_Standard.GetRect(30f);
             Widgets.Label(_BlightSelection.RightHalf(), _CurrentBlightImageDescription);
             if (Widgets.ButtonText(_BlightSelection.LeftHalf(), "Select Blight:"))
             {
@@ -199,43 +199,43 @@ namespace EnhancedDevelopment.EnhancedOptions
                     }));
             }
 
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Suppress Stripping Cremation Corps:");
-            listing_Standard.CheckboxLabeled("SuppressStrippingCremationCorps", ref SuppressStrippingCremationCorps, "Stops Gear and Apparel from being removed from a Corps before Cremation, all gear will be lost.");
-
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("* Hide Spots:");
-            listing_Standard.CheckboxLabeled("Hide Spots", ref HideSpots, "Stops Marriage, Caravan Packing and Party Spots from being show all the time. They will still show when Architect menu is open or one of the spots is the first thing selected. (Only checks when menu is changed)");
-
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("*Suppress Roof Colapse");
-            listing_Standard.CheckboxLabeled("Suppress Roof Colapse", ref SuppressRoofColapse, "Stops the Roof from Collapsing when support Pillars are removed.");
-
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("*Suppress Rain Fire");
-            listing_Standard.CheckboxLabeled("Suppress Rain Fire", ref SuppressRainFire, "Stops Fires from Causing Rain, Warning can burn the whole map and large fires can cause lag when they are burning.");
-
-            listing_Standard.NewColumn();
-            listing_Standard.GapLine(12f);
-
-            listing_Standard.Label("*Log File");
-            listing_Standard.Label("Current Check Size:" + LogFileSizeThresholdMB + " MB.");
-            listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
-            listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
-            listing_Standard.CheckboxLabeled("Supress Writing Log to File-Tooltip", ref SupressWritingToLogFile, "When Checked log messages will no longer be written to disk.If you are using this because your log file is getting massive that indicated errors that you should really fix(or report to mod/ game developers to fix). But if you are not going to do that then you may as well use this so you don’t have to deal with Multi GB Log files cluttering you HDD/ SSD and wearing them out and it might even increase performance ingame for you, but really it would be better if you could go fix the errors.");
-            listing_Standard.GapLine(12f);
-
-            listing_Standard.Label("Learning Speed Percentages:");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Suppress Stripping Cremation Corps:");
+            _Listing_Standard.CheckboxLabeled("SuppressStrippingCremationCorps", ref SuppressStrippingCremationCorps, "Stops Gear and Apparel from being removed from a Corps before Cremation, all gear will be lost.");
             
-            listing_Standard.CheckboxLabeled("*Learning Percentages", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("* Hide Spots:");
+            _Listing_Standard.CheckboxLabeled("Hide Spots", ref HideSpots, "Stops Marriage, Caravan Packing and Party Spots from being show all the time. They will still show when Architect menu is open or one of the spots is the first thing selected. (Only checks when menu is changed)");
+            
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("*Suppress Roof Colapse");
+            _Listing_Standard.CheckboxLabeled("Suppress Roof Colapse", ref SuppressRoofColapse, "Stops the Roof from Collapsing when support Pillars are removed.");
+            
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.Label("*Suppress Rain Fire");
+            _Listing_Standard.CheckboxLabeled("Suppress Rain Fire", ref SuppressRainFire, "Stops Fires from Causing Rain, Warning can burn the whole map and large fires can cause lag when they are burning.");
+            
+            _Listing_Standard.NewColumn();
+            _Listing_Standard.GapLine(12f);
+            
+            _Listing_Standard.Label("*Log File");
+            _Listing_Standard.Label("Current Check Size:" + LogFileSizeThresholdMB + " MB.");
+            _Listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
+            _Listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
+            _Listing_Standard.CheckboxLabeled("Supress Writing Log to File-Tooltip", ref SupressWritingToLogFile, "When Checked log messages will no longer be written to disk.If you are using this because your log file is getting massive that indicated errors that you should really fix(or report to mod/ game developers to fix). But if you are not going to do that then you may as well use this so you don’t have to deal with Multi GB Log files cluttering you HDD/ SSD and wearing them out and it might even increase performance ingame for you, but really it would be better if you could go fix the errors.");
+            _Listing_Standard.GapLine(12f);
+            
+            _Listing_Standard.Label("Learning Speed Percentages:");
+            
+            _Listing_Standard.CheckboxLabeled("*Learning Percentages", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
 
 
-            DrawPassionPercentage(listing_Standard, "No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone, 35);
-            DrawPassionPercentage(listing_Standard, "Minor Pass: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor, 100);
-            DrawPassionPercentage(listing_Standard, "Major Pass: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
+            DrawPassionPercentage(_Listing_Standard, "No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone, 35);
+            DrawPassionPercentage(_Listing_Standard, "Minor Pass: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor, 100);
+            DrawPassionPercentage(_Listing_Standard, "Major Pass: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
 
-            listing_Standard.GapLine(12f);
-            listing_Standard.End();
+            _Listing_Standard.GapLine(12f);
+            _Listing_Standard.End();
         }
 
         private void DrawPassionPercentage(Listing_Standard parentListing, string description, ref int passionPercentage, ref string buffer, int defaultValue)
