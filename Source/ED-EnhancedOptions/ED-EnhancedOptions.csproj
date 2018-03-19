@@ -53,6 +53,8 @@
     <Compile Include="GameComps\GameComponent_LogFileCleanup.cs" />
     <Compile Include="Patches\PatchBlightGraphics.cs" />
     <Compile Include="Patches\Patch.cs" />
+    <Compile Include="Patches\PatchDebug.cs" />
+    <Compile Include="Patches\PatchSkillRecord.cs" />
     <Compile Include="Patches\PatchFireWatcher.cs" />
     <Compile Include="Patches\PatchRoofCollapseBuffer.cs" />
     <Compile Include="Patches\PatchBuildingTrap.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Patches\PatchPerfs.cs" />
     <Compile Include="Patches\PatchCompBreakdownable.cs" />
     <Compile Include="Patches\PatchMainTabsRoot.cs" />
+    <Compile Include="Patches\PatchSkillUI.cs" />
     <Compile Include="Patches\PatchToils_Recipe.cs" />
     <Compile Include="Patches\PatchTimeSlower.cs" />
     <Compile Include="Patches\PatchTimeControls.cs" />

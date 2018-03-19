@@ -34,3 +34,8 @@ Additional details can be found in About.xml
 * Support for SuppressRainFire.
 * Support for Suppressing Roof Collapse.
 * Ability to warn about Very Large Log Files.
+
+0.18.0.7
+* Adding support for modifying Learn Rate.
+* Added the Ability to Suppress writing to the Log File.
+* Safe Traps now also works for Every Non Hostile Faction.

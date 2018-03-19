@@ -68,7 +68,7 @@ namespace EnhancedDevelopment.EnhancedOptions.GameComps
             //Log.Message("_FileSizeInMB" + _FileSizeInMB);
             if (_FileSizeInMB > _MaxFileSizeMB)
             {
-                String _Message = "Warning: Log File Size Exceeds " + _MaxFileSizeMB + " MB - Current Size " + _FileSizeInMB + " MB.";
+                String _Message = "Warning: Log File Size Exceeds " + _MaxFileSizeMB + " MB - Current Size " + _FileSizeInMB + " MB. This Probably indicates repeating Errors that should be fixed.";
 
                 //Log.Error(_Message);
                 Find.LetterStack.ReceiveLetter("Warning: Log File Size", _Message, RimWorld.LetterDefOf.NegativeEvent, (string)null);
