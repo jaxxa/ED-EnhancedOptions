@@ -38,3 +38,4 @@ Additional details can be found in About.xml
 0.18.0.7
 * Adding support for modifying Learn Rate.
 * Added the Ability to Suppress writing to the Log File.
+* Safe Traps now also works for Every Non Hostile Faction.

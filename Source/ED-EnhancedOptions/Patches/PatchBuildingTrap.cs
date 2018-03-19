@@ -1,4 +1,5 @@
 ﻿using Harmony;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,11 +49,16 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             if (p.Faction == null) { return true; }
 
             //Retuen False so the origional method is not executed.
-            if (p.Faction.IsPlayer)
+
+            // if (p.Faction.IsPlayer)
+
+            //This looks to include the Player Faction as Bring Friendly to Itself.
+            if (!FactionUtility.HostileTo(p.Faction, Faction.OfPlayer))
             {
+                //Log.Message("Friendly");
                 return false;
             }
-
+            //Log.Message("Hostile");
             return true;
         }
     }
