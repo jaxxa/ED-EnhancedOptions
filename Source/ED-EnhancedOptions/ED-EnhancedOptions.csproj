@@ -38,6 +38,10 @@
       <HintPath>..\..\..\..\lib\B18\1722\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="CombatExtended">
+      <HintPath>..\..\..\..\lib\B18\PatchMods\CombatExtended.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +57,7 @@
     <Compile Include="GameComps\GameComponent_LogFileCleanup.cs" />
     <Compile Include="Patches\PatchBlightGraphics.cs" />
     <Compile Include="Patches\Patch.cs" />
+    <Compile Include="Patches\PatchBuildingTurretGunCE.cs" />
     <Compile Include="Patches\PatchDebug.cs" />
     <Compile Include="Patches\PatchSkillRecord.cs" />
     <Compile Include="Patches\PatchFireWatcher.cs" />
