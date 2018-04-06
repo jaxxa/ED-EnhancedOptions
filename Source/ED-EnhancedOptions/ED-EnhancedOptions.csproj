@@ -59,6 +59,7 @@
     <Compile Include="Patches\Patch.cs" />
     <Compile Include="Patches\PatchBuildingTurretGunCE.cs" />
     <Compile Include="Patches\PatchDebug.cs" />
+    <Compile Include="Patches\PatchProjectile.cs" />
     <Compile Include="Patches\PatchSkillRecord.cs" />
     <Compile Include="Patches\PatchFireWatcher.cs" />
     <Compile Include="Patches\PatchRoofCollapseBuffer.cs" />
