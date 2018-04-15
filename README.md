@@ -39,3 +39,7 @@ Additional details can be found in About.xml
 * Adding support for modifying Learn Rate.
 * Added the Ability to Suppress writing to the Log File.
 * Safe Traps now also works for Every Non Hostile Faction.
+
+0.18.0.8
+* Adding Force Attack support for CE Turrets
+* Moving Debug Logging of Letters to an optional setting.
