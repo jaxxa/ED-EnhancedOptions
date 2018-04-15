@@ -41,7 +41,10 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         public static bool ReceiveLetterPrefix(ref Letter let)
         {
-            Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label + "'");
+            if (Mod_EnhancedOptions.Settings.DebugLogLetters)
+            {
+                Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label + "'");
+            }
 
             if (let.def == LetterDefOf.ThreatBig & !Mod_EnhancedOptions.Settings.ShowLettersThreatBig)
             {
@@ -78,7 +81,10 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 List<String> _String = Mod_EnhancedOptions.Settings.LetterNamesToSuppress.Split(',').ToList();
                 if (_String.Contains(let.label))
                 {
-                    Log.Message("Matched with LetterNamesToSuppress");
+                    if (Mod_EnhancedOptions.Settings.DebugLogLetters)
+                    {
+                        Log.Message("Matched with LetterNamesToSuppress");
+                    }
                     return false;
                 }
             }

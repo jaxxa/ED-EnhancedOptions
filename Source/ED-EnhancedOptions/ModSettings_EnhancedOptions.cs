@@ -24,6 +24,7 @@ namespace EnhancedDevelopment.EnhancedOptions
 
         public bool LetterNamesToSuppressEnabled = false;
         public string LetterNamesToSuppress = String.Empty;
+        public bool DebugLogLetters = false;
 
         public bool Plant24HEnabled = false;
         public bool PlantLights24HEnabled = false;
@@ -80,6 +81,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref ShowLettersItemStashFeeDemand, "ShowLettersItemStashFeeDemand", true);
             Scribe_Values.Look<bool>(ref LetterNamesToSuppressEnabled, "LetterNamesToSuppressEnabled", false);
             Scribe_Values.Look<string>(ref LetterNamesToSuppress, "LetterNamesToSuppress", String.Empty);
+            Scribe_Values.Look<bool>(ref DebugLogLetters, "DebugLogLetters", false);
+                       
 
             Scribe_Values.Look<bool>(ref Plant24HEnabled, "Plant24HEnabled", false);
             Scribe_Values.Look<bool>(ref PlantLights24HEnabled, "PlantLights24HEnabled", false);
@@ -130,6 +133,10 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Listing_Standard.Gap(12f);
             _Listing_Standard.CheckboxLabeled("Letter Names To Suppress Enabled", ref LetterNamesToSuppressEnabled, "True will Hide any Letters thats Name is in the following List, False to Ignore the List. List is Comma Separated. When a Letter is Shown its Name and Type will be written to the Log.");
             LetterNamesToSuppress = _Listing_Standard.TextEntry(LetterNamesToSuppress, 2);
+
+            _Listing_Standard.CheckboxLabeled("Write Debug Log Letters", ref DebugLogLetters, "True if you want to Log the Letters to the Log file, useful for finding the mane so you can suppress it.");
+            
+
 
             _Listing_Standard.GapLine(12f);
 
