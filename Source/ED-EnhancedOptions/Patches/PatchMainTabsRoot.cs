@@ -90,20 +90,22 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         public static void MarkMapMeshAsDirty()
         {
 
+            
+
             //Update the map mesh for the things that have changed
-            Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
+            Find.CurrentMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
             {
-                Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+                Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
             });
 
-            Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
+            Find.CurrentMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
             {
-                Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+                Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
             });
 
-            Find.VisibleMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
+            Find.CurrentMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
             {
-                Find.VisibleMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+                Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
             });
         }
     }

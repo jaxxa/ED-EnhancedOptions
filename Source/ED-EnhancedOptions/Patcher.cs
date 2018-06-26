@@ -22,7 +22,7 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             //Create List of Patches
             List<Patch> _Patches = new List<Patch>();
-            _Patches.Add(new PatchBlightGraphics());
+            //_Patches.Add(new PatchBlightGraphics());
             _Patches.Add(new PatchBuildingTrap());
             _Patches.Add(new PatchBuildingTurretGun());
             _Patches.Add(new PatchCompBreakdownable());

@@ -71,10 +71,10 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 return false;
             }
 
-            if (let.def == LetterDefOf.ItemStashFeeDemand & !Mod_EnhancedOptions.Settings.ShowLettersItemStashFeeDemand)
-            {
-                return false;
-            }
+            //if (let.def == LetterDefOf.free & !Mod_EnhancedOptions.Settings.ShowLettersItemStashFeeDemand)
+            //{
+            //    return false;
+            //}
 
             if (Mod_EnhancedOptions.Settings.LetterNamesToSuppressEnabled)
             {

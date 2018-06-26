@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
-
+/*
 namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
     class PatchBlightGraphics : Patch
@@ -48,8 +48,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                         _BlightPath = "Things/Plant/Blight";
                         break;
                 }
-
-
+                
                 GraphicRequest requestActive = new GraphicRequest(Type.GetType("Graphic_Single"),
                                                               _BlightPath,
                                                               ShaderDatabase.DefaultShader,
@@ -69,3 +68,4 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         }
     }
 }
+*/

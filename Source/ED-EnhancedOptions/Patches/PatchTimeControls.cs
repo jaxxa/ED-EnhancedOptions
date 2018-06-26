@@ -101,21 +101,21 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.Pause, KnowledgeAmount.SpecificInteraction);
                 Event.current.Use();
             }
-            if (KeyBindingDefOf.TimeSpeedNormal.KeyDownEvent)
+            if (KeyBindingDefOf.TimeSpeed_Normal.KeyDownEvent)
             {
                 Find.TickManager.CurTimeSpeed = TimeSpeed.Normal;
                 TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
                 PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
                 Event.current.Use();
             }
-            if (KeyBindingDefOf.TimeSpeedFast.KeyDownEvent)
+            if (KeyBindingDefOf.TimeSpeed_Fast.KeyDownEvent)
             {
                 Find.TickManager.CurTimeSpeed = TimeSpeed.Fast;
                 TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
                 PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
                 Event.current.Use();
             }
-            if (KeyBindingDefOf.TimeSpeedSuperfast.KeyDownEvent)
+            if (KeyBindingDefOf.TimeSpeed_Superfast.KeyDownEvent)
             {
                 Find.TickManager.CurTimeSpeed = TimeSpeed.Superfast;
                 TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
@@ -126,13 +126,13 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Removed to Allow Speed 4 Without Dev Mode.
             //if (!Prefs.DevMode)
             //    return false;
-            if (KeyBindingDefOf.TimeSpeedUltrafast.KeyDownEvent)
+            if (KeyBindingDefOf.TimeSpeed_Ultrafast.KeyDownEvent)
             {
                 Find.TickManager.CurTimeSpeed = TimeSpeed.Ultrafast;
                 TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
                 Event.current.Use();
             }
-            if (!KeyBindingDefOf.TickOnce.KeyDownEvent || tickManager.CurTimeSpeed != TimeSpeed.Paused)
+            if (!KeyBindingDefOf.Dev_TickOnce.KeyDownEvent || tickManager.CurTimeSpeed != TimeSpeed.Paused)
                 return false;
             tickManager.DoSingleTick();
             SoundStarter.PlayOneShotOnCamera(SoundDef.Named(TimeControls.SpeedSounds[0]), (Map)null);
