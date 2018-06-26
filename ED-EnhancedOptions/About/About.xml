@@ -8,7 +8,7 @@
 Discussion, Non Steam Downloads and GitHub Repositories of this mod is available at: https://ludeon.com/forums/index.php?topic=37158
 
 Please Check the Mod Settings by going into the Options, Selecting "Mod Options" and then "ED-EnhancedOptions".
-You will most likely not wish to use all options.
+You will most likely not wish to use all options. These options require a game restart to take effect.
 
 This mod adds various additional options to change the way Rimworld works. These options are as follows:
  - Stop Letters from being shown.
@@ -19,7 +19,6 @@ This mod adds various additional options to change the way Rimworld works. These
  - Suppress random Breakdowns.
  - Lock the ability to change DevMode.
  - Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.
- - Visual Customization of Blight.
  - Stop Forced Time Slowdown (Combat).
  - Stop Stripping Corps before Cremation.
  - Hide Marriage CaravanPacking and Party Spots.
