@@ -44,6 +44,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public int LogFileSizeThresholdMB = 50;
         public bool SupressWritingToLogFile = false;
 
+        /*
         /// <summary>
         /// DrawSize of the Blight, Default 1
         /// </summary>
@@ -60,6 +61,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         /// 
         /// </summary>
         public int BlightImageIndex = 0;
+        */
 
         public bool SuppressStrippingCremationCorps = false;
 
@@ -94,8 +96,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false);
             Scribe_Values.Look<bool>(ref SuppressCombatSlowdown, "SuppressCombatSlowdown", false);
 
-            Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1);
-            Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0);
+            //Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1);
+            //Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0);
 
             Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false);
             Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false);
@@ -163,6 +165,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
             _Listing_Standard.CheckboxLabeled("Suppress Combat Slowdown", ref SuppressCombatSlowdown, "Suppress Limiting Speed in Combat.");
             
+            /*
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Blight:");
             _Listing_Standard.Label("Blight Scale:  " + BlightScale);
@@ -205,6 +208,7 @@ namespace EnhancedDevelopment.EnhancedOptions
                         new FloatMenuOption("Purple", () => BlightImageIndex = 4)
                     }));
             }
+            */
 
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Suppress Stripping Cremation Corps:");
