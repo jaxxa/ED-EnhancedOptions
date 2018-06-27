@@ -33,7 +33,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         protected override bool ShouldPatchApply()
         {
-            return Mod_EnhancedOptions.Settings.HidePowerConnections;
+            return Mod_EnhancedOptions.Settings.SuppressBreakdown;
         }
         
         public static bool CheckForBreakdownPrefix()
