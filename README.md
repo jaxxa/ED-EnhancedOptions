@@ -43,3 +43,6 @@ Additional details can be found in About.xml
 0.18.0.8
 * Adding Force Attack support for CE Turrets
 * Moving Debug Logging of Letters to an optional setting.
+
+0.18.0.9
+* Fixing issue with the setting to use for SuppressBreakdown.
