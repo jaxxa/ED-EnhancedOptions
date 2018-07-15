@@ -14,17 +14,15 @@ This mod adds various additional options to change the way Rimworld works. These
  - Stop Letters from being shown.
  - Allow Plants to Grow 24H a day, also has an option for SunLamps."
  - Prevents Traps from triggering on your Colonists and Friendly Factions.
- - Allows force attack commands to be given to turrets. (Now includes CE)
+ - Allows force attack commands to be given to turrets.
  - Hides the Small Power Connection Wires, Still show in Power overlay Mode.
  - Suppress random Breakdowns.
- - Lock the ability to change DevMode.
  - Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.
  - Stop Forced Time Slowdown (Combat).
  - Stop Stripping Corps before Cremation.
  - Hide Marriage CaravanPacking and Party Spots.
  - Suppress Rain caused by Fire.
  - Suppressing Roof Collapse.
- - Ability to warn about Very Large Log Files.
   -Ability to Suppress writing to the Log File.
  - Ability to modifying Learn Rate.
  </description>
