@@ -34,7 +34,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool HidePowerConnections = false;
 
         public bool SuppressBreakdown = false;
-        public bool LockDevMode = false;
+        //public bool LockDevMode = false;
         public bool Speed4WithoutDev = false;
         public bool SuppressCombatSlowdown = false;
         public bool HideSpots = false;
@@ -92,7 +92,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref TurretControlEnabled, "TurretControlEnabled", false);
             Scribe_Values.Look<bool>(ref HidePowerConnections, "HidePowerConnections", false);
             Scribe_Values.Look<bool>(ref SuppressBreakdown, "SuppressBreakdown", false);
-            Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false);
+            //Scribe_Values.Look<bool>(ref LockDevMode, "LockDevMode", false);
             Scribe_Values.Look<bool>(ref Speed4WithoutDev, "Speed4WithoutDev", false);
             Scribe_Values.Look<bool>(ref SuppressCombatSlowdown, "SuppressCombatSlowdown", false);
 
@@ -158,9 +158,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Listing_Standard.Label("Suppress Breakdown:");
             _Listing_Standard.CheckboxLabeled("Suppress Breakdown", ref SuppressBreakdown, "Suppress random Breakdowns, This was hard to test so please let me know if you have any issues.");
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("Suppress LockDevMode:");
-            _Listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
-            _Listing_Standard.GapLine(12f);
+            //_Listing_Standard.Label("Suppress LockDevMode:");
+            //_Listing_Standard.CheckboxLabeled("Suppress LockDevMode", ref LockDevMode, "Lock Dev Mode to its Current Selection.");
+            //_Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Time Speed:");
             _Listing_Standard.CheckboxLabeled("Allow Speed4 Without Dev Mode", ref Speed4WithoutDev, "Allow Speed4 Without Dev Mode needing to be enabled, can be turned on by pressing '4'.");
             _Listing_Standard.CheckboxLabeled("Suppress Combat Slowdown", ref SuppressCombatSlowdown, "Suppress Limiting Speed in Combat.");

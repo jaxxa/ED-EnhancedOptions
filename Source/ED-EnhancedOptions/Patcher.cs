@@ -29,7 +29,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchCompSchedule());
             _Patches.Add(new PatchLetterStack());
             _Patches.Add(new PatchMainTabsRoot());
-            _Patches.Add(new PatchPerfs());
+            //_Patches.Add(new PatchPerfs());
             _Patches.Add(new PatchPlant());
             _Patches.Add(new PatchPowerNetGraphics());
             _Patches.Add(new PatchTimeControls());
