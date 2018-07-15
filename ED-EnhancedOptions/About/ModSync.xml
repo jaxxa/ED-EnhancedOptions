@@ -8,7 +8,7 @@
     <Owner>Jaxxa</Owner>
     <Project>ED-EnhancedOptions</Project>
     <AboutDir>ED-EnhancedOptions/About</AboutDir>
-    <DownloadFrom>ModSyncMainPage</DownloadFrom>
+    <DownloadFrom>ModSyncReleases</DownloadFrom>
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
