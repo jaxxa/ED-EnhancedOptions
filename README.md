@@ -52,4 +52,6 @@ Additional details can be found in About.xml
 * Remove Supress Dev mode - This is a vanilla feature now.
 * Remove Blight Graphics Option - Has been changed to look better now.
 * Remove monitoring Save Location - Supress log file works for this.
-* 
+
+1.0.0.1
+* Removing option for SuppressStrippingCremationCorps, Vanilla feature now.

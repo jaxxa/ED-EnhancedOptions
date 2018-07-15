@@ -63,7 +63,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public int BlightImageIndex = 0;
         */
 
-        public bool SuppressStrippingCremationCorps = false;
+        //public bool SuppressStrippingCremationCorps = false;
 
         public bool ApplyLearnFactorChanges = false;
         public int LearnFactorPassionNonePercentage = 35;
@@ -99,7 +99,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             //Scribe_Values.Look<float>(ref BlightScale, "BlightScale", 1);
             //Scribe_Values.Look<int>(ref BlightImageIndex, "BlightImageIndex", 0);
 
-            Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false);
+            //Scribe_Values.Look<bool>(ref SuppressStrippingCremationCorps, "SuppressStrippingCremationCorps", false);
             Scribe_Values.Look<bool>(ref HideSpots, "HideSpots", false);
             Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false);
             Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false);
@@ -208,12 +208,13 @@ namespace EnhancedDevelopment.EnhancedOptions
                         new FloatMenuOption("Purple", () => BlightImageIndex = 4)
                     }));
             }
-            */
+            
 
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Suppress Stripping Cremation Corps:");
             _Listing_Standard.CheckboxLabeled("SuppressStrippingCremationCorps", ref SuppressStrippingCremationCorps, "Stops Gear and Apparel from being removed from a Corps before Cremation, all gear will be lost.");
-            
+            */
+
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Hide Spots:");
             _Listing_Standard.CheckboxLabeled("Hide Spots", ref HideSpots, "Stops Marriage, Caravan Packing and Party Spots from being show all the time. They will still show when Architect menu is open or one of the spots is the first thing selected. (Only checks when menu is changed)");

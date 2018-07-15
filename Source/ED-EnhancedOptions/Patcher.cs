@@ -34,7 +34,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchPowerNetGraphics());
             _Patches.Add(new PatchTimeControls());
             _Patches.Add(new PatchTimeSlower());
-            _Patches.Add(new PatchToils_Recipe());
+            //_Patches.Add(new PatchToils_Recipe());
             _Patches.Add(new PatchRoofCollapseBuffer());
             _Patches.Add(new PatchFireWatcher());
             _Patches.Add(new PatchSkillRecord());
