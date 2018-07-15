@@ -49,4 +49,7 @@ Additional details can be found in About.xml
 
 1.0.0.0
 * Update to Rimworld 1.0
-
+* Remove Supress Dev mode - This is a vanilla feature now.
+* Remove Blight Graphics Option - Has been changed to look better now.
+* Remove monitoring Save Location - Supress log file works for this.
+* 

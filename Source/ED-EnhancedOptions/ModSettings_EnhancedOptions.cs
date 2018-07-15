@@ -40,8 +40,8 @@ namespace EnhancedDevelopment.EnhancedOptions
         public bool HideSpots = false;
         public bool SuppressRoofColapse = false;
         public bool SuppressRainFire = false;
-        public bool CheckLogFileSize = false;
-        public int LogFileSizeThresholdMB = 50;
+        //public bool CheckLogFileSize = false;
+        //public int LogFileSizeThresholdMB = 50;
         public bool SupressWritingToLogFile = false;
 
         /*
@@ -104,8 +104,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<bool>(ref SuppressRoofColapse, "SuppressRoofColapse", false);
             Scribe_Values.Look<bool>(ref SuppressRainFire, "SuppressRainFire", false);
 
-            Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false);
-            Scribe_Values.Look<int>(ref LogFileSizeThresholdMB, "LogFileSizeThresholdMB", 50);
+            //Scribe_Values.Look<bool>(ref CheckLogFileSize, "CheckLogFileSize", false);
+            //Scribe_Values.Look<int>(ref LogFileSizeThresholdMB, "LogFileSizeThresholdMB", 50);
             Scribe_Values.Look<bool>(ref SupressWritingToLogFile, "SupressWritingToLogFile", false);
 
             Scribe_Values.Look<bool>(ref ApplyLearnFactorChanges, "ApplyLearnFactorChanges", false);           
@@ -230,9 +230,9 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Listing_Standard.GapLine(12f);
             
             _Listing_Standard.Label("Log File");
-            _Listing_Standard.Label("Current Check Size:" + LogFileSizeThresholdMB + " MB.");
-            _Listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
-            _Listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
+            //_Listing_Standard.Label("Current Check Size:" + LogFileSizeThresholdMB + " MB.");
+            //_Listing_Standard.CheckboxLabeled("Check Log File Size", ref CheckLogFileSize, "Checks once every Ingame Day the Size of the Log File, raises an Alert if the Size is > " + LogFileSizeThresholdMB.ToString() + " MB.");
+            //_Listing_Standard.IntAdjuster(ref LogFileSizeThresholdMB, 10, 10);
             _Listing_Standard.CheckboxLabeled("Supress Writing Log to File-Tooltip", ref SupressWritingToLogFile, "When Checked log messages will no longer be written to disk.If you are using this because your log file is getting massive that indicated errors that you should really fix(or report to mod/ game developers to fix). But if you are not going to do that then you may as well use this so you don’t have to deal with Multi GB Log files cluttering you HDD/ SSD and wearing them out and it might even increase performance ingame for you, but really it would be better if you could go fix the errors.");
             _Listing_Standard.GapLine(12f);
             
