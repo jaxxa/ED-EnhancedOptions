@@ -39,10 +39,6 @@
       <HintPath>..\..\..\..\lib\1.0\1945\32bit\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="CombatExtended">
-      <HintPath>..\..\..\..\lib\B18\PatchMods\CombatExtended.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
