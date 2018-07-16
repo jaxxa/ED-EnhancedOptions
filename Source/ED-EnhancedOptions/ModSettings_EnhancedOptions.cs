@@ -13,6 +13,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         string _Buffer_LearnFactorPassionNone;
         string _Buffer_LearnFactorPassionMinor;
         string _Buffer_LearnFactorPassionMajor;
+        string _Buffer_DalyLearningSaturationAmmount;
 
         //Saved
         public bool ShowLettersThreatBig = true;
@@ -65,12 +66,14 @@ namespace EnhancedDevelopment.EnhancedOptions
 
         //public bool SuppressStrippingCremationCorps = false;
 
-        public bool ApplyLearnFactorChanges = false;
+        public bool ApplyLearnChanges = false;
         public int LearnFactorPassionNonePercentage = 35;
         public int LearnFactorPassionMinorPercentage = 100;
         public int LearnFactorPassionMajorPercentage = 150;
+        public int DalyLearningSaturationAmmount = 4000;
 
-       
+
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -108,17 +111,20 @@ namespace EnhancedDevelopment.EnhancedOptions
             //Scribe_Values.Look<int>(ref LogFileSizeThresholdMB, "LogFileSizeThresholdMB", 50);
             Scribe_Values.Look<bool>(ref SupressWritingToLogFile, "SupressWritingToLogFile", false);
 
-            Scribe_Values.Look<bool>(ref ApplyLearnFactorChanges, "ApplyLearnFactorChanges", false);           
+            Scribe_Values.Look<bool>(ref ApplyLearnChanges, "ApplyLearnFactorChanges", false);           
             Scribe_Values.Look<int>(ref LearnFactorPassionNonePercentage, "LearnFactorPassionNonePercentage", 35);
             Scribe_Values.Look<int>(ref LearnFactorPassionMinorPercentage, "LearnFactorPassionMinorPercentage", 100);
             Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150);
+            Scribe_Values.Look<int>(ref DalyLearningSaturationAmmount, "DalyLearningSaturationAmmount", 4000);
+
+
             
         }
         
         public void DoSettingsWindowContents(Rect canvas)
         {
             Listing_Standard _Listing_Standard = new Listing_Standard();
-            _Listing_Standard.ColumnWidth = 250f;
+            _Listing_Standard.ColumnWidth = 275f;
             _Listing_Standard.Begin(canvas);
             //listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
 
@@ -239,12 +245,13 @@ namespace EnhancedDevelopment.EnhancedOptions
             
             _Listing_Standard.Label("Learning Speed Percentages:");
             
-            _Listing_Standard.CheckboxLabeled("Learning Percentages", ref ApplyLearnFactorChanges, "Must be enabled to apply the following settings.");
+            _Listing_Standard.CheckboxLabeled("Learning Changes", ref ApplyLearnChanges, "Must be enabled to apply the following settings.");
 
 
-            DrawPassionPercentage(_Listing_Standard, "No Passion: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone, 35);
-            DrawPassionPercentage(_Listing_Standard, "Minor Pass: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor, 100);
-            DrawPassionPercentage(_Listing_Standard, "Major Pass: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
+            DrawPassionPercentage(_Listing_Standard, "No Passion%: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone, 35);
+            DrawPassionPercentage(_Listing_Standard, "Minor Pass%: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor, 100);
+            DrawPassionPercentage(_Listing_Standard, "Major Pass%: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
+            DrawPassionPercentage(_Listing_Standard, "Daly Cap: ", ref DalyLearningSaturationAmmount, ref _Buffer_DalyLearningSaturationAmmount, 4000);
 
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.End();
@@ -256,7 +263,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             buffer = null;
 
             Listing_Standard _Listing_Text = new Listing_Standard();
-            _Listing_Text.Begin(_Rect.LeftPartPixels(175));
+            _Listing_Text.Begin(_Rect.LeftPartPixels(190));
             _Listing_Text.TextFieldNumericLabeled<int>(description, ref passionPercentage, ref buffer);
             _Listing_Text.End();
 

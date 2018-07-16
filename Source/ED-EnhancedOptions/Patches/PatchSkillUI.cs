@@ -36,7 +36,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         protected override bool ShouldPatchApply()
         {
-            return Mod_EnhancedOptions.Settings.ApplyLearnFactorChanges;
+            return Mod_EnhancedOptions.Settings.ApplyLearnChanges;
         }
         
         // prefix
@@ -75,7 +75,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 if (sk.LearningSaturatedToday)
                 {
                     stringBuilder.AppendLine();
-                    stringBuilder.Append("LearnedMaxToday".Translate(sk.xpSinceMidnight, 4000, 0.2f.ToStringPercent("F0")));
+                    stringBuilder.Append("LearnedMaxToday".Translate(sk.xpSinceMidnight, Mod_EnhancedOptions.Settings.DalyLearningSaturationAmmount, 0.2f.ToStringPercent("F0")));
                 }
             }
             stringBuilder.AppendLine();
