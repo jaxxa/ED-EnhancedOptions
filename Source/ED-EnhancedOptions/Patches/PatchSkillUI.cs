@@ -31,7 +31,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         protected override string PatchDescription()
         {
-            return "PatchSkillRecord";
+            return "PatchSkillUI";
         }
 
         protected override bool ShouldPatchApply()
