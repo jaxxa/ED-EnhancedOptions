@@ -71,6 +71,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public int LearnFactorPassionMinorPercentage = 100;
         public int LearnFactorPassionMajorPercentage = 150;
         public int DalyLearningSaturationAmmount = 4000;
+        public bool PreventSkillDecay = false;
 
 
 
@@ -116,9 +117,11 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<int>(ref LearnFactorPassionMinorPercentage, "LearnFactorPassionMinorPercentage", 100);
             Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150);
             Scribe_Values.Look<int>(ref DalyLearningSaturationAmmount, "DalyLearningSaturationAmmount", 4000);
-
-
+            Scribe_Values.Look<bool>(ref PreventSkillDecay, "PreventSkillDecay", false);
             
+
+
+
         }
         
         public void DoSettingsWindowContents(Rect canvas)
@@ -252,6 +255,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             DrawPassionPercentage(_Listing_Standard, "Minor Pass%: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor, 100);
             DrawPassionPercentage(_Listing_Standard, "Major Pass%: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
             DrawPassionPercentage(_Listing_Standard, "Daly Cap: ", ref DalyLearningSaturationAmmount, ref _Buffer_DalyLearningSaturationAmmount, 4000);
+
+            _Listing_Standard.CheckboxLabeled("Stop Decay", ref PreventSkillDecay, "Stops Skill Decay.");
 
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.End();

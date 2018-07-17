@@ -42,6 +42,23 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             harmony.Patch(_RimWorld_SkillRecord_LearningSaturatedToday_Getter, new HarmonyMethod(_LearningSaturatedTodayGetterPrefix), null);
 
+
+            if(Mod_EnhancedOptions.Settings.PreventSkillDecay)
+            {
+
+                MethodInfo _RimWorld_SkillRecord_Interval = typeof(RimWorld.SkillRecord).GetMethod("Interval", BindingFlags.Public | BindingFlags.Instance);
+                Patcher.LogNULL(_RimWorld_SkillRecord_Interval, "_RimWorld_SkillRecord_Interval");
+
+                MethodInfo _RimWorld_SkillRecord_Interval_Prefix = typeof(PatchSkillRecord).GetMethod("IntervalPrefix", BindingFlags.Public | BindingFlags.Static);
+                Patcher.LogNULL(_RimWorld_SkillRecord_Interval_Prefix, "_RimWorld_SkillRecord_Interval_Prefix");
+
+                harmony.Patch(_RimWorld_SkillRecord_Interval, new HarmonyMethod(_RimWorld_SkillRecord_Interval_Prefix), null);
+
+            }
+            else
+            {
+                Log.Message("Skipping PreventSkillDecay");
+            }
         }
 
         protected override string PatchDescription()
@@ -109,6 +126,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             __result = num;
             
             //Retuen False so the origional method is not executed, overriting the false result.
+            return false;
+        }
+
+        public static Boolean IntervalPrefix()
+        {
             return false;
         }
     }
