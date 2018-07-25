@@ -27,6 +27,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Patches
             //       MethodInfo _Verse_Ui_MapToUIPosition_Vector = typeof(Verse.UI).GetMethod("MapToUIPosition", new Type[] { typeof(Vector2) });
             MethodInfo _PawnUIOverlay_DrawPawnGUIOverlay = typeof(PawnUIOverlay).GetMethod("DrawPawnGUIOverlay", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_PawnUIOverlay_DrawPawnGUIOverlay, "_PawnUIOverlay_DrawPawnGUIOverlay", true);
+            
+            MethodInfo _Thing_DrawPawnGUIOverlay = typeof(Thing).GetMethod("DrawGUIOverlay", BindingFlags.Public | BindingFlags.Instance);
+            Patcher.LogNULL(_Thing_DrawPawnGUIOverlay, "_Thing_DrawPawnGUIOverlay", true);
+
+
 
             //Get the Prefix Patch
             MethodInfo _PawnUIOverlay_DrawPawnGUIOverlay_PRefix = typeof(PatchUi).GetMethod("_PawnUIOverlay_DrawPawnGUIOverlay_PRefix", BindingFlags.Public | BindingFlags.Static);
@@ -37,7 +42,8 @@ namespace EnhancedDevelopment.EnhancedOptions.Patches
             Patcher.LogNULL(_Verse_Ui_MapToUiPosition_VectorPostfix, "_Verse_Ui_MapToUiPosition_VectorPostfix");
 
             //Apply the Prefix Patch
-            harmony.Patch(_PawnUIOverlay_DrawPawnGUIOverlay, new HarmonyMethod(_PawnUIOverlay_DrawPawnGUIOverlay_PRefix),new HarmonyMethod(_Verse_Ui_MapToUiPosition_VectorPostfix), null);
+            harmony.Patch(_PawnUIOverlay_DrawPawnGUIOverlay, new HarmonyMethod(_PawnUIOverlay_DrawPawnGUIOverlay_PRefix), new HarmonyMethod(_Verse_Ui_MapToUiPosition_VectorPostfix), null);
+            harmony.Patch(_Thing_DrawPawnGUIOverlay, new HarmonyMethod(_PawnUIOverlay_DrawPawnGUIOverlay_PRefix), new HarmonyMethod(_Verse_Ui_MapToUiPosition_VectorPostfix), null);
 
 
         }
