@@ -1,4 +1,5 @@
 ﻿using EnhancedDevelopment.EnhancedOptions.Detours;
+using EnhancedDevelopment.EnhancedOptions.Patches;
 using Harmony;
 using RimWorld;
 using System;
@@ -41,6 +42,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchSkillUI());
             //_Patches.Add(new PatchDebug());
             //_Patches.Add(new PatchBuilding_TurretGunCE());
+
+            _Patches.Add(new PatchUi());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");

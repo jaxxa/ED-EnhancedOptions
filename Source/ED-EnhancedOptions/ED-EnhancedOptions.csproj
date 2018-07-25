@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameComps\GameComponent_LogFileCleanup.cs" />
+    <Compile Include="Patches\PatchUi.cs" />
     <Compile Include="Patches\PatchBlightGraphics.cs" />
     <Compile Include="Patches\Patch.cs" />
     <Compile Include="Patches\PatchBuildingTurretGunCE.cs" />
