@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>ED-EnhancedOptions</name>
-	<targetVersion>1.0.0</targetVersion>
+	<targetVersion>1.0.1978</targetVersion>
 	<author>Jaxxa</author>
 	<url>https://ludeon.com/forums/index.php?topic=37158</url>
-	<description>Version: 1.0.0.1
+	<description>Version: 1.0.0.2
 Discussion, Non Steam Downloads and GitHub Repositories of this mod is available at: https://ludeon.com/forums/index.php?topic=37158
 
 Please Check the Mod Settings by going into the Options, Selecting "Mod Options" and then "ED-EnhancedOptions".
@@ -24,7 +24,7 @@ This mod adds various additional options to change the way Rimworld works. These
  - Suppressing Roof Collapse.
   -Ability to Suppress writing to the Log File.
  - Ability to modifying Learn Rate.
- - Set Daly XP Cap.
+ - Set Daily XP Cap.
  - Stop Skill Degradation
  </description>
 </ModMetaData> 
