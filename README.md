@@ -57,3 +57,7 @@ Additional details can be found in About.xml
 * Removing option for SuppressStrippingCremationCorps, Vanilla feature now.
 * Adding Option for No Skill Decay.
 * Adding Option to set Max Skill Learning per Day.
+
+1.0.0.2
+* Updating Build
+* Fixing text error.

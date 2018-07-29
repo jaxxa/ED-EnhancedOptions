@@ -13,7 +13,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         string _Buffer_LearnFactorPassionNone;
         string _Buffer_LearnFactorPassionMinor;
         string _Buffer_LearnFactorPassionMajor;
-        string _Buffer_DalyLearningSaturationAmmount;
+        string _Buffer_DailyLearningSaturationAmmount;
 
         //Saved
         public bool ShowLettersThreatBig = true;
@@ -70,7 +70,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         public int LearnFactorPassionNonePercentage = 35;
         public int LearnFactorPassionMinorPercentage = 100;
         public int LearnFactorPassionMajorPercentage = 150;
-        public int DalyLearningSaturationAmmount = 4000;
+        public int DailyLearningSaturationAmmount = 4000;
         public bool PreventSkillDecay = false;
 
 
@@ -116,7 +116,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             Scribe_Values.Look<int>(ref LearnFactorPassionNonePercentage, "LearnFactorPassionNonePercentage", 35);
             Scribe_Values.Look<int>(ref LearnFactorPassionMinorPercentage, "LearnFactorPassionMinorPercentage", 100);
             Scribe_Values.Look<int>(ref LearnFactorPassionMajorPercentage, "LearnFactorPassionMajorPercentage", 150);
-            Scribe_Values.Look<int>(ref DalyLearningSaturationAmmount, "DalyLearningSaturationAmmount", 4000);
+            Scribe_Values.Look<int>(ref DailyLearningSaturationAmmount, "DailyLearningSaturationAmmount", 4000);
             Scribe_Values.Look<bool>(ref PreventSkillDecay, "PreventSkillDecay", false);
             
 
@@ -254,7 +254,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             DrawPassionPercentage(_Listing_Standard, "No Passion%: ", ref LearnFactorPassionNonePercentage, ref _Buffer_LearnFactorPassionNone, 35);
             DrawPassionPercentage(_Listing_Standard, "Minor Pass%: ", ref LearnFactorPassionMinorPercentage, ref _Buffer_LearnFactorPassionMinor, 100);
             DrawPassionPercentage(_Listing_Standard, "Major Pass%: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
-            DrawPassionPercentage(_Listing_Standard, "Daly Cap: ", ref DalyLearningSaturationAmmount, ref _Buffer_DalyLearningSaturationAmmount, 4000);
+            DrawPassionPercentage(_Listing_Standard, "Daily Cap: ", ref DailyLearningSaturationAmmount, ref _Buffer_DailyLearningSaturationAmmount, 4000);
 
             _Listing_Standard.CheckboxLabeled("Stop Decay", ref PreventSkillDecay, "Stops Skill Decay.");
 

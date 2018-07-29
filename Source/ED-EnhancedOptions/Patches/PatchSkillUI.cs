@@ -75,7 +75,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 if (sk.LearningSaturatedToday)
                 {
                     stringBuilder.AppendLine();
-                    stringBuilder.Append("LearnedMaxToday".Translate(sk.xpSinceMidnight, Mod_EnhancedOptions.Settings.DalyLearningSaturationAmmount, 0.2f.ToStringPercent("F0")));
+                    stringBuilder.Append("LearnedMaxToday".Translate(sk.xpSinceMidnight, Mod_EnhancedOptions.Settings.DailyLearningSaturationAmmount, 0.2f.ToStringPercent("F0")));
                 }
             }
             stringBuilder.AppendLine();

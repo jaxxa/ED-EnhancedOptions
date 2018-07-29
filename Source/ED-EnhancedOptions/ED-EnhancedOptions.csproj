@@ -36,7 +36,7 @@
       <HintPath>..\..\..\..\lib\Harmony\1.1.0\Release\net35\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\lib\1.0\1945\32bit\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\RW-DLL\1.0\1978-x86\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -46,7 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\lib\1.0\1945\32bit\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\RW-DLL\1.0\1978-x86\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

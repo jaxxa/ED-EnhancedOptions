@@ -73,7 +73,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         
         public static Boolean LearningSaturatedTodayGetterPrefix(ref Boolean __result, ref SkillRecord __instance)
         {
-            __result =  __instance.xpSinceMidnight > Mod_EnhancedOptions.Settings.DalyLearningSaturationAmmount;
+            __result =  __instance.xpSinceMidnight > Mod_EnhancedOptions.Settings.DailyLearningSaturationAmmount;
             return false;
         }
 
