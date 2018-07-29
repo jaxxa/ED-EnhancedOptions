@@ -55,20 +55,45 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         private static void PlaySoundOf(TimeSpeed speed)
         {
-            SoundStarter.PlayOneShotOnCamera(SoundDef.Named(TimeControls.SpeedSounds[(int)speed]), (Map)null);
+            SoundDef soundDef = null;
+            switch (speed)
+            {
+                case TimeSpeed.Paused:
+                    soundDef = SoundDefOf.Clock_Stop;
+                    break;
+                case TimeSpeed.Normal:
+                    soundDef = SoundDefOf.Clock_Normal;
+                    break;
+                case TimeSpeed.Fast:
+                    soundDef = SoundDefOf.Clock_Fast;
+                    break;
+                case TimeSpeed.Superfast:
+                    soundDef = SoundDefOf.Clock_Superfast;
+                    break;
+                case TimeSpeed.Ultrafast:
+                    soundDef = SoundDefOf.Clock_Superfast;
+                    break;
+            }
+            if (soundDef != null)
+            {
+                soundDef.PlayOneShotOnCamera(null);
+            }
         }
 
         public static bool DoTimeControlsGUI(Rect timerRect)
         {
             TickManager tickManager = Find.TickManager;
             GUI.BeginGroup(timerRect);
-            Rect rect = new Rect(0.0f, 0.0f, TimeControls.TimeButSize.x, TimeControls.TimeButSize.y);
-            for (int index = 0; index < TimeControls.CachedTimeSpeedValues.Length; ++index)
+            Vector2 timeButSize = TimeControls.TimeButSize;
+            float x = timeButSize.x;
+            Vector2 timeButSize2 = TimeControls.TimeButSize;
+            Rect rect = new Rect(0f, 0f, x, timeButSize2.y);
+            for (int i = 0; i < TimeControls.CachedTimeSpeedValues.Length; i++)
             {
-                TimeSpeed timeSpeed = TimeControls.CachedTimeSpeedValues[index];
+                TimeSpeed timeSpeed = TimeControls.CachedTimeSpeedValues[i];
                 if (timeSpeed != TimeSpeed.Ultrafast)
                 {
-                    if (Widgets.ButtonImage(rect, TexButton.SpeedButtonTextures[(int)timeSpeed]))
+                    if (Widgets.ButtonImage(rect, TexButton.SpeedButtonTextures[(uint)timeSpeed]))
                     {
                         if (timeSpeed == TimeSpeed.Paused)
                         {
@@ -83,64 +108,71 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                         TimeControls.PlaySoundOf(tickManager.CurTimeSpeed);
                     }
                     if (tickManager.CurTimeSpeed == timeSpeed)
-                        GUI.DrawTexture(rect, (Texture)TexUI.HighlightTex);
+                    {
+                        GUI.DrawTexture(rect, TexUI.HighlightTex);
+                    }
                     rect.x += rect.width;
                 }
             }
             if (Find.TickManager.slower.ForcedNormalSpeed)
+            {
                 Widgets.DrawLineHorizontal(rect.width * 2f, rect.height / 2f, rect.width * 2f);
+            }
             GUI.EndGroup();
             GenUI.AbsorbClicksInRect(timerRect);
             UIHighlighter.HighlightOpportunity(timerRect, "TimeControls");
-            if (Event.current.type != EventType.KeyDown)
-                return false;
-            if (KeyBindingDefOf.TogglePause.KeyDownEvent)
+            if (Event.current.type == EventType.KeyDown)
             {
-                Find.TickManager.TogglePaused();
-                TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
-                PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.Pause, KnowledgeAmount.SpecificInteraction);
-                Event.current.Use();
-            }
-            if (KeyBindingDefOf.TimeSpeed_Normal.KeyDownEvent)
-            {
-                Find.TickManager.CurTimeSpeed = TimeSpeed.Normal;
-                TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
-                PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
-                Event.current.Use();
-            }
-            if (KeyBindingDefOf.TimeSpeed_Fast.KeyDownEvent)
-            {
-                Find.TickManager.CurTimeSpeed = TimeSpeed.Fast;
-                TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
-                PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
-                Event.current.Use();
-            }
-            if (KeyBindingDefOf.TimeSpeed_Superfast.KeyDownEvent)
-            {
-                Find.TickManager.CurTimeSpeed = TimeSpeed.Superfast;
-                TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
-                PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
-                Event.current.Use();
-            }
+                if (KeyBindingDefOf.TogglePause.KeyDownEvent)
+                {
+                    Find.TickManager.TogglePaused();
+                    TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
+                    PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.Pause, KnowledgeAmount.SpecificInteraction);
+                    Event.current.Use();
+                }
+                if (KeyBindingDefOf.TimeSpeed_Normal.KeyDownEvent)
+                {
+                    Find.TickManager.CurTimeSpeed = TimeSpeed.Normal;
+                    TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
+                    PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
+                    Event.current.Use();
+                }
+                if (KeyBindingDefOf.TimeSpeed_Fast.KeyDownEvent)
+                {
+                    Find.TickManager.CurTimeSpeed = TimeSpeed.Fast;
+                    TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
+                    PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
+                    Event.current.Use();
+                }
+                if (KeyBindingDefOf.TimeSpeed_Superfast.KeyDownEvent)
+                {
+                    Find.TickManager.CurTimeSpeed = TimeSpeed.Superfast;
+                    TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
+                    PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.TimeControls, KnowledgeAmount.SpecificInteraction);
+                    Event.current.Use();
+                }
+                //if (Prefs.DevMode)
+                //{
+                if (KeyBindingDefOf.TimeSpeed_Ultrafast.KeyDownEvent)
+                {
+                    Find.TickManager.CurTimeSpeed = TimeSpeed.Ultrafast;
+                    TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
+                    Event.current.Use();
+                }
+                if (KeyBindingDefOf.Dev_TickOnce.KeyDownEvent && tickManager.CurTimeSpeed == TimeSpeed.Paused)
+                {
+                    tickManager.DoSingleTick();
+                    SoundDefOf.Clock_Stop.PlayOneShotOnCamera(null);
+                }
 
-            //Removed to Allow Speed 4 Without Dev Mode.
-            //if (!Prefs.DevMode)
-            //    return false;
-            if (KeyBindingDefOf.TimeSpeed_Ultrafast.KeyDownEvent)
-            {
-                Find.TickManager.CurTimeSpeed = TimeSpeed.Ultrafast;
-                TimeControls.PlaySoundOf(Find.TickManager.CurTimeSpeed);
-                Event.current.Use();
+                //}
             }
-            if (!KeyBindingDefOf.Dev_TickOnce.KeyDownEvent || tickManager.CurTimeSpeed != TimeSpeed.Paused)
-                return false;
-            tickManager.DoSingleTick();
-            SoundStarter.PlayOneShotOnCamera(SoundDef.Named(TimeControls.SpeedSounds[0]), (Map)null);
-
             return false;
         }
+
     }
-    
+
+
     [StaticConstructorOnStartup]
     internal class TexButton
     {

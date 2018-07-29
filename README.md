@@ -59,5 +59,6 @@ Additional details can be found in About.xml
 * Adding Option to set Max Skill Learning per Day.
 
 1.0.0.2
-* Updating Build
+* Updating Build.
 * Fixing text error.
+* Fix for Sound not playing on change time.
