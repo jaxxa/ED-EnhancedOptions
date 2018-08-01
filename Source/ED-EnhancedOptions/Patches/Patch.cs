@@ -36,13 +36,22 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             if (this.ShouldPatchApply())
             {
-                Log.Message(_LogLocation + "Applying Patch: " + this.PatchDescription());
+                if(Prefs.LogVerbose)
+                {
+                    Log.Message(_LogLocation + "Applying Patch: " + this.PatchDescription());                
+                }
                 this.ApplyPatch(harmony);
-                Log.Message(_LogLocation + "Applied Patch: " + this.PatchDescription());
+                if(Prefs.LogVerbose)
+                {
+                    Log.Message(_LogLocation + "Applied Patch: " + this.PatchDescription());
+                }
             }
             else
             {
-                Log.Message(_LogLocation + "Skipping Applying Patch: " + this.PatchDescription());
+                if(Prefs.LogVerbose)
+                {
+                    Log.Message(_LogLocation + "Skipping Applying Patch: " + this.PatchDescription());
+                }
             }
         }
 
