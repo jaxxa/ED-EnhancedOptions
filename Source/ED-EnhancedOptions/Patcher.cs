@@ -18,7 +18,7 @@ namespace EnhancedDevelopment.EnhancedOptions
         {
             string _LogLocation = "EnhancedOptions.Patcher.Patcher(): ";
 
-            Log.Message(_LogLocation + "Starting.");
+            Log.Message(_LogLocation + "Starting Patching.");           
 
             //Create List of Patches
             List<Patch> _Patches = new List<Patch>();
@@ -48,7 +48,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
 
-            Log.Message(_LogLocation + "Complete.");
+            Log.Message(_LogLocation + "Completed Patching.");
         }
 
         /// <summary>
@@ -66,6 +66,18 @@ namespace EnhancedDevelopment.EnhancedOptions
             else if (logSucess)
             {
                 Log.Message(name + " Is Not NULL.");
+            }
+        }
+
+        /// <summary>
+        /// Logs Messages only if in Verbose Mode.
+        /// </summary>
+        /// <param name="messageToLog">The Message to Log if in Verbose Mode.</param>
+        public static void LogMessageIfVerbose(string messageToLog)
+        {
+            if (Prefs.LogVerbose)
+            {
+                Log.Message(messageToLog);
             }
         }
 

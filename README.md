@@ -62,3 +62,8 @@ Additional details can be found in About.xml
 * Updating Build.
 * Fixing text error.
 * Fix for Sound not playing on change time.
+
+1.0.0.3
+* Updating build number, now we are back in B19?
+* Fixing issue with supressing writing to log file not being applied.
+* Log Messages for each specific patch are now only shown when Verbose Logging is enabled.
