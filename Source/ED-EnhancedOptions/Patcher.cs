@@ -22,6 +22,7 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             //Create List of Patches
             List<Patch> _Patches = new List<Patch>();
+            _Patches.Add(new PatchDebug());
             //_Patches.Add(new PatchBlightGraphics());
             _Patches.Add(new PatchBuildingTrap());
             _Patches.Add(new PatchBuildingTurretGun());
@@ -39,7 +40,6 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchFireWatcher());
             _Patches.Add(new PatchSkillRecord());
             _Patches.Add(new PatchSkillUI());
-            //_Patches.Add(new PatchDebug());
             //_Patches.Add(new PatchBuilding_TurretGunCE());
 
             //Create Harmony Instance

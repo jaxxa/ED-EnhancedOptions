@@ -1,4 +1,4 @@
-﻿/*using Harmony;
+﻿using Harmony;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-            //Get the Origional CheckSpring Method
+            //Get the Origional Log Method
             List<MethodInfo> _Debug_Log = typeof(UnityEngine.Debug).GetMethods().ToList().Where(x => x.Name.Equals("Log")).ToList();
             Patcher.LogNULL(_Debug_Log, "_Debug_Log");
             
@@ -21,7 +21,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             MethodInfo _LogPrefix = typeof(PatchDebug).GetMethod("LogPrefix", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_LogPrefix, "_LogPrefix");
 
-            Log.Warning("########## The Mod ED-EnhancedOptions is Supressing Further calls to UnityEngine.Debug.Log. ##########");
+            Log.Warning("########## The Mod ED-EnhancedOptions is Supressing Future calls to UnityEngine.Debug.Log, This can be changed in Mod Settings. ##########");
             //Apply the Prefix Patches
             _Debug_Log.ForEach(x => harmony.Patch(x, new HarmonyMethod(_LogPrefix), null));
 
@@ -53,4 +53,3 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         }
     }
 }
-*/
