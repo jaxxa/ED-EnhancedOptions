@@ -7,6 +7,7 @@ Additional details can be found in About.xml
 
 0.19.0.4
  * Updating Build Number
+ * When Stopping skill decay also prevent the Great Memory Trait.
 
 0.19.0.3
 * Updating build number, now we are back in B19?

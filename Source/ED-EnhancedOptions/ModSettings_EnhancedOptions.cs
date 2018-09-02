@@ -256,7 +256,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             DrawPassionPercentage(_Listing_Standard, "Major Pass%: ", ref LearnFactorPassionMajorPercentage, ref _Buffer_LearnFactorPassionMajor, 150);
             DrawPassionPercentage(_Listing_Standard, "Daily Cap: ", ref DailyLearningSaturationAmmount, ref _Buffer_DailyLearningSaturationAmmount, 4000);
 
-            _Listing_Standard.CheckboxLabeled("Stop Decay", ref PreventSkillDecay, "Stops Skill Decay.");
+            _Listing_Standard.CheckboxLabeled("Stop Decay and GreatMemory Trait", ref PreventSkillDecay, "Stops Skill Decay and GreatMemory Trait.");
 
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.End();

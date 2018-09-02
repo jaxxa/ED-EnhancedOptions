@@ -41,6 +41,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchSkillRecord());
             _Patches.Add(new PatchSkillUI());
             //_Patches.Add(new PatchBuilding_TurretGunCE());
+            _Patches.Add(new PatchPreventGreatMemoryTrait());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
