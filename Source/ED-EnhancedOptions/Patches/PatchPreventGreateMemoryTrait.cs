@@ -14,7 +14,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
             FieldInfo _commonalityFieldInfo = typeof(TraitDef).GetField("commonality", BindingFlags.NonPublic | BindingFlags.Instance);
-            Patcher.LogNULL(_commonalityFieldInfo, "_commonalityFieldInfo", true);
+            Patcher.LogNULL(_commonalityFieldInfo, "_commonalityFieldInfo");
             _commonalityFieldInfo.SetValue(TraitDefOf.GreatMemory, 0.0f);
         }
 
