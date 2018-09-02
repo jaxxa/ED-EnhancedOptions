@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>ED-EnhancedOptions</name>
-	<targetVersion>0.19.2006</targetVersion>
+	<targetVersion>0.19.2009</targetVersion>
 	<author>Jaxxa</author>
 	<url>https://ludeon.com/forums/index.php?topic=37158</url>
-	<description>Version: 1.0.0.3
+	<description>Version: 0.19.0.4
 Discussion, Non Steam Downloads and GitHub Repositories of this mod is available at: https://ludeon.com/forums/index.php?topic=37158
 
 Please Check the Mod Settings by going into the Options, Selecting "Mod Options" and then "ED-EnhancedOptions".

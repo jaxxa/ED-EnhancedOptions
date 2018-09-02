@@ -5,18 +5,20 @@ Additional details can be found in About.xml
 
 #Change Log
 
+0.19.0.4
+ * Updating Build Number
 
-1.0.0.3
+0.19.0.3
 * Updating build number, now we are back in B19?
 * Fixing issue with supressing writing to log file not being applied.
 * Log Messages for each specific patch are now only shown when Verbose Logging is enabled.
 
-1.0.0.2
+0.19.0.2
 * Updating Build.
 * Fixing text error.
 * Fix for Sound not playing on change time.
 
-1.0.0.1
+0.19.0.1
 * Removing option for SuppressStrippingCremationCorps, Vanilla feature now.
 * Adding Option for No Skill Decay.
 * Adding Option to set Max Skill Learning per Day.
