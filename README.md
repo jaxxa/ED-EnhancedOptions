@@ -1,7 +1,13 @@
 # ED-EnhancedOptions
 This is the Readme for ED-EnhancedOptions
 
-Additional details can be found in About.xml
+
+#Download Link
+
+#Help-Faq
+
+
+
 
 #Change Log
 
@@ -27,8 +33,8 @@ Additional details can be found in About.xml
 * Adding Option for No Skill Decay.
 * Adding Option to set Max Skill Learning per Day.
 
-1.0.0.0
-* Update to Rimworld 1.0
+0.19.0.0
+* Update to Rimworld B19 (Was 1.0)
 * Remove Supress Dev mode - This is a vanilla feature now.
 * Remove Blight Graphics Option - Has been changed to look better now.
 * Remove monitoring Save Location - Supress log file works for this.
@@ -60,7 +66,6 @@ Additional details can be found in About.xml
 * Suppressing Forced Time Slowdown.
 * Suppress Stripping Corps before Cremation.
 * Hide Marriage, Caravan Packing and Party Spots.
-
 
 0.18.0.2
 * Adding Visual Customization of Blight.
