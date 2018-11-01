@@ -1,13 +1,9 @@
 # ED-EnhancedOptions
 This is the Readme for ED-EnhancedOptions
 
-
 #Download Link
 
 #Help-Faq
-
-
-
 
 #Change Log
 

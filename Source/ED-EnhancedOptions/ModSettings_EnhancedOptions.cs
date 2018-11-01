@@ -131,7 +131,7 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Listing_Standard.Begin(canvas);
             //listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
 
-            _Listing_Standard.Label("Most Setting will only apply after a Game Restart.");
+            _Listing_Standard.Label("THESE SETTINGS ARE ONLY APPLIED WHEN RIMWORLD IS STARTED. After modifying them please restart Rimworld.");
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Letter Suppression:");
             _Listing_Standard.Gap(12f);
