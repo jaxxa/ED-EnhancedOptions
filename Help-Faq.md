@@ -4,14 +4,16 @@ If you are having an issue with one of the options, please try the Following:
 	1. Check that the Mod is Enabled in the Mod menu
 	2. Go into the Options Menu, Select Mod Settings and then Select the Enhanced Option Mod
 	3. Enable the Features that you want to Use
-	4. After this Quit and Restart Rimworld, most of these setting are only applied when the game starts.
-	5. Start / Load your game, hopefully it is working now.
+	4. After this Quit and Restart Rimworld, these setting are only applied when the game starts.
+	5. Start / Load your game, it should be working now.
 
 
 # Testing without other mods
 
-If it still does not work you can try the above steps with no other mods loaded.
-If you are in the middle of a game or have an extensive mod list that you do not want to mess up, you can follow the following instructions taken from the Rimworld Readme file to point the save location to a different folder:
+If it still does not work then it might be an incompatibility with another mod.
+You should try the above steps with no other mods loaded.
+If you are in the middle of a game or have an extensive mod list that you do not want to mess up, you can follow the following instructions taken from the Rimworld Readme file to point the save location to a different folder.
+This will allow you to test the game without mods, while easily allowing you to revert the changes to get back to you previous mod list and save files.
 
 -----------------------------
 
@@ -35,4 +37,5 @@ Be sure the game is running with permission to modify the folder. It may not wor
 
 # Report and Log File
 
-If you are still having issues and want to provide a log file, please check that you have "Verbose Logging" enabled in the options menu as this is required to show some of the log messages for this mod.
+If you are still having issues and want to provide a log file, please check that you have "Verbose Logging" enabled in the options menu as this is required to show most of the log messages for this mod.
+If you can identify the mod that is causing incompatibility with one of the options letting me know would be appreciated.
