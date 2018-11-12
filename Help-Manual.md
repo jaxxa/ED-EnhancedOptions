@@ -39,3 +39,4 @@ Be sure the game is running with permission to modify the folder. It may not wor
 
 If you are still having issues and want to provide a log file, please check that you have "Verbose Logging" enabled in the options menu as this is required to show most of the log messages for this mod.
 If you can identify the mod that is causing incompatibility with one of the options letting me know would be appreciated.
+So that I can ideally make it work, or at the very least make a note that it is not working.
