@@ -17,10 +17,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Get the Origional LearnRateFactor Method
             MethodInfo _RimWorld_SkillRecord_LearnRateFactor = typeof(RimWorld.SkillRecord).GetMethod("LearnRateFactor", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_RimWorld_SkillRecord_LearnRateFactor, "_RimWorld_SkillRecord_LearnRateFactor");
-
-            // MethodInfo _RimWorld_FireWatcher_LargeFireDangerPresent_Getter = _RimWorld_FireWatcher_LargeFireDangerPresent.GetGetMethod();
-            //Patcher.LogNULL(_RimWorld_FireWatcher_LargeFireDangerPresent_Getter, "_RimWorld_FireWatcher_LargeFireDangerPresent_Getter");
-
+                        
 
             //Get the LearnRateFactor Prefix Patch
             MethodInfo _LearnRateFactorPrefix = typeof(PatchSkillRecord).GetMethod("LearnRateFactorPrefix", BindingFlags.Public | BindingFlags.Static);
@@ -28,20 +25,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
             //Apply the LearnRateFactor Prefix Patch
             harmony.Patch(_RimWorld_SkillRecord_LearnRateFactor, new HarmonyMethod(_LearnRateFactorPrefix), null);
-
-
-
-            PropertyInfo _RimWorld_SkillRecord_LearningSaturatedToday = typeof(RimWorld.SkillRecord).GetProperty("LearningSaturatedToday", BindingFlags.Public | BindingFlags.Instance);
-            Patcher.LogNULL(_RimWorld_SkillRecord_LearningSaturatedToday, "_RimWorld_SkillRecord_LearningSaturatedToday");
-
-            MethodInfo _RimWorld_SkillRecord_LearningSaturatedToday_Getter = _RimWorld_SkillRecord_LearningSaturatedToday.GetGetMethod();
-            Patcher.LogNULL(_RimWorld_SkillRecord_LearningSaturatedToday_Getter, "_RimWorld_SkillRecord_LearningSaturatedToday_Getter");
-
-            MethodInfo _LearningSaturatedTodayGetterPrefix = typeof(PatchSkillRecord).GetMethod("LearningSaturatedTodayGetterPrefix", BindingFlags.Public | BindingFlags.Static);
-            Patcher.LogNULL(_LearningSaturatedTodayGetterPrefix, "_LearningSaturatedTodayGetterPrefix");
-
-            harmony.Patch(_RimWorld_SkillRecord_LearningSaturatedToday_Getter, new HarmonyMethod(_LearningSaturatedTodayGetterPrefix), null);
-
+                       
 
             if(Mod_EnhancedOptions.Settings.PreventSkillDecay)
             {
@@ -71,12 +55,6 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             return Mod_EnhancedOptions.Settings.ApplyLearnChanges;
         }
         
-        public static Boolean LearningSaturatedTodayGetterPrefix(ref Boolean __result, ref SkillRecord __instance)
-        {
-            __result =  __instance.xpSinceMidnight > Mod_EnhancedOptions.Settings.DailyLearningSaturationAmmount;
-            return false;
-        }
-
         // prefix
         // - wants instance, result and count
         // - wants to change count
@@ -117,7 +95,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                 //Patcher.LogNULL(_Pawn, "_Pawn", true);
                 num *= _Pawn.GetStatValue(StatDefOf.GlobalLearningFactor, true);
 
-                if (__instance.LearningSaturatedToday)
+                if (__instance.xpSinceMidnight > Mod_EnhancedOptions.Settings.DailyLearningSaturationAmmount)
                 {
                     num *= 0.2f;
                 }

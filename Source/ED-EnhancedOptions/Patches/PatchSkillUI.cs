@@ -72,7 +72,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
                         stringBuilder.Append("PassionMajor".Translate((Mod_EnhancedOptions.Settings.LearnFactorPassionMajorPercentage / 100f).ToStringPercent("F0")));
                         break;
                 }
-                if (sk.LearningSaturatedToday)
+                if (sk.xpSinceMidnight > Mod_EnhancedOptions.Settings.DailyLearningSaturationAmmount)
                 {
                     stringBuilder.AppendLine();
                     stringBuilder.Append("LearnedMaxToday".Translate(sk.xpSinceMidnight, Mod_EnhancedOptions.Settings.DailyLearningSaturationAmmount, 0.2f.ToStringPercent("F0")));

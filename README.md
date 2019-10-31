@@ -7,6 +7,9 @@ This is the Readme for ED-EnhancedOptions
 
 #Change Log
 
+1.0.0.1
+ * Update to Rimworld 1.0.2408
+
 1.0.0.0
  * Update to Rimworld 1.0
 
