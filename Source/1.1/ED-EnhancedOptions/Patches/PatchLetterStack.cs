@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
     {
 
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             //Get the Method
             MethodInfo _Verse_LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });

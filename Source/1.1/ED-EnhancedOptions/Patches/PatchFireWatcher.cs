@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
     class PatchFireWatcher : Patch
     {
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             //Get the Origional CheckSpring Method
             PropertyInfo _RimWorld_FireWatcher_LargeFireDangerPresent = typeof(RimWorld.FireWatcher).GetProperty("LargeFireDangerPresent", BindingFlags.Public | BindingFlags.Instance);

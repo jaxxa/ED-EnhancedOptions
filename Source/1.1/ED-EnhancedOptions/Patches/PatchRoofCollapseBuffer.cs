@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
     class PatchRoofCollapseBuffer : Patch
     {
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             //Get the Origional CheckSpring Method
             MethodInfo _Verse_RoofCollapseBuffer_MarkToCollapse = typeof(RoofCollapseBuffer).GetMethod("MarkToCollapse", BindingFlags.Public | BindingFlags.Instance);

@@ -1,5 +1,5 @@
 ﻿using EnhancedDevelopment.EnhancedOptions.Detours;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,8 @@ namespace EnhancedDevelopment.EnhancedOptions
             _Patches.Add(new PatchPreventGreatMemoryTrait());
 
             //Create Harmony Instance
-            HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.WarningOptions");
+
+            Harmony _Harmony = new HarmonyLib.Harmony("EnhancedDevelopment.WarningOptions");
 
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));

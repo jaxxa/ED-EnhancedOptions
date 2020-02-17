@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
     class PatchDebug : Patch
     {
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             //Get the Origional Log Method
             List<MethodInfo> _Debug_Log = typeof(UnityEngine.Debug).GetMethods().ToList().Where(x => x.Name.Equals("Log")).ToList();

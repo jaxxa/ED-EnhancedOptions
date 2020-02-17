@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
     
     class PatchCompBreakdownable : Patch
     {
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             //Get the Method
             MethodInfo _CompBreakdownable_CheckForBreakdown = typeof(CompBreakdownable).GetMethod("CheckForBreakdown", BindingFlags.Public | BindingFlags.Instance);

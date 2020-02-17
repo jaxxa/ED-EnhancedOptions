@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             return Mod_EnhancedOptions.Settings.HideSpots;
         }
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             //Get the Origional Method
             MethodInfo _Building_MainTabsRoot_ToggleTab = typeof(MainTabsRoot).GetMethod("ToggleTab", BindingFlags.Public | BindingFlags.Instance);

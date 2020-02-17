@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -11,7 +11,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 {
     class PatchPreventGreatMemoryTrait : Patch
     {
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             FieldInfo _commonalityFieldInfo = typeof(TraitDef).GetField("commonality", BindingFlags.NonPublic | BindingFlags.Instance);
             Patcher.LogNULL(_commonalityFieldInfo, "_commonalityFieldInfo");
