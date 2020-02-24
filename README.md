@@ -7,6 +7,9 @@ This is the Readme for ED-EnhancedOptions
 
 #Change Log
 
+2.0.0.0
+ * Update for Rimworld 1.1
+
 1.0.0.1
  * Update to Rimworld 1.0.2408
  * Fix for Issue with Learning
