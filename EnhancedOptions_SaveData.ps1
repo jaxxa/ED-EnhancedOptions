@@ -1,10 +1,12 @@
-﻿$RimworldPath = "C:\Games\Rimworld\RimWorld1-0-2408Win64"
+﻿$ModName = "ED-EnhancedOptions"
+$RimworldPath = "C:\Games\Steam\steamapps\common\RimWorld"
 
 $ExePath = $RimworldPath + "\RimWorldWin64.exe"
-$ModDestination = $RimworldPath + "\Mods\ED-EnhancedOptions"
+$ModSource = "C:\~Git\Jaxxa-Rimworld\~SubModules\" + $ModName +"\" + $ModName
+$ModDestination = $RimworldPath + "\Mods\" + $ModName
 
 Remove-Item -Path $ModDestination -Recurse
 
-Copy-Item -Path "C:\~Git\Jaxxa-Rimworld\~SubModules\ED-EnhancedOptions\ED-EnhancedOptions" -Destination $ModDestination -Recurse
+Copy-Item -Path $ModSource -Destination $ModDestination -Recurse
 
-start -FilePath $ExePath -ArgumentList "-savedatafolder=C:\Games\Rimworld\RimWorld1-0-2408Win64\SaveData"
+start -FilePath $ExePath -ArgumentList "-savedatafolder=C:\~Git\RimworldSaves_1.1\ModTest"
