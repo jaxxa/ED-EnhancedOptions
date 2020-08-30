@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ED-EnhancedOptions_1.0", "1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ED-EnhancedOptions_1.1", "1.1\ED-EnhancedOptions_1.1.csproj", "{78B2EE68-44B2-44D8-A3CB-D30454DB696D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ED-EnhancedOptions_1.2", "1.2\ED-EnhancedOptions_1.2.csproj", "{B0CF39DE-E739-4E98-BDAF-192C21FDD018}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{78B2EE68-44B2-44D8-A3CB-D30454DB696D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78B2EE68-44B2-44D8-A3CB-D30454DB696D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78B2EE68-44B2-44D8-A3CB-D30454DB696D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CF39DE-E739-4E98-BDAF-192C21FDD018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CF39DE-E739-4E98-BDAF-192C21FDD018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CF39DE-E739-4E98-BDAF-192C21FDD018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CF39DE-E739-4E98-BDAF-192C21FDD018}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

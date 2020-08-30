@@ -7,6 +7,9 @@ This is the Readme for ED-EnhancedOptions
 
 #Change Log
 
+2.1.0.0
+ * Update for Rimworld 1.2
+
 2.0.0.1
  * Depends on seperate Harmony Mod
  
