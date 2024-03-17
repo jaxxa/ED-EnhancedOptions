@@ -95,17 +95,29 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             //Update the map mesh for the things that have changed
             Find.CurrentMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.MarriageSpot).ToList().ForEach(x =>
             {
+            #if RIMWORLD15
+                Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlagDefOf.Things);
+            #else
                 Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+            #endif
             });
 
             Find.CurrentMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.CaravanPackingSpot).ToList().ForEach(x =>
             {
+            #if RIMWORLD15
+                Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlagDefOf.Things);
+            #else
                 Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+            #endif
             });
 
             Find.CurrentMap.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.PartySpot).ToList().ForEach(x =>
             {
+            #if RIMWORLD15
+                Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlagDefOf.Things);
+            #else
                 Find.CurrentMap.mapDrawer.MapMeshDirty(x.Position, MapMeshFlag.Things);
+            #endif
             });
         }
     }

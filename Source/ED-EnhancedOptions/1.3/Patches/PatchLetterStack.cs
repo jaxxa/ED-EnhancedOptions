@@ -43,7 +43,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         {
             if (Mod_EnhancedOptions.Settings.DebugLogLetters)
             {
+                #if RIMWORLD14 || RIMWORLD15
                 Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.Label + "'");
+                #else
+                Log.Message("Letter DefName: '" + let.def.defName + "' Label: '" + let.label + "'");
+                #endif
             }
 
             if (let.def == LetterDefOf.ThreatBig & !Mod_EnhancedOptions.Settings.ShowLettersThreatBig)
@@ -79,7 +83,11 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
             if (Mod_EnhancedOptions.Settings.LetterNamesToSuppressEnabled)
             {
                 List<String> _String = Mod_EnhancedOptions.Settings.LetterNamesToSuppress.Split(',').ToList();
+                #if RIMWORLD14 || RIMWORLD15
                 if (_String.Contains(let.Label))
+                #else
+                if (_String.Contains(let.label))
+                #endif
                 {
                     if (Mod_EnhancedOptions.Settings.DebugLogLetters)
                     {
