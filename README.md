@@ -7,6 +7,9 @@ This is the Readme for ED-EnhancedOptions
 
 #Change Log
 
+1.4.0.0
+ * Update for Rimworld 1.4
+
 1.3.0.0
  * Update for Rimworld 1.3
  * The Numbering scheme has been changed, mostly to back to what it was, the first two will match the version of Rimworld it was built for, then the next two will be major and minor versions of the mod.
