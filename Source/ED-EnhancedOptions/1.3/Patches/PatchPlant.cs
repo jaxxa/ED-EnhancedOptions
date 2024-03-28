@@ -14,6 +14,7 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
         protected override void ApplyPatch(Harmony harmony = null)
         {
             //Get the Origional Resting Property
+            Log.Error("+++++++++++++++++ 24 HOUR PLANTS +++++++++++++++++++");
             PropertyInfo _RimWorld_Plant_Resting = typeof(RimWorld.Plant).GetProperty("Resting", BindingFlags.NonPublic | BindingFlags.Instance);
             Patcher.LogNULL(_RimWorld_Plant_Resting, "RimWorld_Plant_Resting");
 

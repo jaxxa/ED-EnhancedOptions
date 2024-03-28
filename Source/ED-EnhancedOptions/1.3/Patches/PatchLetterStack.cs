@@ -16,16 +16,23 @@ namespace EnhancedDevelopment.EnhancedOptions.Detours
 
         protected override void ApplyPatch(Harmony harmony = null)
         {
+            /*
+Error in static constructor of EnhancedDevelopment.EnhancedOptions.Patcher: 
+System.TypeInitializationException: The type initializer for 'EnhancedDevelopment.EnhancedOptions.Patcher' threw an exception. 
+---> System.NullReferenceException: Null method for EnhancedDevelopment.EnhancedOptions
+ at HarmonyLib.PatchProcessor.Patch () [0x0001d] in <9134e70cca884e1897a123853b45fa00>:0 
+ at HarmonyLib.Harmony.Patch (System.Reflection.MethodBase original, HarmonyLib.HarmonyMethod prefix, HarmonyLib.HarmonyMethod postfix, HarmonyLib.HarmonyMethod transpiler, HarmonyLib.HarmonyMethod finalizer) [0x0002a] in <9134e70cca884e1897a123853b45fa00>:0
+             */
             //Get the Method
             MethodInfo _Verse_LetterStack_ReceiveLetter = typeof(LetterStack).GetMethod("ReceiveLetter", new Type[] { typeof(Letter), typeof(string) });
             Patcher.LogNULL(_Verse_LetterStack_ReceiveLetter, "_Verse_LetterStack_ReceiveLetter");
 
-            //Get the Prefix
-            MethodInfo _ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Static);
+            // //Get the Prefix
+            MethodInfo _ReceiveLetterPrefix = typeof(PatchLetterStack).GetMethod("ReceiveLetterPrefix", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_ReceiveLetterPrefix, "_ReceiveLetterPrefix");
-
+            
             //Apply the Prefix Patch
-            harmony.Patch(_Verse_LetterStack_ReceiveLetter, new HarmonyMethod(_ReceiveLetterPrefix), null);
+            harmony.Patch(_Verse_LetterStack_ReceiveLetter, new HarmonyMethod(_ReceiveLetterPrefix));
         }
 
         protected override string PatchDescription()

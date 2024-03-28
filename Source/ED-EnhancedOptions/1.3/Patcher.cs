@@ -23,12 +23,15 @@ namespace EnhancedDevelopment.EnhancedOptions
             //Create List of Patches
             List<Patch> _Patches = new List<Patch>();
             _Patches.Add(new PatchDebug());
-            //_Patches.Add(new PatchBlightGraphics());
+            // _Patches.Add(new PatchBlightGraphics());
             _Patches.Add(new PatchBuildingTrap());
             _Patches.Add(new PatchBuildingTurretGun());
             _Patches.Add(new PatchCompBreakdownable());
             _Patches.Add(new PatchCompSchedule());
+            // I couldn't for the life of me port LetterStacks to RimWorld v1.5, due to a persistent NULL violation.
+            #if !RIMWORLD15
             _Patches.Add(new PatchLetterStack());
+            #endif
             _Patches.Add(new PatchMainTabsRoot());
             //_Patches.Add(new PatchPerfs());
             _Patches.Add(new PatchPlant());
@@ -45,7 +48,7 @@ namespace EnhancedDevelopment.EnhancedOptions
 
             //Create Harmony Instance
 
-            Harmony _Harmony = new HarmonyLib.Harmony("EnhancedDevelopment.WarningOptions");
+            Harmony _Harmony = new HarmonyLib.Harmony("EnhancedDevelopment.EnhancedOptions");
 
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
